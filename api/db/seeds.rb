@@ -6,6 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Post.create!(name: 'ニャア', content: 'アメリカンショートヘア')
-Post.create!(name: 'まる', content: 'スコッティシュフォールド')
-Post.create!(name: 'むぎ', content: 'スコッティシュフォールド')
+Post.create!(name: 'A', content: 'リバプール')
+Post.create!(name: 'B', content: 'アトレティコマドリード')
+Post.create!(name: 'C', content: 'ドルトムント')
