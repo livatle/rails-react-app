@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {Link} from "react-router-dom"
-import { getList } from '../lib/api/post'
+import { getList, deletePost } from '../lib/api/post'
 
 const List = () => {
     const [dataList, setDataList] = useState([]);
@@ -18,6 +18,20 @@ const List = () => {
           console.log(e);
         }
     };
+
+    // 削除する関数を追加
+    const handleDelete = async (item) => {
+        // 引数にitemを渡してitem.idで「1」など取得できればOK
+        console.log('click', item.id)
+        try {
+        const res = await deletePost(item.id)
+        console.log(res.data)
+        // データを再取得
+        handleGetList()
+        } catch (e) {
+        console.log(e)
+        }
+    }
 
     return (
         <div className="list">
@@ -41,7 +55,7 @@ const List = () => {
                                     <Link to={`/post/${item.id}`}>詳細へ</Link>
                                 </td>
                                 <td>
-                                    <button>削除</button>
+                                <button onClick={() => handleDelete(item)}>削除</button>
                                 </td>
                             </tr>
                         </tbody>
