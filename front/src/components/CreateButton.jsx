@@ -1,10 +1,11 @@
 import React from "react";
-import {NavLink} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom'
 
 const CreateButton = () => {
+    const navigate = useNavigate();
     return (
         <div className="create-btn">
-            <NavLink to='/create'>新規投稿</NavLink>
+            <button onClick={() => navigate('/new')}>新規投稿</button>
         </div>
     )
 }

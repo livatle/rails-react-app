@@ -59,7 +59,6 @@ const List = () => {
                                 </td>
                             </tr>
                         </tbody>
-
                     </div>
                 ))}
             </table>

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Create, Detail, Header, List} from './components'
+import { Detail, New, Header, List} from './components'
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 import './assets/styles/style.css'
 
@@ -10,7 +10,7 @@ function App() {
           <Header />
           <Routes>
             <Route exact path='/' element={<List />} />
-            <Route path='/create' element={<Create />} />
+            <Route path='/new' element={<New />} />
             <Route path='/post/:id' element={<Detail />} />
           </Routes>
         </div>
