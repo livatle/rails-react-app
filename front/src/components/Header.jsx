@@ -18,23 +18,31 @@ const Header = () => {
                         variant="h6"
                         noWrap
                         component="div"
-                        sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
+                        sx={{ mr: 2 }}
                     >
-                        FOOTHUB
-                    </Typography>
                         <Button 
+                            onClick={()=> navigate('/login')}
                             sx={{color: "white"}}
                         >
-                            LOGIN
+                            FOOTHUB
+                        </Button>
+                    </Typography>
+                    <Box sx={{ml: "auto"}}>
+                        <Button 
+                            sx={{color: "white", display: "inline-block"}}
+                        >
+                             GUEST LOGIN
                         </Button>
                     
                     
                         <Button
                             onClick={()=> navigate('/new')}
-                            sx={{ my: 2, color: 'white'}}
+                            sx={{color: 'white', display: "inline-block"}}
                         >
                             CREATE
                         </Button>
+                    </Box>
+                        
                 </Toolbar>
             </AppBar>
         </Box>
