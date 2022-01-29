@@ -20,7 +20,7 @@ const Header = () => {
                         sx={{ mr: 2 }}
                     >
                         <Button 
-                            onClick={()=> navigate('/login')}
+                            onClick={()=> navigate('/')}
                             sx={{color: "white"}}
                         >
                             FOOTHUB
