@@ -2,12 +2,17 @@ import React, {useEffect, useState} from "react";
 import {Link} from "react-router-dom"
 import { getList, deletePost } from '../lib/api/post'
 
+import Table from "@mui/material/Table";
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
+
+import Button from '@mui/material/Button';
+import { TableBody } from "@mui/material";
+
 const List = () => {
     const [dataList, setDataList] = useState([]);
-
-    useEffect(() => {
-        handleGetList();
-    }, []);
 
     const handleGetList = async () => {
         try {
@@ -18,6 +23,12 @@ const List = () => {
           console.log(e);
         }
     };
+
+    useEffect(() => {
+        handleGetList();
+    }, []);
+
+    
 
     // 削除する関数を追加
     const handleDelete = async (item) => {
@@ -32,36 +43,39 @@ const List = () => {
         console.log(e)
         }
     }
-
     return (
-        <div className="list">
-            <table className="table">
-                {dataList.map((item, index) => (
-                    <div className="post">
-                        <thead>
-                            <tr>
-                                <th>名前</th>
-                                <th>内容</th>
-                            </tr>
-                        </thead>
-                        <tbody key={index}>
-                            <tr>
-                                <td>{item.name}</td>
-                                <td>{item.content}</td>
-                                <td>
-                                    <Link to={`/edit/${item.id}`}>更新</Link>
-                                </td>
-                                <td>
-                                    <Link to={`/post/${item.id}`}>詳細へ</Link>
-                                </td>
-                                <td>
-                                <button onClick={() => handleDelete(item)}>削除</button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </div>
-                ))}
-            </table>
+        <div className="c-grid">
+            <TableContainer component={Paper} sx={{bgcolor: "#f5f5f5", mt: "2em"}}>
+                <Table>
+                    <TableBody>
+                        {dataList.map((item, index) => (
+                                <TableRow
+                                    key={item}
+                                    sx={{ '&:last-child td, &:last-child th': { border: 0 }}}
+                                >
+                                    <TableCell component="th" scope="row">
+                                        {item.name}
+                                    </TableCell>
+                                    <TableCell align="center">{item.content}</TableCell>
+            
+                                    <TableCell align="right">
+                                        <Button variant="outlined">
+                                            <Link to={`/post/${item.id}`}>more</Link>
+                                        </Button>
+                                        <Button variant="outlined">
+                                            <Link to={`/edit/${item.id}`}>update</Link>
+                                        </Button>                                    
+                                        <Button onClick={() => handleDelete(item)} variant="outlined">
+                                            Delete
+                                        </Button>    
+                                    </TableCell> 
+                    
+                                </TableRow>
+                        ))}
+                    </TableBody>
+                </Table>
+                
+            </TableContainer>
         </div>
     )
 }

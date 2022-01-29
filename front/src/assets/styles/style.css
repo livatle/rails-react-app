@@ -1,11 +1,7 @@
 
-.list {
-    height: auto;
-}
-.table {
-    margin: 0 auto;
+.c-grid {
     width: 80%;
-}
-.post {
-    border: 1px solid black;
+    height: auto;
+    margin: 0 auto;
+    
 }
