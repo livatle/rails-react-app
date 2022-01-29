@@ -1,21 +1,32 @@
 import React from "react";
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+import { margin } from "@mui/system";
+
 
 const Form = (props) => {
     const { handleChange, handleSubmit, value, buttonType } = props
     return (
-        <div>
-            <form>
-                <div>
-                    <label htmlFor="name">名前: </label>
-                    <input type="text" name="name" id="name" onChange={(e) => handleChange(e)} value={value.name}/>
-                </div>
-                <div>
-                    <label htmlFor="content">内容: </label>
-                    <textarea type="text" name="content" id="content" onChange={(e) => handleChange(e)} value={value.content}/>
-                </div>
-                <input type="submit" value={buttonType} onClick={(e) => handleSubmit(e)}/>
-            </form>
-        </div>
+
+        <Box
+            sx={{
+                width: "80%",
+                display: 'flex',
+                flexDirection: 'column',
+                mt: "2em",
+                mr: "auto",
+                ml: "auto"
+            }}
+        >
+            <h1>NEW POST</h1>
+            <TextField sx={{width: "50%", mb: "2em" }} label="name" type="text" name="name" id="name" onChange={(e) => handleChange(e)} value={value.name} />
+            <TextField multiline rows={4} sx={{width: "80%", mb: "2em"}} label="content" type="text" name="content" id="content" onChange={(e) => handleChange(e)} value={value.content} />
+            <Button sx={{width: "50%", p: "1em"}} variant="outlined" type="subimit" value={buttonType} onClick={(e) => handleSubmit(e)}>
+                create
+            </Button>
+        </Box>
+        
     )
 }
 

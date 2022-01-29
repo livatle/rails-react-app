@@ -26,15 +26,12 @@ const New = () => {
   }
 
   return (
-    <>
-      <h1>NEW</h1>
       <FormBody
         handleChange={handleChange}
         handleSubmit={handleSubmit}
         value={value}
         buttonType='登録'
       />
-    </>
   )
 };
 export default New;
