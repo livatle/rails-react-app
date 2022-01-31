@@ -11,6 +11,7 @@ import Button from '@mui/material/Button';
 const Header = () => {
     const { loginWithRedirect } = useAuth0();
     const { logout } = useAuth0();
+    const { isAuthenticated } = useAuth0();
     const navigate = useNavigate();
     return (
         <Box>
@@ -30,13 +31,14 @@ const Header = () => {
                         </Button>
                     </Typography>
                     <Box sx={{ml: "auto"}}>
+                    {!isAuthenticated ? (
                         <Button 
-                            onClick={()=> loginWithRedirect()}
-                            sx={{color: "white", display: "inline-block"}}
+                        onClick={()=> loginWithRedirect()}
+                        sx={{color: "white", display: "inline-block"}}
                         >
                             LOGIN
                         </Button>
-
+                    ) : (
                         <Button
                             onClick={() => {
                                 logout({ returnTo: window.location.origin });
@@ -45,6 +47,7 @@ const Header = () => {
                         >
                             LOGOUT
                         </Button>
+                    )}
 
                         <Button
                             onClick={()=> navigate('/new')}
