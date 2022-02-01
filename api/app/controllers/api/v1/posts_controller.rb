@@ -32,7 +32,7 @@ class Api::V1::PostsController < ApplicationController
 
     private
     def post_params
-        params.require(:post).permit(:name, :neko_type)
+        params.require(:post).permit(:name, :content)
     end
 
 end

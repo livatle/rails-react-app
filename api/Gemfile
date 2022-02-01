@@ -18,7 +18,10 @@ gem 'puma', '~> 5.0'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
-
+gem 'dotenv-rails'
+gem 'jwt'
+gem 'devise'
+gem 'devise_token_auth'
 gem 'rack-cors'
 
 # Reduces boot times through caching; required in config/boot.rb
