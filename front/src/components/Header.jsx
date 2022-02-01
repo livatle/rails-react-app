@@ -28,11 +28,19 @@ const Header = () => {
                     </Typography>
                     <Box sx={{ml: "auto"}}>
                         <Button 
-                        onClick={()=> navigate('/')}
-                        sx={{color: "white", display: "inline-block"}}
-                        >
-                            LOGIN
+                            onClick={()=> navigate('/signin')}
+                            sx={{color: "white", display: "inline-block"}}
+                            >
+                                SIGN UP
                         </Button>
+                        <Button 
+                            onClick={()=> navigate('/signup')}
+                            sx={{color: "white", display: "inline-block"}}
+                            >
+                                SIGN IN
+                        </Button>
+
+                        
                         <Button
                             onClick={()=> navigate('/new')}
                             sx={{color: 'white', display: "inline-block"}}
