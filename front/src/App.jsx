@@ -4,6 +4,8 @@ import './assets/styles/style.css'
 import {BrowserRouter as Router, Navigate, Route, Routes} from 'react-router-dom'
 
 import { getCurrentUser } from './lib/api/auth';
+//グローバルstate
+export const AuthContext = createContext();
 
 function App() {
 
@@ -50,19 +52,32 @@ function App() {
   };
 
   return (
-    <Router>
+    <AuthContext.Provider
+            value={{
+              loading,
+              setLoading,
+              isSignedIn,
+              setIsSignedIn,
+              currentUser,
+              setCurrentUser,
+            }}
+      >
+        <Router>
         <div>
           <Header />
+          <List />
           <Routes>
-            <Route exact path='/' element={<List />} />
             <Route path='/signup' element={<SignUp/>} />
             <Route path='/signin' element={<SignIn />} />
-            <Route path='/new' element={<New />} />
-            <Route path='/post/:id' element={<Detail />} />
-            <Route path='/edit/:id' element={<Edit />} />
+            <Route path='/new' element={<Private><New /></Private>} />
+            <Route path='/post/:id' element={<Private><Detail /></Private>} />
+            <Route path='/edit/:id' element={<Private><Edit /></Private>} />
           </Routes>
         </div>
-      </Router>
+        </Router>
+      </AuthContext.Provider>
+
+    
   );
 }
 

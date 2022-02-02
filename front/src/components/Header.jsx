@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from 'react-router-dom';
+import { AuthButtons } from './index'
 
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -27,20 +28,7 @@ const Header = () => {
                         </Button>
                     </Typography>
                     <Box sx={{ml: "auto"}}>
-                        <Button 
-                            onClick={()=> navigate('/signin')}
-                            sx={{color: "white", display: "inline-block"}}
-                            >
-                                SIGN UP
-                        </Button>
-                        <Button 
-                            onClick={()=> navigate('/signup')}
-                            sx={{color: "white", display: "inline-block"}}
-                            >
-                                SIGN IN
-                        </Button>
-
-                        
+                        <AuthButtons />
                         <Button
                             onClick={()=> navigate('/new')}
                             sx={{color: 'white', display: "inline-block"}}

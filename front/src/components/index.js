@@ -1,4 +1,5 @@
 //エントリポイントとして使用
+export {default as AuthButtons} from './AuthButtons'
 export {default as Detail} from './Detail'
 export {default as Edit} from './Edit'
 export {default as Form} from './Form'
@@ -6,5 +7,9 @@ export {default as Header} from './Header'
 export {default as List} from './List'
 export {default as New} from './New'
 export {default as SignIn} from './SignIn'
+export {default as SignInButton} from './SignInButton'
+export {default as SignUpButton} from './SignUpButton'
+export {default as SignOutButton} from './SignOutButton'
 export {default as SignUp} from './SignUp'
 export {default as SignForm} from './SignForm'
+
