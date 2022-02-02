@@ -4,6 +4,7 @@ import './assets/styles/style.css'
 import {BrowserRouter as Router, Navigate, Route, Routes} from 'react-router-dom'
 
 import { getCurrentUser } from './lib/api/auth';
+export const AuthContext = createContext();
 
 function App() {
 
@@ -50,7 +51,17 @@ function App() {
   };
 
   return (
-    <Router>
+    <AuthContext.Provider
+            value={{
+              loading,
+              setLoading,
+              isSignedIn,
+              setIsSignedIn,
+              currentUser,
+              setCurrentUser,
+            }}
+      >
+        <Router>
         <div>
           <Header />
           <Routes>
@@ -62,7 +73,10 @@ function App() {
             <Route path='/edit/:id' element={<Edit />} />
           </Routes>
         </div>
-      </Router>
+        </Router>
+      </AuthContext.Provider>
+
+    
   );
 }
 
