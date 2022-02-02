@@ -27,7 +27,7 @@ const SignUp = () => {
           const res = await signUp(params);
           console.log(res);
           if (res.status === 200) {
-            // 成功した場合はCookieに各値を格納
+            // アカウント作成と同時にサインインさせてしまう
             Cookies.set('_access_token', res.headers['access-token']);
             Cookies.set('_client', res.headers['client']);
             Cookies.set('_uid', res.headers['uid']);
@@ -55,6 +55,7 @@ const SignUp = () => {
 
     return (
         <>
+            <h1>SIGN UP</h1>
             <SignForm
                 name={name}
                 setName={setName}

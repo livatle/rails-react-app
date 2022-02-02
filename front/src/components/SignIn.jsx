@@ -25,6 +25,7 @@ const SignIn = () => {
           const res = await signIn(params);
     
           if (res.status === 200) {
+            // 成功した場合はCookieに各値を格納
             Cookies.set('_access_token', res.headers['access-token']);
             Cookies.set('_client', res.headers['client']);
             Cookies.set('_uid', res.headers['uid']);
@@ -33,6 +34,7 @@ const SignIn = () => {
             setCurrentUser(res.data.data);
     
             navigate('/');
+            console.log("Signed in successfully!")
           }
         } catch (e) {
           console.log(e);
@@ -50,6 +52,7 @@ const SignIn = () => {
 
     return (
         <>
+            <h1>SIGN IN</h1>
             <SignForm 
                 email={email}
                 setEmail={setEmail}
