@@ -63,20 +63,26 @@ const List = () => {
                     <TableBody>
                         {dataList.map((item, index) => (
                                 <TableRow
-                                    key={item}
+                                    key={index}
                                     sx={{ '&:last-child td, &:last-child th': { border: 0 }}}
                                 >
                                     <TableCell component="th" scope="row">
                                         {item.name}
                                     </TableCell>
-                                    <TableCell align="center">{item.content}</TableCell>
+                                    <TableCell align="center">
+                                        {item.content}
+                                    </TableCell>
             
                                     <TableCell align="right">
                                         <Button variant="outlined">
-                                            <Link to={`/post/${item.id}`}>more</Link>
+                                            <Link to={`/post/${item.id}`}>
+                                                more
+                                            </Link>
                                         </Button>
                                         <Button variant="outlined">
-                                            <Link to={`/edit/${item.id}`}>update</Link>
+                                            <Link to={`/edit/${item.id}`}>
+                                                update
+                                            </Link>
                                         </Button>                                    
                                         <Button onClick={() => handleDelete(item)} variant="outlined">
                                             Delete
