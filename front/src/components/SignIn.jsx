@@ -19,7 +19,10 @@ const SignIn = () => {
     const signInHandleSubmit = async (e) => {
         e.preventDefault();
     
-        const params = generateParams();
+        const params = {
+          email: email,
+          password: password,
+        }
     
         try {
           const res = await signIn(params);
@@ -40,15 +43,6 @@ const SignIn = () => {
           console.log(e);
         }
       };
-
-      const generateParams = () => {
-        const signInParams = {
-          email: email,
-          password: password,
-        };
-        return signInParams;
-      };
-
 
     return (
         <>
