@@ -21,7 +21,12 @@ const SignUp = () => {
     const signUpHandleSubmit = async (e) => {
         e.preventDefault();
     
-        const params = generateParams();
+        const params = {
+          name: name,
+          email: email,
+          password: password,
+          passwordConfirmation: passwordConfirmation
+        }
     
         try {
           const res = await signUp(params);
@@ -37,20 +42,12 @@ const SignUp = () => {
     
             navigate('/');
             console.log('signed in successfully');
+          } else {
+            console.log("failure sign up")
           }
         } catch (e) {
           console.log(e);
         }
-      };
-    
-      const generateParams = () => {
-        const signUpParams = {
-          name: name,
-          email: email,
-          password: password,
-          passwordConfirmation: passwordConfirmation,
-        };
-        return signUpParams;
       };
 
     return (

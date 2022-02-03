@@ -23,7 +23,7 @@ const SignOutButton = () => {
             Cookies.remove('_uid');
 
             setIsSignedIn(false);
-            navigate('/signin');
+            navigate('/');
             console.log('succeeded in sign out');
         } else {
             console.log('failed in sign out');

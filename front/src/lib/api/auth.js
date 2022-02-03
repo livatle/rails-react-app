@@ -2,7 +2,7 @@
 import client from './client';
 import Cookies from 'js-cookie';
 
-// サインアップ（新規アカウント作成）
+// サインアップ（新規アカウント作成)
 export const signUp = (params) => {
   return client.post('/auth', params);
 };
