@@ -33,10 +33,23 @@ const SignForm = (props) => {
             }}
             >
             {signType === 'signUp' && (
-                <TextField sx={{width: "50%", mb: "2em" }} label="username" value={name} onChange={event => setName(event.target.value)} />
+                <TextField 
+                  sx={{width: "50%", mb: "2em" }} 
+                  label="username" 
+                  value={name} 
+                  onChange={event => setName(event.target.value)} />
             )}
-            <TextField sx={{width: "50%", mb: "2em" }} label="email" type="email" value={email} onChange={event => setEmail(event.target.value)} />
-            <TextField sx={{width: "50%", mb: "2em" }} label="password" type="password" value={password} onChange={event => setPassword(event.target.value)} />
+            <TextField 
+              sx={{width: "50%", mb: "2em" }} 
+              label="email" 
+              type="email" 
+              value={email} 
+              onChange={event => setEmail(event.target.value)} />
+            <TextField 
+              sx={{width: "50%", mb: "2em" }} 
+              label="password" type="password" 
+              value={password} 
+              onChange={event => setPassword(event.target.value)} />
             {signType === 'signUp' && (
               <TextField
                 sx={{width: "50%", mb: "2em" }}
@@ -51,7 +64,12 @@ const SignForm = (props) => {
                 }
               />
             )}
-            <Button sx={{width: "50%", p: "1em"}} variant="outlined" type="subimit" onClick={handleSubmit} >
+            <Button 
+              sx={{width: "50%", p: "1em"}} 
+              variant="outlined" 
+              type="subimit" 
+              onClick={handleSubmit} 
+            >
                 subimit
             </Button>
             {signType === 'signIn' && (
