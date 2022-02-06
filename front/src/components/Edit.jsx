@@ -8,7 +8,7 @@ const Edit = () => {
   // apiで取得したデータを管理する為のstate
   const [value, setValue] = useState({
     name: '',
-    content: '',
+    content: ''
   })
   // 一覧からreact-router-domを使ってidを取得
   const query = useParams();
@@ -26,7 +26,7 @@ const Edit = () => {
       // 使う値のみstateにセットする
       setValue({
         name: res.data.name,
-        content: res.data.conetent,
+        content: res.data.content,
       })
     } catch (e) {
       console.log(e)

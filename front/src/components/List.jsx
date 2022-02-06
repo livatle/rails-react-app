@@ -1,8 +1,7 @@
-import React, {useEffect, useState, useContext } from "react";
+import React, {useEffect, useState } from "react";
 import {Link} from "react-router-dom"
 import { getList, deletePost } from '../lib/api/post'
 
-import { AuthContext } from "../App"
 
 import Table from "@mui/material/Table";
 import TableCell from '@mui/material/TableCell';
@@ -13,9 +12,10 @@ import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import { TableBody } from "@mui/material";
 
-const List = () => {
+const List = (props) => {
     const [dataList, setDataList] = useState([]);
-    const { isSignedIn, currentUser } = useContext(AuthContext)
+
+    const { currentUser } = props;
 
 
     const handleGetList = async () => {
@@ -49,15 +49,6 @@ const List = () => {
     }
     return (
         <div className="c-grid">
-            {isSignedIn && currentUser ? (
-                <>
-                    <h2>名前: {currentUser?.name}</h2>
-                    <h2>メールアドレス: {currentUser?.email}</h2>
-                </>
-                ) : (
-                <></>
-                )
-            }
             <TableContainer component={Paper} sx={{bgcolor: "#f5f5f5", mt: "2em"}}>
                 <Table>
                     <TableBody>
@@ -83,7 +74,7 @@ const List = () => {
                                             <Link to={`/edit/${item.id}`}>
                                                 update
                                             </Link>
-                                        </Button>                                    
+                                        </Button>                                   
                                         <Button onClick={() => handleDelete(item)} variant="outlined">
                                             Delete
                                         </Button>    
