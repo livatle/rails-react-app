@@ -8,14 +8,9 @@ export const getList = () => {
 };
 
 // 詳細
-export const getDetail = (id, params) => {
-  return client.get(`/posts/${id}`, params,
-  {headers: {
-    'access-token': Cookies.get('_access_token'),
-    'client': Cookies.get('_client'),
-    'uid': Cookies.get('_uid')
-  }});
-};
+export const getDetail = (id) => {
+  return client.get(`/posts/${id}`
+)}
 
 // 新規作成
 export const createPost = (params) => {
