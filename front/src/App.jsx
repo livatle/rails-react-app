@@ -13,6 +13,7 @@ function App() {
   const [isSignedIn, setIsSignedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState();
 
+
   // 認証済みのユーザーがいるかどうかチェック
   // 確認できた場合はそのユーザーの情報を取得
   const handleGetCurrentUser = async () => {
@@ -68,10 +69,21 @@ function App() {
         <Router>
         <div>
           <Header />
-          <List />
+          <div>
+          {isSignedIn && currentUser ? (
+                <>
+                    <h2>名前: {currentUser?.name}</h2>
+                    <h2>メールアドレス: {currentUser?.email}</h2>
+                </>
+                ) : (
+                <></>
+                )
+            }
+          </div>
           <Routes>
-            <Route path='/signup' element={<SignUp/>} />
-            <Route path='/signin' element={<SignIn />} />
+            <Route exact path='/' element={<List />} />
+            <Route exact path='/signup' element={<SignUp/>} />
+            <Route exact path='/signin' element={<SignIn />} />
             <Route path='/new' element={<Private><New /></Private>} />
             <Route path='/post/:id' element={<Private><Detail /></Private>} />
             <Route path='/edit/:id' element={<Private><Edit /></Private>} />

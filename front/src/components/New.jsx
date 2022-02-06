@@ -16,8 +16,13 @@ const New = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log(value);
+    const params = {
+      name: value.name,
+      content: value.content
+    }
     try {
-      const res = await createPost(value)
+      const res = await createPost(params)
       console.log(res)
       navigate('/')
     } catch (e) {
