@@ -1,5 +1,5 @@
 import React, { useState, useEffect, createContext } from 'react';
-import { Edit, Detail, New, Header, List, SignIn, SignUp} from './components'
+import { Edit, Detail, New, Header, PostsList, SignIn, SignUp} from './components'
 import './assets/styles/style.css'
 import {BrowserRouter as Router, Navigate, Route, Routes} from 'react-router-dom'
 
@@ -81,7 +81,7 @@ function App() {
             }
           </div>
           <Routes>
-            <Route exact path='/' element={<List />} />
+            <Route exact path='/' element={<PostsList />} />
             <Route exact path='/signup' element={<SignUp/>} />
             <Route exact path='/signin' element={<SignIn />} />
             <Route path='/new' element={<Private><New /></Private>} />

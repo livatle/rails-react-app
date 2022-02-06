@@ -12,11 +12,8 @@ import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import { TableBody } from "@mui/material";
 
-const List = (props) => {
+const PostsTable = () => {
     const [dataList, setDataList] = useState([]);
-
-    const { currentUser } = props;
-
 
     const handleGetList = async () => {
         try {
@@ -48,7 +45,6 @@ const List = (props) => {
         }
     }
     return (
-        <div className="c-grid">
             <TableContainer component={Paper} sx={{bgcolor: "#f5f5f5", mt: "2em"}}>
                 <Table>
                     <TableBody>
@@ -86,8 +82,7 @@ const List = (props) => {
                 </Table>
                 
             </TableContainer>
-        </div>
     )
 }
 
-export default List
+export default PostsTable
