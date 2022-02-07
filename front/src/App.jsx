@@ -1,5 +1,5 @@
 import React, { useState, useEffect, createContext } from 'react';
-import { Edit, Detail, New, Header, List, SignIn, SignUp} from './components'
+import { Edit, Detail, New, Header, PostsList, SignIn, SignUp, MyPosts} from './components'
 import './assets/styles/style.css'
 import {BrowserRouter as Router, Navigate, Route, Routes} from 'react-router-dom'
 
@@ -71,22 +71,23 @@ function App() {
           <Header />
           <div>
           {isSignedIn && currentUser ? (
-                <>
-                    <h2>名前: {currentUser?.name}</h2>
-                    <h2>メールアドレス: {currentUser?.email}</h2>
-                </>
-                ) : (
-                <></>
-                )
-            }
+            <>
+                <h2>名前: {currentUser?.name}</h2>
+                <h2>メールアドレス: {currentUser?.email}</h2>
+            </>
+            ) : (
+            <></>
+            )
+          }
           </div>
           <Routes>
-            <Route exact path='/' element={<List />} />
+            <Route exact path='/' element={<PostsList />} />
             <Route exact path='/signup' element={<SignUp/>} />
             <Route exact path='/signin' element={<SignIn />} />
             <Route path='/new' element={<Private><New /></Private>} />
             <Route path='/post/:id' element={<Private><Detail /></Private>} />
             <Route path='/edit/:id' element={<Private><Edit /></Private>} />
+            <Route path='/user/posts' element={<Private><MyPosts /></Private>} />
           </Routes>
         </div>
         </Router>

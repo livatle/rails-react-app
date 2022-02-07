@@ -18,7 +18,7 @@ const SignForm = (props) => {
         setName,
         passwordConfirmation,
         setPasswordConfirmation,
-      } = props;
+    } = props;
 
     return (
         <>
