@@ -17,7 +17,7 @@ const MyPosts = () => {
 
     useEffect(() => {
         handleGetUserPosts();
-      }, [currentUser]);
+    }, [currentUser]);
 
     const handleGetUserPosts = async () => {
         if (!loading) {
@@ -50,12 +50,12 @@ const MyPosts = () => {
             />
           );
         } else {
-          return <h2>投稿はありません。</h2>;
+          return <h2>No Post</h2>;
         }
     };
     return (
         <div className="c-grid">
-            <h1>{currentUser.name}の投稿一覧</h1>
+            <h1>{currentUser.name}'s POST</h1>
             <Button
                 variant='contained'
                 color='primary'

@@ -2,14 +2,17 @@ import React, { useContext } from "react";
 // context
 import { AuthContext } from '../App';
 
-import { SignInButton, SignUpButton, SignOutButton } from './index'
+import { SignInButton, SignUpButton, SignOutButton, MyPostsButton } from './index'
 
 const AuthButtons = () => {
-    const { loading, isSignedIn, setIsSignedIn, currentUser } = useContext(AuthContext);
+    const { loading, isSignedIn } = useContext(AuthContext);
         if (!loading) {
             if (isSignedIn) {
               return (
-                <SignOutButton />
+                <>
+                  <MyPostsButton />
+                  <SignOutButton />
+                </>
               );
             } else {
               return (
