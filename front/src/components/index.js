@@ -14,4 +14,6 @@ export {default as SignOutButton} from './SignOutButton'
 export {default as SignUp} from './SignUp'
 export {default as SignForm} from './SignForm'
 export {default as MyPosts} from './MyPosts'
+export {default as MyPostsButton} from './MyPostsButton'
+export {default as UserPosts} from './UserPosts'
 

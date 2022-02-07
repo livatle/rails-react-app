@@ -21,9 +21,10 @@ const PostsTable = (props) => {
                             <TableRow
                                 key={index}
                                 sx={{ '&:last-child td, &:last-child th': { border: 0 }}}
-                            >
-                                <TableCell component="th" scope="row">
+                            >   <TableCell align="center">
+                                <Link to={`/users/${item.userId}`}>
                                     {item.user}
+                                </Link>
                                 </TableCell>
                                 <TableCell align="center">
                                     {item.content}

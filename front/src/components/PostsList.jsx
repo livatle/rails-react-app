@@ -1,12 +1,11 @@
 import React, {useEffect, useState, useContext } from "react";
-import {Link} from "react-router-dom"
 import { PostsTable } from './index'
 import { getList, deletePost } from '../lib/api/post'
 // context
 import { AuthContext } from '../App';
 
 const PostsList = () => {
-    const { loading, isSignedIn, setIsSignedIn, currentUser } = useContext(AuthContext);
+    const { currentUser } = useContext(AuthContext);
     const [dataList, setDataList] = useState([]);
 
     const handleGetList = async () => {
@@ -22,8 +21,6 @@ const PostsList = () => {
     useEffect(() => {
         handleGetList();
     }, []);
-
-    
 
     // 削除する関数を追加
     const handleDelete = async (item) => {
