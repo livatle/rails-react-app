@@ -2,18 +2,8 @@ import React, {useEffect, useState, useContext } from "react";
 import {Link} from "react-router-dom"
 import { PostsTable } from './index'
 import { getList, deletePost } from '../lib/api/post'
-
 // context
 import { AuthContext } from '../App';
-
-import Table from "@mui/material/Table";
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
-
-import Button from '@mui/material/Button';
-import { TableBody } from "@mui/material";
 
 const PostsList = () => {
     const { loading, isSignedIn, setIsSignedIn, currentUser } = useContext(AuthContext);

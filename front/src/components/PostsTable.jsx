@@ -23,7 +23,7 @@ const PostsTable = (props) => {
                                 sx={{ '&:last-child td, &:last-child th': { border: 0 }}}
                             >
                                 <TableCell component="th" scope="row">
-                                    {item.name}
+                                    {item.user}
                                 </TableCell>
                                 <TableCell align="center">
                                     {item.content}
