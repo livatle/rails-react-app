@@ -10,7 +10,7 @@ import { signOut } from '../lib/api/auth';
 import { AuthContext } from '../App';
 
 const SignOutButton = () => {
-    const { loading, isSignedIn, setIsSignedIn } = useContext(AuthContext)
+    const { setIsSignedIn } = useContext(AuthContext)
     const navigate = useNavigate()
 
     const handleSignOut = async (e) => {

@@ -8,7 +8,7 @@ const SignUpButton = () => {
         <>
             <Button 
                 onClick={()=> navigate('/signup')}
-                sx={{color: "white", display: "inline-block"}}
+                sx={{color: "white", display: "inline-block" }}
                 >
                     SIGN UP
             </Button>
