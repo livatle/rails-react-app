@@ -8,4 +8,16 @@ class User < ActiveRecord::Base
   include DeviseTokenAuth::Concerns::User
 
   has_many :posts, dependent: :destroy
+
+  # フォローするユーザーから見た中間テーブル
+  has_many :active_relationships,
+                      class_name: "Relationship",
+                      foreign_key: "follower_id",
+                      dependent: :destroy
+
+  # フォローされているユーザーから見た中間テーブル
+  has_many :passive_relationships,
+                      class_name: "Relationship",
+                      foreign_key: "followed_id",
+                      dependent: :destroy
 end
