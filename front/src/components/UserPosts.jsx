@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from 'react-router-dom'
+
+import { FollowButton } from "./index";
 // api
 import { getUserPosts } from '../lib/api/user';
 import { deletePost } from '../lib/api/post';
@@ -60,10 +62,11 @@ const UserPosts = () => {
                 variant='contained'
                 color='primary'
                 onClick={() => navigate('/')}
-            >
-                戻る
-            </Button>
-            <UserTable />
+          >
+              戻る
+          </Button>
+          <FollowButton />
+          <UserTable />
         </div>
     )
 }

@@ -9,7 +9,7 @@ const SignInButton = () => {
             <Button 
                 onClick={()=> navigate('/signin')}
                 sx={{color: "white", display: "inline-block"}}
-                >
+            >
                     SIGN IN
             </Button>
         </>
