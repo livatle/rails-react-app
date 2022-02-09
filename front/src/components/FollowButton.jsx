@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import Button from '@mui/material/Button';
 
+
+
 const FollowButton = () => {
     const [followButton, setFollowButton] = useState({
         value: "フォロー",
         toggle: false
     })
     const handleClickFollowButton = () => {
+
         if (followButton.toggle === false) {
             setFollowButton({
                 value: "フォロー中",
