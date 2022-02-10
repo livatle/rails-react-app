@@ -3,7 +3,7 @@ import Cookies from "js-cookie"
 
 // 新規作成
 export const follow = (params) => {
-    return client.post('./relationships', params,
+    return client.post('/relationships', params,
     {headers: {
         'access-token': Cookies.get('_access_token'),
         'client': Cookies.get('_client'),
@@ -12,8 +12,8 @@ export const follow = (params) => {
 };
 
 //削除
-export const unfollow = (id, params) => {
-    return client.delete(`./relationships/${id}`, params,
+export const unfollow = (id) => {
+    return client.delete(`/relationships/${id}`,
     {headers: {
         'access-token': Cookies.get('_access_token'),
         'client': Cookies.get('_client'),

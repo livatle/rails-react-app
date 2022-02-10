@@ -8,17 +8,18 @@ import { follow, unfollow } from '../lib/api/relationship'
 
 const FollowButton = () => {
     const query = useParams();
-    const user_id = query
     const [isFollowing, setIsFollowing] = useState({
         value: 'フォローする',
         toggle: false
     })
     const [followingsList, setFollowingsList] = useState('')
+    const [followData, setFollowData] = useState([]);
     const handleClickFollowButton = async () => {
         if (isFollowing.toggle === false) {
             try {
-                const res = await follow(user_id);
-                console.log(res)
+                const res = await follow(query);
+                console.log(res.data)
+                setFollowData(res.data)
                 setIsFollowing({
                     value: 'フォロー中',
                     toggle: true
@@ -28,8 +29,8 @@ const FollowButton = () => {
             }
         } else {
             try {
-                const res = await unfollow(user_id);
-                console.log(res)
+                const res = await unfollow(followData.id);
+                console.log(res.data)
                 setIsFollowing({
                     value: 'フォローする',
                     toggle: false
