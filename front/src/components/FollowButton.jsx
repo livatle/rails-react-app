@@ -1,36 +1,38 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Button from '@mui/material/Button';
+
+import { getFollowingsList } from '../lib/api/user'
 
 
 const FollowButton = () => {
-    const [followButton, setFollowButton] = useState({
-        value: "フォロー",
-        toggle: false
-    })
-    const handleClickFollowButton = () => {
-        if (followButton.toggle === false) {
-            setFollowButton({
-                value: "フォロー中",
-                toggle: true
-            })
-        } else {
-            setFollowButton({
-                value: "フォローする",
-                toggle: false
-            })
-        }
-        
-    };
+    const [followingsList, setFollowingsList] = useState('')
+
+    const handleGetFollowingsList = async () => {
+        try {
+            const res = await getFollowingsList();
+            console.log(res.data);
+            setFollowingsList(res.data);
+          } catch (e) {
+            console.log(e);
+          }
+    }
+    useEffect(() => {
+        handleGetFollowingsList();
+    }, []);
+
     return (
         <>
-                <Button
-                    onClick={() => handleClickFollowButton()}
-                    sx={{color: "white", display: "inline-block", ml: "2em"}}
-                    variant='contained'
-                    color='primary'
-                >
-                    {followButton.value}
-                </Button>
+            <div>
+                <p><span>{followingsList}</span></p>
+                <p><span></span></p>
+            </div>
+            <Button
+                sx={{color: "white", display: "inline-block", ml: "2em"}}
+                variant='contained'
+                color='primary'
+            >
+                フォロー
+            </Button>
         </>
     )
 
