@@ -12,8 +12,8 @@ export const follow = (params) => {
 };
 
 //削除
-export const unfollow = (params) => {
-    return client.delete('./relationships', params,
+export const unfollow = (id, params) => {
+    return client.delete(`./relationships/${id}`, params,
     {headers: {
         'access-token': Cookies.get('_access_token'),
         'client': Cookies.get('_client'),

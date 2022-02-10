@@ -30,6 +30,10 @@ const FollowButton = () => {
             try {
                 const res = await unfollow(user_id);
                 console.log(res)
+                setIsFollowing({
+                    value: 'フォローする',
+                    toggle: false
+                })
             } catch (e) {
             console.log(e);
             }
