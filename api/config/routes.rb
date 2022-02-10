@@ -11,7 +11,7 @@ Rails.application.routes.draw do
       resources :relationships, only: [:create, :destroy]
 
       mount_devise_token_auth_for 'User', at: 'auth', controllers: {
-        registrations: 'api/v1/auth/resistrations'
+        registrations: 'api/v1/auth/registrations'
     }
 
       namespace :auth do

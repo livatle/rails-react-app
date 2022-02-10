@@ -5,15 +5,15 @@ import Cookies from "js-cookie"
 export const follow = (params) => {
     return client.post('/relationships', params,
     {headers: {
-      'access-token': Cookies.get('_access_token'),
-      'client': Cookies.get('_client'),
-      'uid': Cookies.get('_uid')
+        'access-token': Cookies.get('_access_token'),
+        'client': Cookies.get('_client'),
+        'uid': Cookies.get('_uid')
     }})
 };
 
 //削除
-export const unfollow = () => {
-    return client.delete('/relationships',
+export const unfollow = (id) => {
+    return client.delete(`/relationships/${id}`,
     {headers: {
         'access-token': Cookies.get('_access_token'),
         'client': Cookies.get('_client'),
