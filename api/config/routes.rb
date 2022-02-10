@@ -3,11 +3,15 @@ Rails.application.routes.draw do
     namespace :v1 do
 
       resources :posts
-      resources :users
+      resources :users do
+        member do
+          get :following, :followers
+        end
+      end
       resources :relationships, only: [:create, :destroy]
 
       mount_devise_token_auth_for 'User', at: 'auth', controllers: {
-        registrations: 'api/v1/auth/registrations'
+        registrations: 'api/v1/auth/resistrations'
     }
 
       namespace :auth do
