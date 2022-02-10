@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import Button from '@mui/material/Button';
 
 import { getFollowingsList } from '../lib/api/user'
-import { follow } from '../lib/api/relationship'
+import { follow, unfollow } from '../lib/api/relationship'
 
 
 const FollowButton = () => {
@@ -15,12 +15,25 @@ const FollowButton = () => {
     })
     const [followingsList, setFollowingsList] = useState('')
     const handleClickFollowButton = async () => {
-        try {
-            const res = await follow(user_id);
-            console.log(res)
-          } catch (e) {
+        if (isFollowing.toggle === false) {
+            try {
+                const res = await follow(user_id);
+                console.log(res)
+                setIsFollowing({
+                    value: 'フォロー中',
+                    toggle: true
+                })
+            } catch (e) {
             console.log(e);
-          }
+            }
+        } else {
+            try {
+                const res = await unfollow(user_id);
+                console.log(res)
+            } catch (e) {
+            console.log(e);
+            }
+        }
     }
     const handleGetFollowingsList = async () => {
         try {
