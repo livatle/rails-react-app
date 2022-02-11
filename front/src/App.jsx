@@ -1,21 +1,17 @@
 import React, { useState, useEffect, createContext } from 'react';
-import { Edit, Detail, New, Header, PostsList, SignIn, SignUp, UserPosts } from './components'
+import { Edit, Detail, FollowingsList, New, Header, PostsList, SignIn, SignUp, UserPosts } from './components'
 import './assets/styles/style.css'
 import {BrowserRouter as Router, Navigate, Route, Routes} from 'react-router-dom'
 
 import { getCurrentUser } from './lib/api/auth';
-//グローバルstate
+
 export const AuthContext = createContext();
 
 function App() {
-
   const [loading, setLoading] = useState(true);
   const [isSignedIn, setIsSignedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState();
 
-
-  // 認証済みのユーザーがいるかどうかチェック
-  // 確認できた場合はそのユーザーの情報を取得
   const handleGetCurrentUser = async () => {
     try {
       const res = await getCurrentUser()
@@ -40,9 +36,6 @@ function App() {
     handleGetCurrentUser();
   }, [setCurrentUser]);
 
-
-  // ユーザーが認証済みかどうかでルーティングを決定
-  // 未認証だった場合は「/signin」ページに促す
   const Private = ({ children }) => {
     if (!loading) {
       if (isSignedIn) {
@@ -54,7 +47,6 @@ function App() {
       return <></>;
     }
   };
-
   return (
     <AuthContext.Provider
             value={{
@@ -83,6 +75,7 @@ function App() {
           <Routes>
             <Route exact path='/' element={<PostsList />} />
             <Route exact path='/users/:id' element={<UserPosts />} />
+            <Route path='/users/:id/following' element={<FollowingsList />} />
             <Route exact path='/signup' element={<SignUp />} />
             <Route exact path='/signin' element={<SignIn />} />
             <Route path='/new' element={<Private><New /></Private>} />

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Button from '@mui/material/Button';
 
-import { getFollowingsList } from '../lib/api/user'
 import { follow, unfollow } from '../lib/api/relationship'
 
 
@@ -40,19 +39,6 @@ const FollowButton = () => {
             }
         }
     }
-    const handleGetFollowingsList = async () => {
-        try {
-            const res = await getFollowingsList();
-            console.log(res.data);
-            setFollowingsList(res.data);
-          } catch (e) {
-            console.log(e);
-          }
-    }
-    useEffect(() => {
-        handleGetFollowingsList();
-    }, []);
-
     return (
         <>
             <div>
