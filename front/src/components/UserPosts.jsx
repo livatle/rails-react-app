@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams,  } from 'react-router-dom'
 
-import { FollowButton } from "./index";
+import { FollowButton, PostsTable } from "./index";
 // api
 import { getUserPosts } from '../lib/api/user';
 import { deletePost } from '../lib/api/post';
-
-import { PostsTable } from './index'
 
 import { Button } from '@mui/material';
 
@@ -44,6 +42,9 @@ const UserPosts = () => {
             if (dataUser.length >= 1) {
               return (
                 <div className="c-grid">
+                  <Link to={`/users/${query.id}/following`}>
+                    フォロー中
+                  </Link>
                   <PostsTable
                     dataList={dataUser}
                     handleDelete={handleDelete}
