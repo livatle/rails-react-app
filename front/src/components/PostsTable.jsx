@@ -43,7 +43,7 @@ const PostsTable = (props) => {
                                     </Button>                                   
                                     <Button onClick={() => handleDelete(item)} variant="outlined">
                                         Delete
-                                    </Button>    
+                                    </Button>
                                 </TableCell> 
                             </TableRow>
                         ))}

@@ -41,3 +41,22 @@ export const deletePost = (id) => {
     'uid': Cookies.get('_uid')
   }});
 };
+
+// 新規お気に入り作成
+export const favorite = (id, params) => {
+  return client.post(`/posts/${id}/favorites`, params,
+  {headers: {
+      'access-token': Cookies.get('_access_token'),
+      'client': Cookies.get('_client'),
+      'uid': Cookies.get('_uid')
+  }})
+};
+// お気に入り解除
+export const unfavorite = (id, params) => {
+  return client.post(`/posts/${id}/favorites`, params,
+  {headers: {
+      'access-token': Cookies.get('_access_token'),
+      'client': Cookies.get('_client'),
+      'uid': Cookies.get('_uid')
+  }})
+};
