@@ -44,7 +44,7 @@ export const deletePost = (id) => {
 
 // 新規お気に入り作成
 export const favorite = (id, params) => {
-  return client.post(`/posts/${id}/favorite`, params,
+  return client.post(`/posts/${id}/favorites`, params,
   {headers: {
       'access-token': Cookies.get('_access_token'),
       'client': Cookies.get('_client'),
@@ -53,7 +53,7 @@ export const favorite = (id, params) => {
 };
 // お気に入り解除
 export const unfavorite = (id, params) => {
-  return client.post(`/posts/${id}/favorite`, params,
+  return client.post(`/posts/${id}/favorites`, params,
   {headers: {
       'access-token': Cookies.get('_access_token'),
       'client': Cookies.get('_client'),
