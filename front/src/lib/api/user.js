@@ -16,3 +16,13 @@ export const getFollowingsList = (id) => {
     'uid': Cookies.get('_uid')
   }})
 }
+
+//フォロワー一覧
+export const getFollowersList = (id) => {
+  return client.get(`/users/${id}/follower`,
+  {headers: {
+    'access-token': Cookies.get('_access_token'),
+    'client': Cookies.get('_client'),
+    'uid': Cookies.get('_uid')
+  }})
+}

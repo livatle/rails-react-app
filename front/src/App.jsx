@@ -1,5 +1,5 @@
 import React, { useState, useEffect, createContext } from 'react';
-import { Edit, Detail, FollowingsList, New, Header, PostsList, SignIn, SignUp, UserPosts } from './components'
+import { Edit, Detail, FollowingsList, FollowersList, New, Header, PostsList, SignIn, SignUp, UserPosts } from './components'
 import './assets/styles/style.css'
 import {BrowserRouter as Router, Navigate, Route, Routes} from 'react-router-dom'
 
@@ -76,6 +76,7 @@ function App() {
             <Route exact path='/' element={<PostsList />} />
             <Route exact path='/users/:id' element={<UserPosts />} />
             <Route path='/users/:id/following' element={<FollowingsList />} />
+            <Route path='/users/:id/follower' element={<FollowersList />} />
             <Route exact path='/signup' element={<SignUp />} />
             <Route exact path='/signin' element={<SignIn />} />
             <Route path='/new' element={<Private><New /></Private>} />

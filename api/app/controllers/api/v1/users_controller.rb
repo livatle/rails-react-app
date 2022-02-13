@@ -11,8 +11,8 @@ class Api::V1::UsersController < ApplicationController
     end
 
     # フォローされている人一覧
-    def followed
+    def follower
       user = User.find(params[:id])
-      user.followers
+      render json: user.followers
     end
 end
