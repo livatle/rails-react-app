@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, {useEffect, useState } from "react";
 import { useParams } from 'react-router-dom'
 
 import { favorite, unfavorite } from '../lib/api/post'
@@ -6,6 +6,7 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 
 const FavoriteButton = () => {
     const [isFavorite, setIsFavorite] = useState(false)
+    
     const query = useParams();
     const handleClickFavoriteButton = async () => {
         if (isFavorite === false) {

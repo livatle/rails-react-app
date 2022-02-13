@@ -1,8 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom"
 
-import { FavoriteButton } from './index'
-
 
 import Table from "@mui/material/Table";
 import TableCell from '@mui/material/TableCell';
@@ -46,7 +44,6 @@ const PostsTable = (props) => {
                                     <Button onClick={() => handleDelete(item)} variant="outlined">
                                         Delete
                                     </Button>
-                                    <FavoriteButton /> 
                                 </TableCell> 
                             </TableRow>
                         ))}

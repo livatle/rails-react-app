@@ -2,6 +2,8 @@ import React, {useEffect, useState} from "react";
 import {useNavigate, useParams} from 'react-router-dom'
 import { getDetail } from "../lib/api/post"; 
 
+import { FavoriteButton } from './index'
+
 const Detail = () => {
 
     const [data, setData] = useState({});
@@ -28,11 +30,12 @@ const Detail = () => {
     };
 
     return (
-        <div>
+        <div className="c_grid">
             <h1>DETAIL</h1>
             <div>ID: {data.id}</div>
             <div>名前: {data.name}</div>
             <div>内容: {data.content}</div>
+            <FavoriteButton />
             <button onClick={() => navigate('/')}>戻る</button>
         </div>
     )
