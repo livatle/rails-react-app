@@ -45,6 +45,9 @@ const UserPosts = () => {
                   <Link to={`/users/${query.id}/following`}>
                     フォロー中
                   </Link>
+                  <Link to={`/users/${query.id}/follower`}>
+                    フォロワー
+                  </Link>
                   <PostsTable
                     dataList={dataUser}
                     handleDelete={handleDelete}
