@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
 
-      resources :posts
+      resources :posts do
+        resource :favorites, only: [:create, :destroy]
+      end
       resources :users do
         member do
           get :following, :follower

@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   include DeviseTokenAuth::Concerns::User
 
   has_many :posts, dependent: :destroy
+  has_many :favorites
 
   # フォローするユーザーから見た中間テーブル
   has_many :active_relationships,
