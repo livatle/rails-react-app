@@ -2,6 +2,15 @@ import React, {useEffect, useState} from "react";
 import {useNavigate, useParams} from 'react-router-dom'
 import { getDetail } from "../lib/api/post"; 
 
+import Table from "@mui/material/Table";
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
+
+import Button from '@mui/material/Button';
+import { TableBody } from "@mui/material";
+
 import { FavoriteButton } from './index'
 
 const Detail = () => {
@@ -30,13 +39,22 @@ const Detail = () => {
     };
 
     return (
-        <div className="c_grid">
-            <h1>DETAIL</h1>
-            <div>ID: {data.id}</div>
-            <div>名前: {data.name}</div>
-            <div>内容: {data.content}</div>
-            <FavoriteButton />
+        <div className="c-grid">
             <button onClick={() => navigate('/')}>戻る</button>
+            <TableContainer component={Paper} sx={{bgcolor: "#f5f5f5", mt: "2em"}}>
+                <Table>
+                    <TableBody>
+                            <TableRow>
+                                <TableCell align="center">
+                                    {data.content}
+                                </TableCell>
+                                <TableCell align="center">
+                                    <FavoriteButton />
+                                </TableCell>
+                            </TableRow>
+                    </TableBody>
+                </Table>
+            </TableContainer>
         </div>
     )
 }
