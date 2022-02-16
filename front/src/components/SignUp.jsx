@@ -52,7 +52,7 @@ const SignUp = () => {
 
     return (
         <div className="c-grid">
-          <h1 className="sign-form">SIGN UP</h1>
+          <h1 className="form-title">SIGN UP</h1>
           <SignForm
               name={name}
               setName={setName}

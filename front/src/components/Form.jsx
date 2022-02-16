@@ -3,6 +3,7 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 
+import { formStyle } from "./SignForm";
 
 const Form = (props) => {
     const { handleChange, handleSubmit, value, buttonType } = props
@@ -18,9 +19,8 @@ const Form = (props) => {
                 ml: "auto"
             }}
         >
-            <h1>NEW POST</h1>
             <TextField 
-                sx={{width: "50%", mb: "2em" }} 
+                sx={formStyle} 
                 label="name" 
                 type="text" 
                 name="name" 
@@ -30,7 +30,7 @@ const Form = (props) => {
             />
             <TextField 
                 multiline rows={4} 
-                sx={{width: "80%", mb: "2em"}} 
+                sx={formStyle} 
                 label="content" 
                 type="text" 
                 name="content" 

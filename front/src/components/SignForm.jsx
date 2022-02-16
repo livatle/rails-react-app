@@ -6,7 +6,7 @@ import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 
-const signForm = {
+export const formStyle = {
   '& div': {
     width: "50%"
   },
@@ -51,21 +51,21 @@ const SignForm = (props) => {
       >
         {signType === 'signUp' && (
           <TextField
-            sx={signForm}
+            sx={formStyle}
             label="username"
             value={name} 
             onChange={event => setName(event.target.value)}
           />
         )}
           <TextField
-            sx={signForm}
+            sx={formStyle}
             label="email"
             type="email" 
             value={email} 
             onChange={event => setEmail(event.target.value)}
           />
           <TextField
-            sx={signForm}
+            sx={formStyle}
             label="password"
             type="password" 
             value={password} 
@@ -73,7 +73,7 @@ const SignForm = (props) => {
           />
           {signType === 'signUp' && (
             <TextField
-              sx={signForm}
+              sx={formStyle}
               variant='outlined'
               required
               label='Password Confirmation'

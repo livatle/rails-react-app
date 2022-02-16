@@ -54,7 +54,7 @@ const Edit = () => {
 
   return(
     <>
-      <h1>Edit</h1>
+      <h2 className='form-title'>EDIT POST</h2>
       <FormBody
         handleChange={handleChange}
         handleSubmit={handleSubmit}
