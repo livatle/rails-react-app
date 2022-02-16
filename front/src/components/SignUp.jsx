@@ -51,21 +51,21 @@ const SignUp = () => {
       };
 
     return (
-        <>
-            <h1>SIGN UP</h1>
-            <SignForm
-                name={name}
-                setName={setName}
-                email={email}
-                setEmail={setEmail}
-                password={password}
-                setPassword={setPassword}
-                passwordConfirmation={passwordConfirmation}
-                setPasswordConfirmation={setPasswordConfirmation}
-                handleSubmit={signUpHandleSubmit}
-                signType='signUp'
-             />
-        </>
+        <div className="c-grid">
+          <h1 className="sign-form">SIGN UP</h1>
+          <SignForm
+              name={name}
+              setName={setName}
+              email={email}
+              setEmail={setEmail}
+              password={password}
+              setPassword={setPassword}
+              passwordConfirmation={passwordConfirmation}
+              setPasswordConfirmation={setPasswordConfirmation}
+              handleSubmit={signUpHandleSubmit}
+              signType='signUp'
+            />
+        </div>
     )
 }
 

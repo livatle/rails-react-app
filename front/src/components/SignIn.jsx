@@ -45,17 +45,17 @@ const SignIn = () => {
       };
 
     return (
-        <>
-            <h1>SIGN IN</h1>
-            <SignForm 
-                email={email}
-                setEmail={setEmail}
-                password={password}
-                setPassword={setPassword}
-                handleSubmit={signInHandleSubmit}
-                signType='signIn'
-            />
-        </>
+        <div className="c-grid">
+          <h1 className="sign-form">SIGN IN</h1>
+          <SignForm 
+              email={email}
+              setEmail={setEmail}
+              password={password}
+              setPassword={setPassword}
+              handleSubmit={signInHandleSubmit}
+              signType='signIn'
+          />
+        </div>
     )
 }
 
