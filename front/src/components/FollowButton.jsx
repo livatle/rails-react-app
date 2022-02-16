@@ -1,12 +1,24 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import Button from '@mui/material/Button';
+
+import { createStyles, makeStyles } from '@mui/styles';
 
 import { follow, unfollow } from '../lib/api/relationship'
 
+const useStyles = makeStyles(() =>
+        createStyles({
+            followInfo: {
+                textDecoration: "none",
+                marginRight: "1em",
+                color: "#ff1988"
+            }
+        }),
+    );
 
 const FollowButton = () => {
     const query = useParams();
+    const classes = useStyles();
     const [isFollowing, setIsFollowing] = useState({
         value: 'フォローする',
         toggle: false
@@ -40,20 +52,34 @@ const FollowButton = () => {
         }
     }
     return (
-        <>
-            <div>
-                <p><span>{followingsList}</span></p>
-                <p><span></span></p>
-            </div>
-            <Button
-                onClick={()=> handleClickFollowButton()}
-                sx={{color: "white", display: "inline-block", ml: "2em"}}
-                variant='contained'
-                color='primary'
-            >
-                {isFollowing.value}
-            </Button>
-        </>
+        <ul className="follow-box">  
+            <li className="follow-info">
+                <NavLink 
+                    to={`/users/${query.id}/following`}
+                    className={classes.followInfo}
+                >
+                    フォロー中
+                </NavLink>
+            </li>
+            <li className="follow-info">
+                <NavLink 
+                    to={`/users/${query.id}/follower`}
+                    className={classes.followInfo}
+                >
+                    フォロワー
+                </NavLink>
+            </li>
+            <li className="follow-button">
+                <Button
+                    onClick={()=> handleClickFollowButton()}
+                    sx={{color: "secondary", display: "inline-block", ml: "2em"}}
+                    color="secondary"
+                    variant="outlined"
+                >
+                    {isFollowing.value}
+                </Button>
+            </li>
+        </ul>
     )
 
 }

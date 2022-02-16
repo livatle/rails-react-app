@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate, useParams,  } from 'react-router-dom'
+import { NavLink, useNavigate, useParams,  } from 'react-router-dom'
 
 import { FollowButton, PostsTable } from "./index";
 // api
 import { getUserPosts } from '../lib/api/user';
 import { deletePost } from '../lib/api/post';
-
-import { Button } from '@mui/material';
 
 const UserPosts = () => {
     const [dataUser, setDataUser] = useState([]);
@@ -41,35 +39,26 @@ const UserPosts = () => {
         const UserTable = () => {
             if (dataUser.length >= 1) {
               return (
-                <div className="c-grid">
-                  <Link to={`/users/${query.id}/following`}>
-                    フォロー中
-                  </Link>
-                  <Link to={`/users/${query.id}/follower`}>
-                    フォロワー
-                  </Link>
+                <>
                   <PostsTable
                     dataList={dataUser}
                     handleDelete={handleDelete}
                   />
-                </div>
+                </>
               );
             } else {
               return (
-                <h2>No Post</h2>
+                <div>
+                  <h2 className="no-post">NO POST</h2>
+                </div>
               );
             }
         };
     return (
         <div className="c-grid">
-          <Button
-                variant='contained'
-                color='primary'
-                onClick={() => navigate('/')}
-          >
-              戻る
-          </Button>
-          <FollowButton />
+          <div>
+            <FollowButton />
+          </div>
           <UserTable />
         </div>
     )

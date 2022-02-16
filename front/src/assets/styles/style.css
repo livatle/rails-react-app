@@ -9,5 +9,23 @@ html {
     width: 80%;
     height: auto;
     margin: 0 auto;
+}
+.current {
+    color: white
+}
+.follow-box {
+    position: relative;
+    display: flex;
+    list-style: none;
+}
+.follow-button {
+    position: absolute;
+    top: 0%;
+    right: 5%;
     
+}
+.no-post {
+    text-align: center;
+    margin-top: 5em;
+    color: #ff1988;
 }
