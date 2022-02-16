@@ -1,4 +1,10 @@
-
+html {
+    background-color: #222646;
+}
+.item {
+    color: white;
+    text-decoration: none;
+}
 .c-grid {
     width: 80%;
     height: auto;
