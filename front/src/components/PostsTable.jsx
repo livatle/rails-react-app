@@ -1,6 +1,7 @@
 import React from "react";
-import {Link} from "react-router-dom"
+import { NavLink } from "react-router-dom"
 
+import { createStyles, makeStyles } from '@mui/styles';
 
 import Table from "@mui/material/Table";
 import TableCell from '@mui/material/TableCell';
@@ -11,46 +12,74 @@ import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import { TableBody } from "@mui/material";
 
+const useStyles = makeStyles(() =>
+        createStyles({
+            tableRow: {
+                borderRadius: "5px"
+            },
+            updateButton: {
+                color: "#ff1988",
+                textDecoration: "none",
+                marginRight: "1em"
+                
+            },
+            deleteButton: {
+                color: "#ff1988",
+                textDecoration: "none",
+                paddingBottom: "10px"
+            }
+        }),
+    );
+
 const PostsTable = (props) => {
     const { dataList, handleDelete } = props;
+    const classes = useStyles();
     return (
-            <TableContainer component={Paper} sx={{bgcolor: "#f5f5f5", mt: "2em"}}>
-                <Table>
-                    <TableBody>
-                        {dataList.map((item, index) => (
-                            <TableRow
-                                key={index}
-                                sx={{ '&:last-child td, &:last-child th': { border: 0 }}}
-                            >   <TableCell align="center">
-                                <Link to={`/users/${item.userId}`}>
-                                    {item.user}
-                                </Link>
-                                </TableCell>
-                                <TableCell align="center">
-                                    {item.content}
-                                </TableCell>
-        
-                                <TableCell align="right">
-                                    <Button variant="outlined">
-                                        <Link to={`/post/${item.id}`}>
-                                            more
-                                        </Link>
-                                    </Button>
-                                    <Button variant="outlined">
-                                        <Link to={`/edit/${item.id}`}>
-                                            update
-                                        </Link>
-                                    </Button>                                   
-                                    <Button onClick={() => handleDelete(item)} variant="outlined">
-                                        Delete
-                                    </Button>
-                                </TableCell> 
-                            </TableRow>
-                        ))}
-                    </TableBody>
-                </Table>
-                
-            </TableContainer>
+        <TableContainer 
+            component={Paper} 
+            sx={{bgcolor: "#222A50", mt: "2em"}}
+        >
+            <Table>
+                <TableBody>
+                    {dataList.map((item, index) => (
+                        <TableRow
+                            key={index}
+                            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                        > 
+                            <TableCell align="center" sx={{width: "20%"}}>
+                                <NavLink 
+                                    to={`/users/${item.userId}`}
+                                >
+                                    <p className="item">{item.user}</p>
+                                </NavLink>
+                            </TableCell>
+                            <TableCell align="center"sx={{width: "60%"}}>
+                                <NavLink 
+                                    to={`/post/${item.id}`}
+                                    className={classes.button}
+                                >
+                                    <p className="item">{item.content}</p>
+                                </NavLink>
+                            </TableCell>
+                            <TableCell align="center" sx={{width: "20%"}}>
+                                <NavLink 
+                                    to={`/edit/${item.id}`}
+                                    className={classes.updateButton}
+                                >
+                                    UPDATE
+                                </NavLink>
+                                <Button
+                                    onClick={() => handleDelete(item)}
+                                    className={classes.deleteButton}
+                                >
+                                    Delete
+                                </Button>
+                            </TableCell>
+                        </TableRow>
+                    ))}
+                </TableBody>
+            </Table>           
+        </TableContainer>
     )
 }
 

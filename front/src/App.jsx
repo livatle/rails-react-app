@@ -61,7 +61,7 @@ function App() {
         <Router>
         <div>
           <Header />
-          <div>
+          <div className='current'>
           {isSignedIn && currentUser ? (
             <>
                 <h2>名前: {currentUser?.name}</h2>

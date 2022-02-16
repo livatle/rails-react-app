@@ -33,7 +33,7 @@ const FavoriteButton = () => {
             {isFavorite ? (
                 <FavoriteIcon 
                     onClick={()=> handleClickFavoriteButton()}
-                    color='secondary' 
+                    color="secondary"
                 />
             ) : (
                 <FavoriteBorderIcon
