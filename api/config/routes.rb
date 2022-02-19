@@ -10,7 +10,7 @@ Rails.application.routes.draw do
           get :following, :follower
         end
       end
-      resources :relationships, only: [:create, :destroy]
+      resources :relationships, only: [:index, :create, :destroy]
 
       mount_devise_token_auth_for 'User', at: 'auth', controllers: {
         registrations: 'api/v1/auth/registrations'
