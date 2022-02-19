@@ -58,7 +58,7 @@ const FollowButton = () => {
                     to={`/users/${query.id}/following`}
                     className={classes.followInfo}
                 >
-                    フォロー中
+                    {isFollowing.value}
                 </NavLink>
             </li>
             <li className="follow-info">
