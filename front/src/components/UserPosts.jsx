@@ -1,15 +1,19 @@
-import React, { useState, useEffect } from "react";
-import { NavLink, useNavigate, useParams,  } from 'react-router-dom'
+import React, { useContext, useEffect, useState } from "react";
+import { useParams } from 'react-router-dom'
 
 import { FollowInfo, PostsTable } from "./index";
 // api
 import { getUserPosts } from '../lib/api/user';
 import { deletePost } from '../lib/api/post';
 
+// context
+import { AuthContext } from '../App';
+
 const UserPosts = () => {
     const [dataUser, setDataUser] = useState([]);
     const query = useParams();
-    const navigate = useNavigate();
+
+    const { currentUser } = useContext(AuthContext);
 
     const handleGetUserPosts = async () => {
         try {
@@ -55,7 +59,12 @@ const UserPosts = () => {
     return (
         <div className="c-grid">
           <div>
+          {query.id == currentUser.id ? (
+            <></>
+            ) : (
             <FollowInfo />
+            )
+          }
           </div>
           <UserTable />
         </div>
