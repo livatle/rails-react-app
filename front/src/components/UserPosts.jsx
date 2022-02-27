@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { NavLink, useNavigate, useParams,  } from 'react-router-dom'
 
-import { FollowButton, PostsTable } from "./index";
+import { FollowInfo, PostsTable } from "./index";
 // api
 import { getUserPosts } from '../lib/api/user';
 import { deletePost } from '../lib/api/post';
@@ -48,16 +48,14 @@ const UserPosts = () => {
               );
             } else {
               return (
-                <div>
-                  <h2 className="no-post">NO POST</h2>
-                </div>
+                  <h2 className="u-text">NO POST</h2>
               );
             }
         };
     return (
         <div className="c-grid">
           <div>
-            <FollowButton />
+            <FollowInfo />
           </div>
           <UserTable />
         </div>

@@ -1,7 +1,12 @@
 html {
     background-color: #222646;
 }
-.item {
+.current {
+    color: white
+}
+
+/* component */
+.c-grid__item {
     color: white;
     text-decoration: none;
 }
@@ -10,26 +15,27 @@ html {
     height: auto;
     margin: 0 auto;
 }
-.current {
-    color: white
+.c-button--right {
+    position: absolute;
+    top: 0%;
+    right: 5%;
 }
-.follow-box {
+
+/* project */
+.p-section__follow-info {
     position: relative;
     display: flex;
     list-style: none;
 }
-.follow-button {
-    position: absolute;
-    top: 0%;
-    right: 5%;
-    
-}
-.no-post {
-    text-align: center;
-    margin-top: 5em;
+.p-section--left {
+    text-decoration: none;
+    margin-right: 1rem;
     color: #ff1988;
 }
-.form-title {
+
+/* utility */
+.u-text {
     text-align: center;
+    margin-top: 2em;
     color: #ff1988;
 }
