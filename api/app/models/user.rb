@@ -38,7 +38,7 @@ class User < ActiveRecord::Base
   end
 
   # すでにフォローしているのか確認
-  def following?(user)
-    followings.include?(user)
+  def following?(current_api_v1_user)
+    followers.include?(current_api_v1_user)
   end
 end

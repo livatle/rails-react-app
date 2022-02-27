@@ -1,7 +1,9 @@
 #users_controller.rb
 class Api::V1::UsersController < ApplicationController
     def show
-      render json: Post.where(user_id: params[:id])
+      user = User.find(params[:id])
+      posts = Post.where(user_id: params[:id])
+      render json: {posts: posts, is_following: user.following?(current_api_v1_user)}
     end
 
     # フォローしている人一覧
