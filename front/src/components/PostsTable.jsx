@@ -21,7 +21,6 @@ const useStyles = makeStyles(() =>
                 color: "#ff1988",
                 textDecoration: "none",
                 marginRight: "1em"
-                
             },
             deleteButton: {
                 color: "#ff1988",
@@ -50,7 +49,7 @@ const PostsTable = (props) => {
                                 <NavLink 
                                     to={`/users/${item.userId}`}
                                 >
-                                    <p className="item">{item.user}</p>
+                                    <p className="c-grid__item">{item.user}</p>
                                 </NavLink>
                             </TableCell>
                             <TableCell align="center"sx={{width: "60%"}}>
@@ -58,7 +57,7 @@ const PostsTable = (props) => {
                                     to={`/post/${item.id}`}
                                     className={classes.button}
                                 >
-                                    <p className="item">{item.content}</p>
+                                    <p className="c-grid__item">{item.content}</p>
                                 </NavLink>
                             </TableCell>
                             <TableCell align="center" sx={{width: "20%"}}>

@@ -32,7 +32,7 @@ const New = () => {
 
   return (
       <>
-        <h2 className='form-title'>NEW POST</h2>
+        <h2 className='u-text'>NEW POST</h2>
         <FormBody
           handleChange={handleChange}
           handleSubmit={handleSubmit}

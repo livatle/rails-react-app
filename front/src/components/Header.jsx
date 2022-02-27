@@ -28,13 +28,13 @@ const Header = () => {
                         </Button>
                     </Typography>
                     <Box sx={{ml: "auto"}}>
-                        <AuthButtons />
                         <Button
                             onClick={()=> navigate('/new')}
                             sx={{color: 'white', display: "inline-block"}}
                         >
                             CREATE
                         </Button>
+                        <AuthButtons />
                     </Box>
                         
                 </Toolbar>

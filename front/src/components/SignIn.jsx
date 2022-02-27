@@ -46,7 +46,7 @@ const SignIn = () => {
 
     return (
         <div className="c-grid">
-          <h1 className="sign-form">SIGN IN</h1>
+          <h1 className="u-text">SIGN IN</h1>
           <SignForm 
               email={email}
               setEmail={setEmail}

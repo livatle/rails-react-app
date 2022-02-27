@@ -64,8 +64,8 @@ function App() {
           <div className='current'>
           {isSignedIn && currentUser ? (
             <>
-                <h2>名前: {currentUser?.name}</h2>
-                <h2>メールアドレス: {currentUser?.email}</h2>
+                <h2>name: {currentUser?.name}</h2>
+                <h2>email: {currentUser?.email}</h2>
             </>
             ) : (
             <></>

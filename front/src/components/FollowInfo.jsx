@@ -2,23 +2,10 @@ import React, { useState, useEffect } from "react";
 import { NavLink, useParams } from "react-router-dom";
 import Button from '@mui/material/Button';
 
-import { createStyles, makeStyles } from '@mui/styles';
-
 import { follow, unfollow } from '../lib/api/relationship'
 
-const useStyles = makeStyles(() =>
-        createStyles({
-            followInfo: {
-                textDecoration: "none",
-                marginRight: "1em",
-                color: "#ff1988"
-            }
-        }),
-    );
-
-const FollowButton = () => {
+const FollowInfo = () => {
     const query = useParams();
-    const classes = useStyles();
     const [isFollowing, setIsFollowing] = useState({
         value: 'フォローする',
         toggle: false
@@ -52,28 +39,27 @@ const FollowButton = () => {
         }
     }
     return (
-        <ul className="follow-box">  
-            <li className="follow-info">
+        <ul className="p-section__follow-info">  
+            <li>
                 <NavLink 
                     to={`/users/${query.id}/following`}
-                    className={classes.followInfo}
+                    className='p-section__left'
                 >
-                    {isFollowing.value}
+                    フォロー中
                 </NavLink>
             </li>
-            <li className="follow-info">
+            <li>
                 <NavLink 
                     to={`/users/${query.id}/follower`}
-                    className={classes.followInfo}
+                    className='p-section--left'
                 >
                     フォロワー
                 </NavLink>
             </li>
-            <li className="follow-button">
+            <li className="c-button--right">
                 <Button
                     onClick={()=> handleClickFollowButton()}
                     sx={{color: "secondary", display: "inline-block", ml: "2em"}}
-                    color="secondary"
                     variant="outlined"
                 >
                     {isFollowing.value}
@@ -84,4 +70,4 @@ const FollowButton = () => {
 
 }
 
-export default FollowButton
+export default FollowInfo
