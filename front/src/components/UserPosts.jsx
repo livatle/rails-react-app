@@ -19,7 +19,7 @@ const UserPosts = () => {
         try {
           const res = await getUserPosts(query.id);
           console.log(res.data);
-          setDataUser(res.data);
+          setDataUser(res.data.posts);
         } catch (e) {
           console.log(e);
         }
