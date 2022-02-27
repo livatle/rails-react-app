@@ -21,7 +21,6 @@ const useStyles = makeStyles(() =>
                 color: "#ff1988",
                 textDecoration: "none",
                 marginRight: "1em"
-                
             },
             deleteButton: {
                 color: "#ff1988",
