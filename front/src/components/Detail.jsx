@@ -27,7 +27,7 @@ const Detail = () => {
         try {
         const res = await getDetail(query.id);
         console.log(res.data);
-        setData(res.data);
+        setData(res.data.post);
         } catch (e) {
         console.log(e);
         }

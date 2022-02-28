@@ -6,7 +6,8 @@ class Api::V1::PostsController < ApplicationController
     end
 
     def show
-        render json: Post.find(params[:id]) 
+        post = Post.find(params[:id])
+        render json: {post: post, is_favorite: post.favorited_by?(current_api_v1_user)}
     end
 
     def create
