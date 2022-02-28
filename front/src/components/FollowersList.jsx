@@ -19,31 +19,40 @@ const FollowersList = () => {
     useEffect(() => {
         handleGetFollowersList();
     }, []);
-    return (
-        <div className="c-grid">
-            <TableContainer
-                component={Paper}
-                sx={{bgcolor: "#222A50", width: "50%", mr: "auto", ml: "auto", mt: "2em"}}
-            >
-                <Table>
-                    <TableBody>
-                        {followersList.map((user, index) => (
-                            <TableRow
-                                key={index}
-                                sx={{ '&:last-child td, &:last-child th': { border: 0 }}}
-                            >   
-                                <TableCell align="center">
-                                    <Link to={`/users/${user.id}`}>
-                                    <p className="c-grid__item">{user.name}</p>
-                                    </Link>
-                                </TableCell>
-                            </TableRow>
-                        ))}
-                    </TableBody>
-                </Table>
-            </TableContainer>
-        </div>
-    )
+        if (followersList.length >= 1) {
+            return(
+                <div className="c-grid">
+                    <TableContainer
+                        component={Paper}
+                        sx={{bgcolor: "#222A50", width: "50%", mr: "auto", ml: "auto", mt: "2em"}}
+                    >
+                        <Table>
+                            <TableBody>
+                                {followersList.map((user, index) => (
+                                    <TableRow
+                                        key={index}
+                                        sx={{ '&:last-child td, &:last-child th': { border: 0 }}}
+                                    >   
+                                        <TableCell align="center">
+                                            <Link to={`/users/${user.id}`}>
+                                                <p className="c-grid__item">{user.name}</p>
+                                            </Link>
+                                        </TableCell>
+                                    </TableRow>
+                                ))}
+                            </TableBody>
+                        </Table>
+                    </TableContainer>
+                </div>
+            )
+        }  else {
+            return (
+                <div className="c-grid">
+                    <h2 className="u-text">NO FOLLOWERS</h2>
+                </div>
+            );
+        }
+        
 }
 
 export default FollowersList

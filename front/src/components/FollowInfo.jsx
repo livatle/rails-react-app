@@ -4,7 +4,6 @@ import Button from '@mui/material/Button';
 
 import { follow, unfollow } from '../lib/api/relationship'
 import { checkFollowing } from '../lib/api/user'
-import { FollowingsList } from ".";
 
 const FollowInfo = () => {
     const query = useParams();
@@ -47,7 +46,7 @@ const FollowInfo = () => {
             <li>
                 <NavLink 
                     to={`/users/${query.id}/following`}
-                    className='p-section__left'
+                    className='p-section--left'
                 >
                     フォロー中
                 </NavLink>
