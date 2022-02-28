@@ -21,28 +21,40 @@ const FollowingsList = () => {
     useEffect(() => {
         handleGetFollowingsList();
     }, []);
-    return (
-        <div className="c-grid">
-            <TableContainer component={Paper} sx={{bgcolor: "#f5f5f5", mt: "2em"}}>
-                <Table>
-                    <TableBody>
-                        {followingsList.map((user, index) => (
-                            <TableRow
-                                key={index}
-                                sx={{ '&:last-child td, &:last-child th': { border: 0 }}}
-                            >   <TableCell align="center">
-                                <Link to={`/users/${user.id}`}>
-                                    {user.name}
-                                </Link>
-                                </TableCell>
-                            </TableRow>
-                        ))}
-                    </TableBody>
-                </Table>
-                
-            </TableContainer>
-        </div>
-    )
+        if (followingsList.length >= 1) {
+            return (
+                <div className="c-grid">
+                    <TableContainer 
+                        component={Paper} 
+                        sx={{bgcolor: "#222A50", width: "50%", mr: "auto", ml: "auto", mt: "2em"}}
+                    >
+                        <Table>
+                            <TableBody>
+                                {followingsList.map((user, index) => (
+                                    <TableRow
+                                        key={index}
+                                        sx={{ '&:last-child td, &:last-child th': { border: 0 }}}
+                                    >   
+                                        <TableCell align="center">
+                                            <Link to={`/users/${user.id}`}>
+                                                <p className="c-grid__item">{user.name}</p>
+                                            </Link>
+                                        </TableCell>
+                                    </TableRow>
+                                ))}
+                            </TableBody>
+                        </Table>
+                        
+                    </TableContainer>
+                </div>
+            );
+        } else {
+            return (
+                <div className="c-grid">
+                    <h2 className="u-text">NO FOLLOWINGS</h2>
+                </div>
+            );
+        }
 }
 
 export default FollowingsList

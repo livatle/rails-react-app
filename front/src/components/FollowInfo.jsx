@@ -4,7 +4,6 @@ import Button from '@mui/material/Button';
 
 import { follow, unfollow } from '../lib/api/relationship'
 import { checkFollowing } from '../lib/api/user'
-import { FollowingsList } from ".";
 
 const FollowInfo = () => {
     const query = useParams();
