@@ -1,14 +1,14 @@
 import React, {useEffect, useState } from "react";
 import { useParams } from 'react-router-dom'
 
-import { favorite, unfavorite } from '../lib/api/post'
+import { checkFavorite, favorite, unfavorite } from '../lib/api/post'
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 
 const FavoriteButton = () => {
-    const [isFavorite, setIsFavorite] = useState(false)
-    
     const query = useParams();
+    const [isFavorite, setIsFavorite] = useState('')
+
     const handleClickFavoriteButton = async () => {
         if (isFavorite === false) {
             try {
@@ -20,14 +20,28 @@ const FavoriteButton = () => {
             }
         } else {
             try {
-                const res = await unfavorite();
+                const res = await unfavorite(query.id);
                 console.log(res.data)
-                setIsFavorite()
+                setIsFavorite(false)
             } catch (e) {
             console.log(e);
             }
         }
     }
+
+    const handleCheckFavorite = async (query) => {
+        try {
+          const res = await checkFavorite(query.id);
+          setIsFavorite(res.data.isFavorite);
+        } catch (e) {
+          console.log(e);
+        }
+    };
+
+    useEffect(() => {
+        handleCheckFavorite(query);
+    }, [query])
+
     return (
         <>
             {isFavorite ? (

@@ -9,7 +9,12 @@ export const getList = () => {
 
 // 詳細
 export const getDetail = (id) => {
-  return client.get(`/posts/${id}`
+  return client.get(`/posts/${id}`,
+  {headers: {
+    'access-token': Cookies.get('_access_token'),
+    'client': Cookies.get('_client'),
+    'uid': Cookies.get('_uid')
+  }}
 )}
 
 // 新規作成
@@ -52,8 +57,18 @@ export const favorite = (id, params) => {
   }})
 };
 // お気に入り解除
-export const unfavorite = (id, params) => {
-  return client.post(`/posts/${id}/favorites`, params,
+export const unfavorite = (id) => {
+  return client.delete(`/posts/${id}/favorites`,
+  {headers: {
+      'access-token': Cookies.get('_access_token'),
+      'client': Cookies.get('_client'),
+      'uid': Cookies.get('_uid')
+  }})
+};
+
+//お気に入りしているかどうか
+export const checkFavorite = (id) => {
+  return client.get(`/posts/${id}`,
   {headers: {
       'access-token': Cookies.get('_access_token'),
       'client': Cookies.get('_client'),
