@@ -46,7 +46,7 @@ const FollowInfo = () => {
             <li>
                 <NavLink 
                     to={`/users/${query.id}/following`}
-                    className='p-section__left'
+                    className='p-section--left'
                 >
                     フォロー中
                 </NavLink>
