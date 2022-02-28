@@ -40,7 +40,7 @@ const Detail = () => {
                     <TableBody>
                             <TableRow>
                                 <TableCell align="center"sx={{width: "80%"}}>
-                                    <p className="item">{data.content}</p>
+                                    <p className="c-grid__item">{data.content}</p>
                                 </TableCell>
                                 <TableCell align="center">
                                     <FavoriteButton />
