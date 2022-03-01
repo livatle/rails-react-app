@@ -6,14 +6,21 @@ import { AuthContext } from '../App';
 
 const MyPostsButton = () => {
     const navigate = useNavigate();
-    const { currentUser } = useContext(AuthContext);
+    const { currentUser, isSignedIn } = useContext(AuthContext);
     return (
         <>
             <Button 
                 onClick={()=> navigate(`/users/${currentUser.id}`)}
                 sx={{color: "white", display: "inline-block"}}
-                >
-                    My Page
+            >
+                {isSignedIn && currentUser ? (
+                    <>
+                        {currentUser?.name}
+                    </>
+                ) : (
+                <></>
+                )
+                }        
             </Button>
         </>
     )

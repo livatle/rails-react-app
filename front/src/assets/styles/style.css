@@ -1,5 +1,14 @@
 html {
+    height: 100%;
     background-color: #222646;
+}
+
+body {
+    height: 100%;
+}
+
+#id {
+    height: 100%;
 }
 .current {
     color: white
@@ -23,7 +32,6 @@ html {
 
 /* project */
 .p-section__follow-info {
-    position: relative;
     display: flex;
     list-style: none;
 }

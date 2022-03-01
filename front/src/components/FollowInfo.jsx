@@ -42,7 +42,7 @@ const FollowInfo = () => {
         handleCheckFollowing(query);
     }, [query])
     return (
-        <ul className="p-section__follow-info">  
+<ul className="p-section__follow-info">  
             <li>
                 <NavLink 
                     to={`/users/${query.id}/following`}

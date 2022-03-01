@@ -1,11 +1,40 @@
-import React, {useEffect, useState, useContext } from "react";
-import { PostsTable } from './index'
+import React, {useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
+import { createStyles, makeStyles } from '@mui/styles';
 import { getList, deletePost } from '../lib/api/post'
-// context
-import { AuthContext } from '../App';
+
+
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Table from "@mui/material/Table";
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableRow from '@mui/material/TableRow';
+import { TableBody } from "@mui/material";
+
+const drawerWidth = 240;
+
+const useStyles = makeStyles(() =>
+    createStyles({
+        tableRow: {
+            borderRadius: "5px"
+        },
+        updateButton: {
+            color: "#ff1988",
+            textDecoration: "none",
+            marginRight: "1em"
+        },
+        deleteButton: {
+            color: "#ff1988",
+            textDecoration: "none",
+            paddingBottom: "0.5em"
+        }
+    }),
+);
+
 
 const PostsList = () => {
-    const { currentUser } = useContext(AuthContext);
+    const classes = useStyles();
     const [dataList, setDataList] = useState([]);
 
     const handleGetList = async () => {
@@ -36,13 +65,53 @@ const PostsList = () => {
         }
     }
     return (
-        <div className="c-grid">
-            <PostsTable
-                dataList={dataList}
-                handleDelete={handleDelete}
-                currentUser={currentUser}
-            />
-        </div>
+        <Box 
+            component="main"
+            sx={{ ml: "240px", width: `calc(100% - ${drawerWidth}px)` }}
+        >
+            <TableContainer>
+                <Table>
+                    <TableBody>
+                        {dataList.map((item, index) => (
+                            <TableRow
+                                key={index}
+                                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                            > 
+                                <TableCell align="center" sx={{width: "20%"}}>
+                                    <NavLink 
+                                        to={`/users/${item.userId}`}
+                                    >
+                                        <p className="c-grid__item">{item.user}</p>
+                                    </NavLink>
+                                </TableCell>
+                                <TableCell align="center"sx={{width: "60%"}}>
+                                    <NavLink 
+                                        to={`/post/${item.id}`}
+                                        className={classes.button}
+                                    >
+                                        <p className="c-grid__item">{item.content}</p>
+                                    </NavLink>
+                                </TableCell>
+                                <TableCell align="center" sx={{width: "20%"}}>
+                                    <NavLink 
+                                        to={`/edit/${item.id}`}
+                                        className={classes.updateButton}
+                                    >
+                                        UPDATE
+                                    </NavLink>
+                                    <Button
+                                        onClick={() => handleDelete(item)}
+                                        className={classes.deleteButton}
+                                    >
+                                        Delete
+                                    </Button>
+                                </TableCell>
+                            </TableRow>
+                        ))}
+                    </TableBody>
+                </Table>           
+            </TableContainer>
+        </Box>
     )
 }
 

@@ -2,44 +2,69 @@ import React from "react";
 import { useNavigate } from 'react-router-dom';
 import { AuthButtons } from './index'
 
-import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
+import Divider from '@mui/material/Divider';
+import MenuList from '@mui/material/MenuList';
+import MenuItem from '@mui/material/MenuItem';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
+import { createStyles, makeStyles } from '@mui/styles';
+
+const useStyles = makeStyles(() =>
+        createStyles({
+            drawer: {
+                height: "100%",
+                position: "fixed"
+            },
+            maxSize: {
+                height: "100%",
+                width: "100%"
+            }
+        }),
+    );
+
+const drawerWidth = 240;
 
 const Header = () => {
     const navigate = useNavigate();
+    const classes = useStyles();
+
     return (
-        <Box>
-            <AppBar sx={{bgcolor: "black"}} position="static">
-                <Toolbar>
-                    <Typography
-                        variant="h6"
-                        noWrap
-                        component="div"
-                        sx={{ mr: 2 }}
-                    >
-                        <Button 
-                            onClick={()=> navigate('/')}
-                            sx={{color: "white"}}
-                        >
-                            FOOTHUB
-                        </Button>
-                    </Typography>
-                    <Box sx={{ml: "auto"}}>
+             <Box
+                className={classes.drawer}
+                sx={{ width: drawerWidth, bgcolor: "#222A50"}}
+            >
+                 <MenuList>
+                     <MenuItem>
+                        <Typography className={classes.maxSize}>
+                            <Button
+                                onClick={()=> navigate('/')}
+                                sx={{color: "white"}}
+                                className={classes.maxSize}
+                            >
+                                FOOTHUB
+                            </Button>
+                        </Typography>
+                     </MenuItem>
+                    <MenuItem>
+                        <Typography className={classes.maxSize}>
                         <Button
                             onClick={()=> navigate('/new')}
-                            sx={{color: 'white', display: "inline-block"}}
+                            className={classes.maxSize}
+                            sx={{color: 'white'}}
                         >
                             CREATE
                         </Button>
-                        <AuthButtons />
-                    </Box>
-                        
-                </Toolbar>
-            </AppBar>
-        </Box>
+                        </Typography>
+                    </MenuItem>
+                    <Divider />
+                    <MenuItem>
+                        <Typography className={classes.maxSize}>
+                            <AuthButtons />
+                        </Typography>
+                    </MenuItem>
+                </MenuList>
+            </Box>
     )
 }
 
