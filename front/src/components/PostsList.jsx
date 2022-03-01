@@ -1,8 +1,8 @@
-import React, {useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { createStyles, makeStyles } from '@mui/styles';
 import { getList, deletePost } from '../lib/api/post'
-
+import { AuthContext } from '../App';
 
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -35,6 +35,7 @@ const useStyles = makeStyles(() =>
 
 const PostsList = () => {
     const classes = useStyles();
+    const { currentUser } = useContext(AuthContext)
     const [dataList, setDataList] = useState([]);
 
     const handleGetList = async () => {
@@ -64,18 +65,20 @@ const PostsList = () => {
         console.log(e)
         }
     }
+
     return (
         <Box 
             component="main"
             sx={{ ml: "240px", width: `calc(100% - ${drawerWidth}px)` }}
         >
-            <TableContainer sx={{ bgcolor: "#222A50" }}>
+            <TableContainer>
+                <h2 className="p-text">All POSTS</h2>
                 <Table>
                     <TableBody>
                         {dataList.map((item, index) => (
                             <TableRow
                                 key={index}
-                                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                                sx={{ bgcolor: "#222A50", '&:last-child td, &:last-child th': { border: 0 } }}
                             >
                                 <TableCell align={"center"}>
                                     <NavLink 
@@ -93,18 +96,24 @@ const PostsList = () => {
                                     </NavLink>
                                 </TableCell>
                                 <TableCell sx={{width: "15%"}}>
-                                    <NavLink 
-                                        to={`/edit/${item.id}`}
-                                        className={classes.updateButton}
-                                    >
-                                        UPDATE
-                                    </NavLink>
-                                    <Button
-                                        onClick={() => handleDelete(item)}
-                                        className={classes.deleteButton}
-                                    >
-                                        Delete
-                                    </Button>
+                                {item.user === currentUser.name  ? (
+                                    <>
+                                        <NavLink 
+                                            to={`/edit/${item.id}`}
+                                            className={classes.updateButton}
+                                        >
+                                            UPDATE
+                                        </NavLink>
+                                        <Button
+                                            onClick={() => handleDelete(item)}
+                                            className={classes.deleteButton}
+                                        >
+                                            Delete
+                                        </Button>  
+                                    </>
+                                ) : (
+                                    <></>
+                                )}
                                 </TableCell>
                             </TableRow>
                         ))}
