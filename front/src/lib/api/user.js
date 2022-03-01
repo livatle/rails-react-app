@@ -2,7 +2,6 @@
 import client from './client';
 import Cookies from "js-cookie"
 
-//詳細
 export const getUserPosts = (id) => {
   return client.get(`/users/${id}`,
   {headers: {

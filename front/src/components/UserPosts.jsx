@@ -36,18 +36,20 @@ const useStyles = makeStyles(() =>
 );
 
 const UserPosts = () => {
-const classes = useStyles();
+  const classes = useStyles();
+  const [user, setUser] = useState('');
   const [dataUser, setDataUser] = useState([]);
   const query = useParams();
 
   const handleGetUserPosts = async () => {
-      try {
+    try {
         const res = await getUserPosts(query.id);
         console.log(res.data);
+        setUser(res.data.user.name);
         setDataUser(res.data.posts);
-      } catch (e) {
-        console.log(e);
-      }
+    } catch (e) {
+        console.log(e)
+    }
   };
 
   useEffect(() => {
@@ -84,7 +86,7 @@ const classes = useStyles();
                                     <NavLink 
                                         to={`/users/${item.userId}`}
                                     >
-                                        <p className="c-grid__item">{item.user}</p>
+                                        <p className="c-grid__item">{user}</p>
                                     </NavLink>
                                 </TableCell>
                                 <TableCell align="center"sx={{width: "60%"}}>
