@@ -69,22 +69,22 @@ const PostsList = () => {
             component="main"
             sx={{ ml: "240px", width: `calc(100% - ${drawerWidth}px)` }}
         >
-            <TableContainer>
+            <TableContainer sx={{ bgcolor: "#222A50" }}>
                 <Table>
                     <TableBody>
                         {dataList.map((item, index) => (
                             <TableRow
                                 key={index}
                                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                            > 
-                                <TableCell align="center" sx={{width: "20%"}}>
+                            >
+                                <TableCell align={"center"}>
                                     <NavLink 
                                         to={`/users/${item.userId}`}
                                     >
                                         <p className="c-grid__item">{item.user}</p>
                                     </NavLink>
                                 </TableCell>
-                                <TableCell align="center"sx={{width: "60%"}}>
+                                <TableCell>
                                     <NavLink 
                                         to={`/post/${item.id}`}
                                         className={classes.button}
@@ -92,7 +92,7 @@ const PostsList = () => {
                                         <p className="c-grid__item">{item.content}</p>
                                     </NavLink>
                                 </TableCell>
-                                <TableCell align="center" sx={{width: "20%"}}>
+                                <TableCell sx={{width: "15%"}}>
                                     <NavLink 
                                         to={`/edit/${item.id}`}
                                         className={classes.updateButton}

@@ -47,8 +47,8 @@ const Detail = () => {
                                 <p className="c-grid__item">{data.content}</p>
                             </TableCell>
                         <TableCell align="center">
-                                <FavoriteButton />
-                            </TableCell>
+                            <FavoriteButton />
+                        </TableCell>
                         </TableRow>
                     </TableBody>
                 </Table>

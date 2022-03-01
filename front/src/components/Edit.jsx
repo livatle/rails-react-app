@@ -6,10 +6,7 @@ import FormBody from './Form';
 
 const Edit = () => {
   // apiで取得したデータを管理する為のstate
-  const [value, setValue] = useState({
-    name: '',
-    content: ''
-  })
+  const [value, setValue] = useState('')
   // 一覧からreact-router-domを使ってidを取得
   const query = useParams();
 
@@ -25,8 +22,8 @@ const Edit = () => {
       console.log(res.data)
       // 使う値のみstateにセットする
       setValue({
-        name: res.data.name,
-        content: res.data.content,
+        name: res.data.post.name,
+        content: res.data.post.content
       })
     } catch (e) {
       console.log(e)
@@ -53,15 +50,12 @@ const Edit = () => {
   }
 
   return(
-    <>
-      <h2 className='u-text'>EDIT POST</h2>
-      <FormBody
-        handleChange={handleChange}
-        handleSubmit={handleSubmit}
-        value={value}
-        buttonType='更新'
-      />
-    </>
+    <FormBody
+      handleChange={handleChange}
+      handleSubmit={handleSubmit}
+      value={value}
+      buttonType='update'
+    />
   )
 }
 export default Edit

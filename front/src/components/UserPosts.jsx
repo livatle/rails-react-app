@@ -14,14 +14,14 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableRow from '@mui/material/TableRow';
 import TableBody from "@mui/material/TableBody";
+import { Icon } from '@mui/material';
+import DeleteIcon from '@mui/icons-material/Delete';
+import ModeEditOutlineIcon from '@mui/icons-material/ModeEditOutline';
 
 const drawerWidth = 240;
 
 const useStyles = makeStyles(() =>
   createStyles({
-      tableRow: {
-          borderRadius: "5px"
-      },
       updateButton: {
           color: "#ff1988",
           textDecoration: "none",
@@ -70,17 +70,17 @@ const UserPosts = () => {
   const UserTable = () => {
       if (dataUser.length >= 1) {
         return (
-          <Box 
-            component="main"
-            sx={{ ml: "240px", width: `calc(100% - ${drawerWidth}px)` }}
-          >
             <TableContainer>
+                <h2 className="p-text">{user},s POST</h2>
+                <FollowInfo 
+                    user={user}
+                />
                 <Table>
                     <TableBody>
                         {dataUser.map((item, index) => (
                             <TableRow
                                 key={index}
-                                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                                sx={{ bgcolor: "#222A50", '&:last-child td, &:last-child th': { border: 0 } }}
                             > 
                                 <TableCell align="center" sx={{width: "20%"}}>
                                     <NavLink 
@@ -89,7 +89,7 @@ const UserPosts = () => {
                                         <p className="c-grid__item">{user}</p>
                                     </NavLink>
                                 </TableCell>
-                                <TableCell align="center"sx={{width: "60%"}}>
+                                <TableCell>
                                     <NavLink 
                                         to={`/post/${item.id}`}
                                         className={classes.button}
@@ -102,12 +102,14 @@ const UserPosts = () => {
                                         to={`/edit/${item.id}`}
                                         className={classes.updateButton}
                                     >
+                                        <ModeEditOutlineIcon />
                                         UPDATE
                                     </NavLink>
                                     <Button
                                         onClick={() => handleDelete(item)}
                                         className={classes.deleteButton}
                                     >
+                                        <DeleteIcon />
                                         Delete
                                     </Button>
                                 </TableCell>
@@ -116,18 +118,20 @@ const UserPosts = () => {
                     </TableBody>
                 </Table>           
             </TableContainer>
-          </Box>
         );
       } else {
         return (
-            <h2 className="u-text">NO POST</h2>
+            <h2 className="p-text">NO POST</h2>
         );
       }
   };
   return (
-    <>
-      <UserTable />
-    </>
+    <Box 
+            component="main"
+            sx={{ ml: "240px", width: `calc(100% - ${drawerWidth}px)` }}
+    >
+        <UserTable />
+    </Box>
   )
 }
 

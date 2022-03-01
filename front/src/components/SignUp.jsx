@@ -8,6 +8,7 @@ import { signUp } from '../lib/api/auth';
 // component
 import { SignForm } from './index'
 
+
 const SignUp = () => {
     const navigate = useNavigate();
 
@@ -51,21 +52,18 @@ const SignUp = () => {
       };
 
     return (
-        <div className="c-grid">
-          <h1 className="u-text">SIGN UP</h1>
-          <SignForm
-              name={name}
-              setName={setName}
-              email={email}
-              setEmail={setEmail}
-              password={password}
-              setPassword={setPassword}
-              passwordConfirmation={passwordConfirmation}
-              setPasswordConfirmation={setPasswordConfirmation}
-              handleSubmit={signUpHandleSubmit}
-              signType='signUp'
-            />
-        </div>
+      <SignForm
+          name={name}
+          setName={setName}
+          email={email}
+          setEmail={setEmail}
+          password={password}
+          setPassword={setPassword}
+          passwordConfirmation={passwordConfirmation}
+          setPasswordConfirmation={setPasswordConfirmation}
+          handleSubmit={signUpHandleSubmit}
+          signType='signUp'
+      />
     )
 }
 

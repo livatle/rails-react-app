@@ -8,6 +8,8 @@ import { AuthContext } from '../App';
 // api
 import { signIn } from '../lib/api/auth';
 
+const drawerWidth = 240;
+
 const SignIn = () => {
     const navigate = useNavigate();
     const { setIsSignedIn, setCurrentUser } = useContext(AuthContext);
@@ -45,8 +47,6 @@ const SignIn = () => {
       };
 
     return (
-        <div className="c-grid">
-          <h1 className="u-text">SIGN IN</h1>
           <SignForm 
               email={email}
               setEmail={setEmail}
@@ -55,7 +55,6 @@ const SignIn = () => {
               handleSubmit={signInHandleSubmit}
               signType='signIn'
           />
-        </div>
     )
 }
 
