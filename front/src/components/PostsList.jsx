@@ -1,40 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
-import { createStyles, makeStyles } from '@mui/styles';
+import { PostsTable } from './index'
 import { getList, deletePost } from '../lib/api/post'
 import { AuthContext } from '../App';
 
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Table from "@mui/material/Table";
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableRow from '@mui/material/TableRow';
-import { TableBody } from "@mui/material";
-
-const drawerWidth = 240;
-
-const useStyles = makeStyles(() =>
-    createStyles({
-        tableRow: {
-            borderRadius: "5px"
-        },
-        updateButton: {
-            color: "#ff1988",
-            textDecoration: "none",
-            marginRight: "1em"
-        },
-        deleteButton: {
-            color: "#ff1988",
-            textDecoration: "none",
-            paddingBottom: "0.5em"
-        }
-    }),
-);
-
-
 const PostsList = () => {
-    const classes = useStyles();
     const { currentUser } = useContext(AuthContext)
     const [dataList, setDataList] = useState([]);
 
@@ -67,60 +36,15 @@ const PostsList = () => {
     }
 
     return (
-        <Box 
-            component="main"
-            sx={{ ml: "240px", width: `calc(100% - ${drawerWidth}px)` }}
-        >
-            <TableContainer>
-                <h2 className="p-text">All POSTS</h2>
-                <Table>
-                    <TableBody>
-                        {dataList.map((item, index) => (
-                            <TableRow
-                                key={index}
-                                sx={{ bgcolor: "#222A50", '&:last-child td, &:last-child th': { border: 0 } }}
-                            >
-                                <TableCell align={"center"}>
-                                    <NavLink 
-                                        to={`/users/${item.userId}`}
-                                    >
-                                        <p className="c-grid__item">{item.user}</p>
-                                    </NavLink>
-                                </TableCell>
-                                <TableCell>
-                                    <NavLink 
-                                        to={`/post/${item.id}`}
-                                        className={classes.button}
-                                    >
-                                        <p className="c-grid__item">{item.content}</p>
-                                    </NavLink>
-                                </TableCell>
-                                <TableCell sx={{width: "15%"}}>
-                                {item.user === currentUser?.name  ? (
-                                    <>
-                                        <NavLink 
-                                            to={`/edit/${item.id}`}
-                                            className={classes.updateButton}
-                                        >
-                                            UPDATE
-                                        </NavLink>
-                                        <Button
-                                            onClick={() => handleDelete(item)}
-                                            className={classes.deleteButton}
-                                        >
-                                            Delete
-                                        </Button>  
-                                    </>
-                                ) : (
-                                    <></>
-                                )}
-                                </TableCell>
-                            </TableRow>
-                        ))}
-                    </TableBody>
-                </Table>           
-            </TableContainer>
-        </Box>
+        <>
+            <h2 className="p-text">All POST</h2>
+            <PostsTable
+                currentUser={currentUser}
+                dataList={dataList}
+                handleDelete={handleDelete}
+                username={dataList.user}
+            />
+        </>
     )
 }
 

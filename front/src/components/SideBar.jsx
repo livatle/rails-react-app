@@ -35,7 +35,7 @@ const SideBar = () => {
     return (
              <Box
                 className={classes.drawer}
-                sx={{ width: drawerWidth, bgcolor: "#222A50"}}
+                sx={{ width: drawerWidth, bgcolor: "black"}}
             >
                  <MenuList>
                      <MenuItem sx={{mt: "40px"}}>

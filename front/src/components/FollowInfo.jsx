@@ -46,7 +46,7 @@ const FollowInfo = (props) => {
     }, [query])
 
     const FollowButton = () => {
-        if (user === currentUser.name) {
+        if (user === currentUser?.name) {
             return (
                 <></>
             );

@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { getFollowersList } from "../lib/api/user";
 
-import { Box, Table, TableBody, TableCell, TableContainer, TableRow } from "@mui/material";
-
-
-const drawerWidth = 240;
+import { FollowTable } from "./index";
 
 const FollowersList = () => {
     const query = useParams();
@@ -26,25 +23,10 @@ const FollowersList = () => {
     const FollowersTable = () => {
         if (followersList.length >= 1) {
             return(
-                <TableContainer>
-                    <h2 className="p-text">FOLLOWERS</h2>
-                    <Table>
-                        <TableBody>
-                            {followersList.map((user, index) => (
-                                <TableRow
-                                    key={index}
-                                    sx={{ bgcolor: "#222A50", '&:last-child td, &:last-child th': { border: 0 } }}
-                                >   
-                                    <TableCell align="center">
-                                        <Link to={`/users/${user.id}`}>
-                                            <p className="c-grid__item">{user.name}</p>
-                                        </Link>
-                                    </TableCell>
-                                </TableRow>
-                            ))}
-                        </TableBody>
-                    </Table>
-                </TableContainer>
+                <FollowTable
+                    followingData={followersList}
+                    followType="Followers"
+                />
             )
         }  else {
             return (
@@ -53,12 +35,9 @@ const FollowersList = () => {
         }
     }
     return (
-        <Box 
-            component="main"
-            sx={{ ml: "240px", width: `calc(100% - ${drawerWidth}px)` }}
-        >
+        <>
             <FollowersTable />
-        </Box>
+        </>
     )
         
 }
