@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from 'react-router-dom'
 
-import { FollowInfo } from './index'
-import { PostsTable } from './index'
+import { FollowInfo, PostsTable } from './index'
 // api
 import { getUserPosts } from '../lib/api/user';
 import { deletePost } from '../lib/api/post'
