@@ -1,10 +1,8 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { PostsTable } from './index'
 import { getList, deletePost } from '../lib/api/post'
-import { AuthContext } from '../App';
 
 const PostsList = () => {
-    const { currentUser } = useContext(AuthContext)
     const [dataList, setDataList] = useState([]);
 
     const handleGetList = async () => {
@@ -39,7 +37,7 @@ const PostsList = () => {
         <>
             <h2 className="p-text">All POST</h2>
             <PostsTable
-                currentUser={currentUser}
+                
                 dataList={dataList}
                 handleDelete={handleDelete}
                 username={dataList.user}
