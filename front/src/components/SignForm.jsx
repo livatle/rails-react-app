@@ -8,7 +8,7 @@ import Typography from '@mui/material/Typography';
 
 export const formStyle = {
   '& div': {
-    width: "50%"
+    width: "80%",
   },
   '& .MuiInputBase-input': {
     color: 'white'
@@ -23,6 +23,7 @@ export const formStyle = {
     }
   },
 }
+const drawerWidth = 240;
 
 const SignForm = (props) => {
     const {
@@ -40,15 +41,22 @@ const SignForm = (props) => {
 
     return (
       <Box
-          sx={{
-              width: "80%",
-              display: "flex",
-              flexDirection: "column",
-              mt: "2em",
-              mr: "auto",
-              ml: "auto"
-          }}
+        component="main"
+        sx={{
+            width: `calc(100% - ${drawerWidth}px)`,
+            ml: "240px"
+        }}
       >
+        <div className="post-box">
+        {signType === 'signUp' ? (
+          <h2 className="c-text">
+            SIGN UP
+          </h2>) : (
+          <h2 className="c-text">
+            SIGN IN
+          </h2>
+          ) 
+        }
         {signType === 'signUp' && (
           <TextField
             sx={formStyle}
@@ -86,7 +94,7 @@ const SignForm = (props) => {
             />
           )}
           <Button
-            sx={{width: "50%"}}
+            sx={{ width: "80%", p: "1em", borderRadius: "10em" }}
             variant="outlined"
             type="subimit" 
             onClick={handleSubmit} 
@@ -94,17 +102,18 @@ const SignForm = (props) => {
               subimit
           </Button>
           {signType === 'signIn' && (
-            <Box sx={{mt: "2em", mr: "auto", ml: "auto"}}>
+            <Box sx={{mt: "4em"}}>
               <Typography variant='body2'>
-                Don't have an account? &nbsp;
+                <small className="u-text">Don't have an account? &nbsp;</small> 
                 <NavLink 
                   to='/signup'
                 >
-                  Sign Up now!
+                  <small className="c-text">Sign Up now!</small> 
                 </NavLink>
               </Typography>
             </Box>
           )}
+          </div>
         </Box>
     )
 }

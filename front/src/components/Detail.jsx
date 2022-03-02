@@ -8,11 +8,12 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-
-import Button from '@mui/material/Button';
+import Box from '@mui/material/Box';
 import { TableBody } from "@mui/material";
 
 import { FavoriteButton } from './index'
+
+const drawerWidth = 240;
 
 const Detail = () => {
     const [data, setData] = useState({});
@@ -34,22 +35,25 @@ const Detail = () => {
     };
 
     return (
-        <div className="c-grid">
-            <TableContainer component={Paper} sx={{bgcolor: "#222A4F", mt: "2em"}}>
+        <Box 
+            component="main"
+            sx={{ ml: "240px", width: `calc(100% - ${drawerWidth}px)` }}
+        >
+                <TableContainer component={Paper} sx={{bgcolor: "#222A4F", mt: "2em"}}>
                 <Table>
                     <TableBody>
-                            <TableRow>
-                                <TableCell align="center"sx={{width: "80%"}}>
-                                    <p className="item">{data.content}</p>
-                                </TableCell>
-                                <TableCell align="center">
-                                    <FavoriteButton />
-                                </TableCell>
-                            </TableRow>
+                        <TableRow>
+                            <TableCell align="center"sx={{width: "80%"}}>
+                                <p className="c-grid__item">{data.content}</p>
+                            </TableCell>
+                        <TableCell align="center">
+                            <FavoriteButton />
+                        </TableCell>
+                        </TableRow>
                     </TableBody>
                 </Table>
             </TableContainer>
-        </div>
+        </Box>
     )
 }
 export default Detail

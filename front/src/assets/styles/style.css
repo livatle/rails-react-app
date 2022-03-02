@@ -1,10 +1,19 @@
 html {
+    height: 100%;
     background-color: #222646;
 }
-.current {
-    color: white
+
+body {
+    height: 100%;
+}
+.p {
+    width: 100%;
+    display: inline;
 }
 
+#id {
+    height: 100%;
+}
 /* component */
 .c-grid__item {
     color: white;
@@ -17,15 +26,23 @@ html {
 }
 .c-button--right {
     position: absolute;
-    top: 0%;
+    top: -100%;
     right: 5%;
+}
+.c-text {
+    color: #ff1988;
 }
 
 /* project */
+.p-text {
+    color: #ff1988; 
+    margin-top: 2em;
+    text-align: center;
+}
 .p-section__follow-info {
-    position: relative;
     display: flex;
     list-style: none;
+    position: relative;
 }
 .p-section--left {
     text-decoration: none;
@@ -35,7 +52,11 @@ html {
 
 /* utility */
 .u-text {
-    text-align: center;
-    margin-top: 2em;
-    color: #ff1988;
+    color: white;
+}
+.post-box {
+    display: flex;
+    flex-direction: column;
+    margin-top: 8rem;
+    margin-left: 160px;
 }

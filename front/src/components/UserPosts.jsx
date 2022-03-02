@@ -1,74 +1,67 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from 'react-router-dom'
 
-import { FollowInfo, PostsTable } from "./index";
+import { FollowInfo } from './index'
+import { PostsTable } from './index'
 // api
 import { getUserPosts } from '../lib/api/user';
-import { deletePost } from '../lib/api/post';
+import { deletePost } from '../lib/api/post'
 
-// context
-import { AuthContext } from '../App';
 
 const UserPosts = () => {
-    const [dataUser, setDataUser] = useState([]);
-    const query = useParams();
+  const [dataUser, setDataUser] = useState([]);
+  const [user, setUser] = useState('')
+  const query = useParams();
 
-    const { currentUser } = useContext(AuthContext);
-
-    const handleGetUserPosts = async () => {
-        try {
-          const res = await getUserPosts(query.id);
-          console.log(res.data);
-          setDataUser(res.data.posts);
-        } catch (e) {
-          console.log(e);
-        }
-    };
-
-    useEffect(() => {
-        handleGetUserPosts(query);
-    }, [query]);
-    
-    const handleDelete = async (item) => {
-        console.log('click', item.id)
-        try {
-        const res = await deletePost(item.id)
-        console.log(res.data)
-        // データを再取得
-        handleGetUserPosts()
-        } catch (e) {
-            console.log(e)
-        }   
+  const handleGetUserPosts = async () => {
+    try {
+        const res = await getUserPosts(query.id);
+        console.log(res.data);
+        setDataUser(res.data.posts);
+        setUser(res.data.user);
+    } catch (e) {
+        console.log(e)
     }
-        const UserTable = () => {
-            if (dataUser.length >= 1) {
-              return (
-                <>
-                  <PostsTable
-                    dataList={dataUser}
-                    handleDelete={handleDelete}
-                  />
-                </>
-              );
-            } else {
-              return (
-                  <h2 className="u-text">NO POST</h2>
-              );
-            }
-        };
-    return (
-        <div className="c-grid">
-          <div>
-          {query.id == currentUser.id ? (
-            <></>
-            ) : (
-            <FollowInfo />
-            )
-          }
-          </div>
-          <UserTable />
-        </div>
-    )
+  };
+
+  useEffect(() => {
+      handleGetUserPosts(query);
+  }, [query]);
+  
+  const handleDelete = async (item) => {
+      console.log('click', item.id)
+      try {
+      const res = await deletePost(item.id)
+      console.log(res.data)
+      // データを再取得
+      handleGetUserPosts()
+      } catch (e) {
+          console.log(e)
+      }   
+  }
+  const UserTable = () => {
+      if (dataUser.length >= 1) {
+        return (
+            <PostsTable
+                dataList={dataUser}
+                handleDelete={handleDelete}
+                username={user.name}
+                user={user.name}
+            />
+        );
+      } else {
+        return (
+            <h2 className="p-text">NO POST</h2>
+        );
+      }
+  };
+  return (
+      <>
+        <h2 className="p-text">{user.name}</h2>
+        <FollowInfo user={user.name} />
+        <UserTable />
+      </>
+  )
 }
 
 export default UserPosts

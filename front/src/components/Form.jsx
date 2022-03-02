@@ -2,36 +2,34 @@ import React from "react";
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
+import CreateIcon from '@mui/icons-material/Create';
 
 import { formStyle } from "./SignForm";
+const drawerWidth = 240;
 
 const Form = (props) => {
     const { handleChange, handleSubmit, value, buttonType } = props
     return (
-
-        <Box
+        <Box 
+            component="main"
             sx={{
-                width: "80%",
-                display: 'flex',
-                flexDirection: 'column',
-                mt: "2em",
-                mr: "auto",
-                ml: "auto"
+                width: `calc(100% - ${drawerWidth}px)`,
+                ml: "240px"
             }}
         >
-            <TextField 
-                sx={formStyle} 
-                label="name" 
-                type="text" 
-                name="name" 
-                id="name" 
-                onChange={(e) => handleChange(e)} 
-                value={value.name}
-            />
+            <div className="post-box">
+            {buttonType === 'create' ? (
+            <h2 className="c-text">
+                NEW POST
+            </h2>) : (
+            <h2 className="c-text">
+                UPDATE
+            </h2>
+            ) 
+            }
             <TextField 
                 multiline rows={4} 
                 sx={formStyle} 
-                label="content" 
                 type="text" 
                 name="content" 
                 id="content" 
@@ -39,16 +37,22 @@ const Form = (props) => {
                 value={value.content} 
             />
             <Button 
-                sx={{width: "50%", p: "1em"}} 
+                sx={{width: "80%", p: "1em", borderRadius: "10em"}} 
                 variant="outlined" 
                 type="subimit" 
                 value={buttonType} 
                 onClick={(e) => handleSubmit(e)}
             >
-                create
+                <CreateIcon sx={{mr: "0.5em"}} />
+                {buttonType === 'create' ? (
+                    "create"
+                ) : (
+                    "update"
+                ) 
+                }
             </Button>
+            </div>
         </Box>
-        
     )
 }
 

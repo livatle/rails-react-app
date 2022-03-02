@@ -1,12 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { NavLink, useParams } from "react-router-dom";
+import { AuthContext } from '../App';
 import Button from '@mui/material/Button';
 
 import { follow, unfollow } from '../lib/api/relationship'
 import { checkFollowing } from '../lib/api/user'
 
-const FollowInfo = () => {
+const FollowInfo = (props) => {
+    const { user } = props
     const query = useParams();
+    const { currentUser } = useContext(AuthContext)
     const [isFollowing, setIsFollowing] = useState('')
     const handleClickFollowButton =  async ()  => {
         if (isFollowing === false) {
@@ -41,6 +44,35 @@ const FollowInfo = () => {
     useEffect(() => {
         handleCheckFollowing(query);
     }, [query])
+
+    const FollowButton = () => {
+        if (user === currentUser?.name) {
+            return (
+                <></>
+            );
+        } else {
+            return(
+                <li className="c-button--right">
+                    <Button
+                        onClick={()=> handleClickFollowButton()}
+                        sx={{ pt: "1em", pb: "1em", pr: "2em", pl: "2em", color: "secondary", minWidth: "140px", display: "inline-block" }}
+                        variant={isFollowing ? (
+                            "contained"
+                        ) : (
+                            'outlined'
+                        )}
+                    >
+                        {isFollowing ? (
+                            'Following'
+                        ) : (
+                            'Follow'
+                        )}
+                    </Button>
+                </li>
+            ) 
+        }
+    }
+
     return (
         <ul className="p-section__follow-info">  
             <li>
@@ -48,7 +80,7 @@ const FollowInfo = () => {
                     to={`/users/${query.id}/following`}
                     className='p-section--left'
                 >
-                    フォロー中
+                    Followings
                 </NavLink>
             </li>
             <li>
@@ -56,25 +88,12 @@ const FollowInfo = () => {
                     to={`/users/${query.id}/follower`}
                     className='p-section--left'
                 >
-                    フォロワー
+                    Followers
                 </NavLink>
             </li>
-            <li className="c-button--right">
-                <Button
-                    onClick={()=> handleClickFollowButton()}
-                    sx={{color: "secondary", display: "inline-block", ml: "2em"}}
-                    variant="outlined"
-                >
-                    {isFollowing ? (
-                        'フォロー中'
-                    ) : (
-                        'フォローする'
-                    )}
-                </Button>
-            </li>
+            <FollowButton />
         </ul>
     )
-
 }
 
 export default FollowInfo

@@ -1,11 +1,10 @@
-import React, {useEffect, useState, useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { PostsTable } from './index'
 import { getList, deletePost } from '../lib/api/post'
-// context
 import { AuthContext } from '../App';
 
 const PostsList = () => {
-    const { currentUser } = useContext(AuthContext);
+    const { currentUser } = useContext(AuthContext)
     const [dataList, setDataList] = useState([]);
 
     const handleGetList = async () => {
@@ -35,14 +34,17 @@ const PostsList = () => {
         console.log(e)
         }
     }
+
     return (
-        <div className="c-grid">
+        <>
+            <h2 className="p-text">All POST</h2>
             <PostsTable
+                currentUser={currentUser}
                 dataList={dataList}
                 handleDelete={handleDelete}
-                currentUser={currentUser}
+                username={dataList.user}
             />
-        </div>
+        </>
     )
 }
 
