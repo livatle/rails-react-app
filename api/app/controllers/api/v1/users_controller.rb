@@ -6,7 +6,7 @@ class Api::V1::UsersController < ApplicationController
       render json: {
         posts: posts,
         user: user,
-        favorite_post: user.favorite_posts,
+        favorite_posts: user.favorite_posts,
         is_following: user.following?(current_api_v1_user)
       }
     end
@@ -21,5 +21,11 @@ class Api::V1::UsersController < ApplicationController
     def follower
       user = User.find(params[:id])
       render json: user.followers
+    end
+
+    # いいねしている投稿
+    def favorite_posts
+      user = User.find(params[:id]) 
+      render json: user.favorite_posts
     end
 end

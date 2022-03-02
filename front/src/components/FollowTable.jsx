@@ -13,7 +13,7 @@ const FollowTable = (props) => {
                     {followingData.map((user, index) => (
                         <TableRow
                             key={index}
-                            sx={{ '&:last-child td, &:last-child th': { border: 0 }}}
+                            sx={{ bgcolor: "#222A50", '&:last-child td, &:last-child th': { border: 0 }}}
                         >   
                             <TableCell align="center">
                                 <Link to={`/users/${user.id}`}>

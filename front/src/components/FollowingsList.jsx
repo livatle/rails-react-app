@@ -25,7 +25,7 @@ const FollowingsList = (props) => {
             return (
                 <FollowTable
                     followingData={followingsList}
-                    followType="Followings"
+                    followType="FOLLOWINGS"
                 />
             );
         } else {

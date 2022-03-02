@@ -1,22 +1,14 @@
 import React from "react";
-import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import CreateIcon from '@mui/icons-material/Create';
 
 import { formStyle } from "./SignForm";
-const drawerWidth = 240;
 
 const Form = (props) => {
     const { handleChange, handleSubmit, value, buttonType } = props
     return (
-        <Box 
-            component="main"
-            sx={{
-                width: `calc(100% - ${drawerWidth}px)`,
-                ml: "240px"
-            }}
-        >
+        <>
             <div className="post-box">
             {buttonType === 'create' ? (
             <h2 className="c-text">
@@ -52,7 +44,7 @@ const Form = (props) => {
                 }
             </Button>
             </div>
-        </Box>
+        </>
     )
 }
 

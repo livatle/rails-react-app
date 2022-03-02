@@ -55,7 +55,7 @@ const FollowInfo = (props) => {
                 <li className="c-button--right">
                     <Button
                         onClick={()=> handleClickFollowButton()}
-                        sx={{ pt: "1em", pb: "1em", pr: "2em", pl: "2em", color: "secondary", minWidth: "140px", display: "inline-block" }}
+                        sx={{ pt: "1em", pb: "1em", pr: "2em", pl: "2em", color: "secondary", minWidth: "140px", display: "inline-block", borderRadius: "10em" }}
                         variant={isFollowing ? (
                             "contained"
                         ) : (
@@ -75,20 +75,40 @@ const FollowInfo = (props) => {
 
     return (
         <ul className="p-section__follow-info">  
-            <li>
+            <li className='p-section--left'>
                 <NavLink 
                     to={`/users/${query.id}/following`}
-                    className='p-section--left'
                 >
-                    Followings
+                    <Button 
+                        variant="outlined"
+                        sx={{ pt: "1em", pb: "1em", pr: "2em", pl: "2em", color: "secondary", display: "inline-block" }}
+                    >
+                        FOLLOWINGS
+                    </Button>
                 </NavLink>
             </li>
-            <li>
+            <li className='p-section--left'>
                 <NavLink 
                     to={`/users/${query.id}/follower`}
-                    className='p-section--left'
                 >
-                    Followers
+                    <Button 
+                        variant="outlined"
+                        sx={{ pt: "1em", pb: "1em", pr: "2em", pl: "2em", color: "secondary", display: "inline-block" }}
+                    >
+                        FOLLOWERS
+                    </Button> 
+                </NavLink>
+            </li>
+            <li className='p-section--left'>
+                <NavLink 
+                    to={`/users/${query.id}/favorite_posts`}
+                >
+                    <Button 
+                        variant="outlined"
+                        sx={{ pt: "1em", pb: "1em", pr: "2em", pl: "2em", color: "secondary", display: "inline-block" }}
+                    >
+                        FAVORITE
+                    </Button> 
                 </NavLink>
             </li>
             <FollowButton />

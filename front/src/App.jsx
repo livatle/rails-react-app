@@ -1,5 +1,5 @@
 import React, { useState, useEffect, createContext } from 'react';
-import { Edit, Detail, FollowingsList, FollowersList, New, SideBar, PostsList, SignIn, SignUp, UserPosts } from './components'
+import { Edit, Detail, FollowingsList, FollowersList, New, SideBar, PostsList, SignIn, SignUp, UserPosts, FavoritePost } from './components'
 import './assets/styles/style.css'
 import {BrowserRouter as Router, Navigate, Route, Routes} from 'react-router-dom'
 import Box from '@mui/material/Box';
@@ -71,6 +71,7 @@ function App() {
               <Routes>
                 <Route exact path='/' element={<PostsList />} />
                 <Route exact path='/users/:id' element={<UserPosts />} />
+                <Route path='/users/:id/favorite_posts' element={<FavoritePost />} />
                 <Route path='/users/:id/following' element={<FollowingsList />} />
                 <Route path='/users/:id/follower' element={<FollowersList />} />
                 <Route exact path='/signup' element={<SignUp />} />
