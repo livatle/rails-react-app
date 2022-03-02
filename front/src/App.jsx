@@ -49,34 +49,32 @@ function App() {
   };
   return (
     <AuthContext.Provider
-            value={{
-              loading,
-              setLoading,
-              isSignedIn,
-              setIsSignedIn,
-              currentUser,
-              setCurrentUser,
-            }}
-      >
-        <Box sx={{ display: 'flex', height: "100%" }}>
-          <Router>
-            <SideBar />
-            <Routes>
-              <Route exact path='/' element={<PostsList />} />
-              <Route exact path='/users/:id' element={<UserPosts />} />
-              <Route path='/users/:id/following' element={<FollowingsList />} />
-              <Route path='/users/:id/follower' element={<FollowersList />} />
-              <Route exact path='/signup' element={<SignUp />} />
-              <Route exact path='/signin' element={<SignIn />} />
-              <Route path='/new' element={<Private><New /></Private>} />
-              <Route path='/post/:id' element={<Private><Detail /></Private>} />
-              <Route path='/edit/:id' element={<Private><Edit /></Private>} />
-            </Routes>
-          </Router>
-        </Box>
-      </AuthContext.Provider>
-
-    
+        value={{
+          loading,
+          setLoading,
+          isSignedIn,
+          setIsSignedIn,
+          currentUser,
+          setCurrentUser,
+        }}
+    >
+      <Box sx={{ display: 'flex', height: "100%" }}>
+        <Router>
+          <SideBar />
+          <Routes>
+            <Route exact path='/' element={<PostsList />} />
+            <Route exact path='/users/:id' element={<UserPosts />} />
+            <Route path='/users/:id/following' element={<FollowingsList />} />
+            <Route path='/users/:id/follower' element={<FollowersList />} />
+            <Route exact path='/signup' element={<SignUp />} />
+            <Route exact path='/signin' element={<SignIn />} />
+            <Route path='/new' element={<Private><New /></Private>} />
+            <Route path='/post/:id' element={<Private><Detail /></Private>} />
+            <Route path='/edit/:id' element={<Private><Edit /></Private>} />
+          </Routes>
+        </Router>
+      </Box>
+    </AuthContext.Provider>
   );
 }
 

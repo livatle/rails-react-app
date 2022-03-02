@@ -96,7 +96,7 @@ const PostsList = () => {
                                     </NavLink>
                                 </TableCell>
                                 <TableCell sx={{width: "15%"}}>
-                                {item.user === currentUser.name  ? (
+                                {item.user === currentUser?.name  ? (
                                     <>
                                         <NavLink 
                                             to={`/edit/${item.id}`}

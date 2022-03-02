@@ -127,8 +127,8 @@ const UserPosts = () => {
   };
   return (
     <Box 
-            component="main"
-            sx={{ ml: "240px", width: `calc(100% - ${drawerWidth}px)` }}
+        component="main"
+        sx={{ ml: "240px", width: `calc(100% - ${drawerWidth}px)` }}
     >
         <UserTable />
     </Box>
