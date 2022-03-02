@@ -1,10 +1,23 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { PostsTable } from './index'
 import { getList, deletePost } from '../lib/api/post'
-import { AuthContext } from '../App';
+import Button from '@mui/material/Button';
+import CreateIcon from '@mui/icons-material/Create';
+import Typography from '@mui/material/Typography';
+import { createStyles, makeStyles } from '@mui/styles';
+
+const useStyles = makeStyles(() =>
+    createStyles({
+        maxSize: {
+            width: "100%"
+        }
+    }),
+);
 
 const PostsList = () => {
-    const { currentUser } = useContext(AuthContext)
+    const navigate = useNavigate();
+    const classes = useStyles();
     const [dataList, setDataList] = useState([]);
 
     const handleGetList = async () => {
@@ -35,11 +48,35 @@ const PostsList = () => {
         }
     }
 
+    const Title = () => {
+        if (dataList.length >= 1) {
+            return (
+                <h2 className="p-text">All POST</h2>
+            )
+        } else {
+            return (
+                <>
+                    <h1 className="p-text"> FELL FREE TO POST!</h1>
+                    <Typography sx={{ mr: "auto", ml: "auto", width: "50%"}}>
+                        <Button
+                            onClick={()=> navigate('/new')}
+                            variant="outlined"
+                            className={classes.maxSize}
+                            sx={{ p: "2em", fontSize: "16px", borderRadius: "10em" }}
+                        >
+                            <CreateIcon sx={{mr: "0.5em"}} />
+                            CREATE
+                        </Button>
+                    </Typography>
+                </>
+                
+            )
+        }
+    }
     return (
         <>
-            <h2 className="p-text">All POST</h2>
+            <Title />
             <PostsTable
-                currentUser={currentUser}
                 dataList={dataList}
                 handleDelete={handleDelete}
                 username={dataList.user}

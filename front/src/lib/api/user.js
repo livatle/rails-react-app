@@ -30,6 +30,15 @@ export const getFollowersList = (id) => {
     'uid': Cookies.get('_uid')
   }})
 }
+//いいねしている投稿一覧
+export const getFavoritePosts = (id) => {
+  return client.get(`/users/${id}/favorite_posts`,
+  {headers: {
+    'access-token': Cookies.get('_access_token'),
+    'client': Cookies.get('_client'),
+    'uid': Cookies.get('_uid')
+  }})
+}
 
 //フォローしているかどうか
 export const checkFollowing = (id) => {

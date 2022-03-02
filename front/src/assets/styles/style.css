@@ -26,7 +26,7 @@ body {
 }
 .c-button--right {
     position: absolute;
-    top: -100%;
+    top: 0%;
     right: 5%;
 }
 .c-text {
@@ -46,8 +46,7 @@ body {
 }
 .p-section--left {
     text-decoration: none;
-    margin-right: 1rem;
-    color: #ff1988;
+    min-width: 100px;
 }
 
 /* utility */

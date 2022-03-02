@@ -40,13 +40,6 @@ const SignForm = (props) => {
     } = props;
 
     return (
-      <Box
-        component="main"
-        sx={{
-            width: `calc(100% - ${drawerWidth}px)`,
-            ml: "240px"
-        }}
-      >
         <div className="post-box">
         {signType === 'signUp' ? (
           <h2 className="c-text">
@@ -114,7 +107,6 @@ const SignForm = (props) => {
             </Box>
           )}
           </div>
-        </Box>
     )
 }
 
