@@ -8,6 +8,7 @@ import { AuthContext } from '../App';
 //material-ui
 import{ Button } from '@mui/material';
 
+
 const FollowInfo = (props) => {
     const { user } = props
     const [isFollowing, setIsFollowing] = useState('')
@@ -84,7 +85,7 @@ const FollowInfo = (props) => {
                 >
                     <Button 
                         variant="outlined"
-                        sx={{ pt: "1em", pb: "1em", pr: "2em", pl: "2em", color: "secondary", display: "inline-block" }}
+                        sx={{ minWidth: "13em", pt: "1em", pb: "1em", pr: "2em", pl: "2em", color: "secondary", display: "inline-block" }}
                     >
                         FOLLOWINGS
                     </Button>
@@ -92,11 +93,11 @@ const FollowInfo = (props) => {
             </li>
             <li className='p-section--left'>
                 <NavLink 
-                    to={`/users/${query.id}/follower`}
+                    to={`/users/${query.id}/follower`}    
                 >
                     <Button 
                         variant="outlined"
-                        sx={{ pt: "1em", pb: "1em", pr: "2em", pl: "2em", color: "secondary", display: "inline-block" }}
+                        sx={{ minWidth: "13em", pt: "1em", pb: "1em", pr: "2em", pl: "2em", color: "secondary", display: "inline-block" }}
                     >
                         FOLLOWERS
                     </Button> 
@@ -108,7 +109,7 @@ const FollowInfo = (props) => {
                 >
                     <Button 
                         variant="outlined"
-                        sx={{ pt: "1em", pb: "1em", pr: "2em", pl: "2em", color: "secondary", display: "inline-block" }}
+                        sx={{ minWidth: "10em", pt: "1em", pb: "1em", pr: "2em", pl: "2em", color: "secondary", display: "inline-block" }}
                     >
                         FAVORITE POSTS
                     </Button> 
