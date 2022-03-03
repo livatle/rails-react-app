@@ -1,13 +1,10 @@
 import React, {useEffect, useState} from "react";
 import { useParams} from 'react-router-dom'
+//api
 import { getDetail } from "../lib/api/post"; 
-
-
-import Table from "@mui/material/Table";
-import TableCell from '@mui/material/TableCell';
-import TableRow from '@mui/material/TableRow';
-import { TableBody } from "@mui/material";
-
+//material-ui
+import { Divider, Table, TableBody, TableCell, TableRow } from "@mui/material";
+//component
 import { FavoriteButton } from './index'
 
 const Detail = () => {
@@ -30,11 +27,12 @@ const Detail = () => {
 
     return (
         <>
-            <h2 className="p-text">DETAIL</h2>
+            <h2 className="c-text">DETAIL</h2>
+            <Divider color="#ffffff" />
             <Table>
                 <TableBody>
-                    <TableRow>
-                        <TableCell align="center"sx={{width: "80%"}}>
+                    <TableRow sx={{ '&:last-child td, &:last-child th': { border: 0 }}}>
+                        <TableCell align="center">
                             <p className="c-grid__item">{data.content}</p>
                         </TableCell>
                     <TableCell align="center">

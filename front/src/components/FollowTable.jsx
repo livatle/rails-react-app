@@ -1,13 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
-import { Table, TableBody, TableCell, TableRow } from "@mui/material";
+//material-ui
+import { Divider, Table, TableBody, TableCell, TableRow } from "@mui/material";
 
 const FollowTable = (props) => {
     const { followingData, followType } = props
+    
     return (
         <>
-            <h2 className="p-text">{followType}</h2>
+            <h2 className="c-text">{followType}</h2>
+            <Divider color="#ffffff" />
             <Table>
                 <TableBody>
                     {followingData.map((user, index) => (

@@ -1,29 +1,24 @@
 import React from "react";
-import Button from '@mui/material/Button';
+import { useNavigate } from "react-router-dom";
+//material-ui
+import { Button } from '@mui/material';
 import { Icon } from '@mui/material';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
-import { useNavigate } from "react-router-dom";
-
-import { createStyles, makeStyles } from '@mui/styles';
-
-const useStyles = makeStyles(() =>
-        createStyles({
-            maxSize: {
-                height: "100%",
-                width: "100%"
-            }
-        }),
-    );
-
+import { sideBarStyle } from "./SideBar";
 
 const SignUpButton = () => {
-    const classes = useStyles();
     const navigate = useNavigate();
+    
     return (
         <Button 
             onClick={()=> navigate('/signup')}
-            className={classes.maxSize}
-            sx={{color: "white", fontSize: "16px", display: "inline-block" }}
+            sx={{
+                color: "#ffffff",
+                display: "inline-block",
+                fontSize: "1em",
+                height: sideBarStyle.maxSize.height,
+                width: sideBarStyle.maxSize.width
+            }}
         >
             <Icon sx={{mr: "0.5em"}}>
                 <ExitToAppIcon />

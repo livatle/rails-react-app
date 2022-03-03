@@ -1,13 +1,14 @@
 import React, {useEffect, useState } from "react";
 import { useParams } from 'react-router-dom'
-
+//api
 import { checkFavorite, favorite, unfavorite } from '../lib/api/post'
+//material-ui
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 
 const FavoriteButton = () => {
-    const query = useParams();
     const [isFavorite, setIsFavorite] = useState('')
+    const query = useParams();
 
     const handleClickFavoriteButton = async () => {
         if (isFavorite === false) {
@@ -48,12 +49,14 @@ const FavoriteButton = () => {
                 <FavoriteIcon 
                     onClick={()=> handleClickFavoriteButton()}
                     color="secondary"
+                    fontSize="large"
                 />
             ) : (
                 <FavoriteBorderIcon
                     onClick={()=> handleClickFavoriteButton()}
                     variant="outlined"
                     color="secondary"
+                    fontSize="large"
                 />
             )}
         </>

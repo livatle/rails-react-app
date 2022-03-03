@@ -1,38 +1,35 @@
 import React, { useContext } from "react";
-
 import { NavLink } from "react-router-dom";
-import { createStyles, makeStyles } from '@mui/styles';
+//context
 import { AuthContext } from '../App';
-
-import Button from '@mui/material/Button';
-import Table from "@mui/material/Table";
-import TableCell from '@mui/material/TableCell';
-import TableRow from '@mui/material/TableRow';
-import { TableBody } from "@mui/material";
+//material-ui
+import { createStyles, makeStyles } from '@mui/styles';
+import { Button, Icon, Table, TableBody, TableCell, TableRow } from '@mui/material';
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 
 const useStyles = makeStyles(() =>
     createStyles({
-        tableRow: {
-            borderRadius: "5px"
-        },
         updateButton: {
             color: "#ff1988",
             textDecoration: "none",
-            marginRight: "1em"
+            marginRight: "1em",
+            marginBottom: "0.5em"
         },
         deleteButton: {
             color: "#ff1988",
             textDecoration: "none",
-            paddingBottom: "0.5em"
+            paddingTop: "0.9em",
+            paddingBottom: "0.9em"
         }
     }),
 );
 
 const PostsTable = (props) => {
     const { dataList, handleDelete, username } = props
-    const classes = useStyles();
     const { currentUser } = useContext(AuthContext)
+    const classes = useStyles();
 
     return (
         <>
@@ -54,25 +51,30 @@ const PostsTable = (props) => {
                             <TableCell>
                                 <NavLink 
                                     to={`/post/${item.id}`}
-                                    className={classes.button}
                                 >
                                     <p className="c-grid__item">{item.content}</p>
                                 </NavLink>
                             </TableCell>
-                            <TableCell sx={{width: "15%"}}>
+                            <TableCell sx={{width: "20%"}}>
                             {item.userId === currentUser?.id ? (
                                 <>
-                                    <NavLink 
-                                        to={`/edit/${item.id}`}
-                                        className={classes.updateButton}
-                                    >
-                                        UPDATE
-                                    </NavLink>
+                                    <Button>
+                                        <NavLink 
+                                            to={`/edit/${item.id}`}
+                                            className={classes.updateButton}
+                                        >
+                                            <Icon>
+                                                <EditIcon />
+                                            </Icon>
+                                            EDIT
+                                        </NavLink>
+                                    </Button>
                                     <Button
                                         onClick={() => handleDelete(item)}
                                         className={classes.deleteButton}
                                     >
-                                        Delete
+                                        <DeleteIcon />
+                                        DELETE
                                     </Button>
                                 </>
                             ) : (

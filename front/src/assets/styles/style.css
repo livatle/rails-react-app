@@ -2,27 +2,10 @@ html {
     height: 100%;
     background-color: #222646;
 }
-
-body {
-    height: 100%;
-}
-.p {
-    width: 100%;
-    display: inline;
-}
-
-#id {
-    height: 100%;
-}
 /* component */
 .c-grid__item {
-    color: white;
+    color: #ffffff;
     text-decoration: none;
-}
-.c-grid {
-    width: 80%;
-    height: auto;
-    margin: 0 auto;
 }
 .c-button--right {
     position: absolute;
@@ -30,14 +13,19 @@ body {
     right: 5%;
 }
 .c-text {
-    color: #ff1988;
-}
-
-/* project */
-.p-text {
     color: #ff1988; 
     margin-top: 2em;
     text-align: center;
+}
+/* project */
+.p-box {
+    display: flex;
+    flex-direction: column;
+    margin-top: 8em;
+    margin-left: 10em;
+}
+.p-text {
+    color: #ff1988;
 }
 .p-section__follow-info {
     display: flex;
@@ -51,11 +39,5 @@ body {
 
 /* utility */
 .u-text {
-    color: white;
-}
-.post-box {
-    display: flex;
-    flex-direction: column;
-    margin-top: 8rem;
-    margin-left: 160px;
+    color: #ffffff;
 }

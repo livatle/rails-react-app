@@ -1,30 +1,22 @@
 import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import Cookies from 'js-cookie';
-import { createStyles, makeStyles } from '@mui/styles'
-import Button from '@mui/material/Button';
-import { Icon } from '@mui/material';
+//material-ui
+import { Button, Icon } from '@mui/material';
 import LogoutIcon from '@mui/icons-material/Logout';
 
 // api
 import { signOut } from '../lib/api/auth';
 // context
 import { AuthContext } from '../App';
+//style
+import { sideBarStyle } from "./SideBar";
 
-const useStyles = makeStyles(() =>
-        createStyles({
-            maxSize: {
-                height: "100%",
-                width: "100%"
-            }
-        }),
-    );
 const SignOutButton = () => {
-    const classes = useStyles();
     const { setIsSignedIn } = useContext(AuthContext)
     const navigate = useNavigate()
 
-    const handleSignOut = async (e) => {
+    const handleSignOut = async () => {
         try {
         const res = await signOut();
 
@@ -38,9 +30,9 @@ const SignOutButton = () => {
             console.log('succeeded in sign out');
         } else {
             console.log('failed in sign out');
-        }
+            } 
         } catch (e) {
-        console.log(e);
+            console.log(e);
         }
     };
 
@@ -49,10 +41,15 @@ const SignOutButton = () => {
         <>
             <Button 
                 onClick={handleSignOut}
-                sx={{color: "white", fontSize: "16px", display: "inline-block"}}
-                className={classes.maxSize}
+                sx={{
+                    color: "#ffffff",
+                    display: "inline-block",
+                    height: sideBarStyle.maxSize.height,
+                    fontSize: "1em",
+                    width: sideBarStyle.maxSize.width
+                }}
                 >
-                    <Icon sx={{mr: "0.5em"}}>
+                    <Icon sx={{ mr: "0.5em" }}>
                         <LogoutIcon />
                     </Icon>
                     SIGN OUT

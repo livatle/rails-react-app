@@ -1,73 +1,86 @@
 import React from "react";
 import { useNavigate } from 'react-router-dom';
+//component
 import { AuthButtons } from './index'
-import { Icon } from '@mui/material';
+//material-ui
+import { Box, Button, Icon, MenuItem, MenuList, Typography } from '@mui/material';
 import HomeIcon from '@mui/icons-material/Home';
-
-import Box from '@mui/material/Box';
-import Divider from '@mui/material/Divider';
-import MenuList from '@mui/material/MenuList';
-import MenuItem from '@mui/material/MenuItem';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
 import CreateIcon from '@mui/icons-material/Create';
-import { createStyles, makeStyles } from '@mui/styles';
+//style
+import { drawerWidth } from "../App";
 
-const useStyles = makeStyles(() =>
-        createStyles({
-            drawer: {
-                height: "100%",
-                position: "fixed"
-            },
-            maxSize: {
-                height: "100%",
-                width: "100%"
-            }
-        }),
-    );
-
-const drawerWidth = 240;
+export const  sideBarStyle = {
+    menuItemHeight: {
+        height: "5em"
+    },
+    iconMargin: {
+        marginRight : "0.5em"
+    },
+    buttonBorderRadius: {
+        borderRadius: "10em"
+    },
+    maxSize: {
+        height: "100%",
+        width: "100%"
+    }
+}
 
 const SideBar = () => {
     const navigate = useNavigate();
-    const classes = useStyles();
 
     return (
-             <Box
-                className={classes.drawer}
-                sx={{ width: drawerWidth, bgcolor: "black"}}
-            >
-                 <MenuList>
-                     <MenuItem sx={{mt: "40px"}}>
-                        <Typography className={classes.maxSize}>
-                            <Button
-                                onClick={()=> navigate('/')}
-                                sx={{color: "white", fontSize: "16px"}}
-                                className={classes.maxSize}
-                            >
-                                <HomeIcon sx={{mr: "0.5em"}} />
-                                FOOTHUB
-                            </Button>
-                        </Typography>
-                     </MenuItem>
-                    <MenuItem sx={{ mt: "40px", height: "80px"}}>
-                        <Typography 
-                        sx={{ borderRadius: "10em" }}
-                        className={classes.maxSize}>
-                            <Button
-                                onClick={()=> navigate('/new')}
-                                className={classes.maxSize}
-                                variant="outlined"
-                                sx={{ fontSize: "16px", borderRadius: "10em" }}
-                            >
-                                <CreateIcon sx={{mr: "0.5em"}} />
-                                CREATE
-                            </Button>
-                        </Typography>
-                    </MenuItem>
-                    <AuthButtons/>
-                </MenuList>
-            </Box>
+        <Box
+            sx={{ bgcolor: "#000000", height: "100%", position: "fixed", width: drawerWidth}}
+        >
+            <MenuList>
+                <MenuItem sx={{ height: sideBarStyle.menuItemHeight }}>
+                    <Typography 
+                        sx={{
+                            height: sideBarStyle.maxSize.height,
+                            width: sideBarStyle.maxSize.width
+                        }}>
+                        <Button
+                            onClick={()=> navigate('/')}
+                            sx={{ 
+                                color: "#ffffff",
+                                display: "inline-block",
+                                fontSize: "1.2em",
+                                height: sideBarStyle.maxSize.height,
+                                width: sideBarStyle.maxSize.width
+                            }}
+                        >
+                            <Icon sx={{mr: sideBarStyle.iconMargin}}>
+                                <HomeIcon />
+                            </Icon>
+                            FOOTHUB
+                        </Button>
+                    </Typography>
+                </MenuItem>
+                <MenuItem sx={{ height: sideBarStyle.menuItemHeight }}>
+                    <Typography
+                        sx={{ 
+                            height: sideBarStyle.maxSize.height,
+                            width: sideBarStyle.maxSize.width
+                        }}
+                    >
+                        <Button
+                            onClick={()=> navigate('/new')}
+                            sx={{ 
+                                borderRadius: sideBarStyle.buttonBorderRadius,
+                                fontSize: "1em",
+                                height: sideBarStyle.maxSize.height,
+                                width: sideBarStyle.maxSize.width
+                            }}
+                            variant="outlined"
+                        >
+                            <CreateIcon sx={{mr: sideBarStyle.iconMargin}} />
+                            CREATE
+                        </Button>
+                    </Typography>
+                </MenuItem>
+                <AuthButtons/>
+            </MenuList>
+        </Box>
     )
 }
 export default SideBar

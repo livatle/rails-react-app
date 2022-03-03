@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
-import FormBody from './Form';
-import { createPost } from '../lib/api/post';
 import { useNavigate } from 'react-router-dom';
+//api
+import { createPost } from '../lib/api/post';
+//component
+import FormBody from './Form';
 
 const New = () => {
   const [value, setValue] = useState({})
   const [alertMessageOpen, setAlertMessageOpen] = useState(false)
   const navigate = useNavigate();
+
   const handleChange = (e) => {
     setValue({
       ...value,
@@ -17,10 +20,12 @@ const New = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(value);
+
     const params = {
       name: value.name,
       content: value.content
     }
+    
     try {
       const res = await createPost(params)
       console.log(res)

@@ -1,33 +1,30 @@
 import React, { useContext, useState} from "react";
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
-// component
-import { SignForm } from './index'
+//api
+import { signIn } from '../lib/api/auth';
 // context
 import { AuthContext } from '../App';
-// api
-import { signIn } from '../lib/api/auth';
+// component
+import { SignForm } from './index'
 
 const SignIn = () => {
-    const navigate = useNavigate();
-    const { setIsSignedIn, setCurrentUser } = useContext(AuthContext);
-
-
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [alertMessageOpen, setAlertMessageOpen] = useState(false)
+    const navigate = useNavigate();
+    const { setIsSignedIn, setCurrentUser } = useContext(AuthContext);
 
     const signInHandleSubmit = async (e) => {
       e.preventDefault();
-    
+
         const params = {
           email: email,
           password: password,
         }
-    
+        
         try {
           const res = await signIn(params);
-    
           if (res.status === 200) {
             // 成功した場合はCookieに各値を格納
             Cookies.set('_access_token', res.headers['access-token']);
@@ -49,16 +46,16 @@ const SignIn = () => {
       };
 
     return (
-          <SignForm 
-              email={email}
-              setEmail={setEmail}
-              password={password}
-              setPassword={setPassword}
-              alertMessageOpen={alertMessageOpen}
-              setAlertMessageOpen={setAlertMessageOpen}
-              handleSubmit={signInHandleSubmit}
-              signType='signIn'
-          />
+        <SignForm 
+            email={email}
+            setEmail={setEmail}
+            password={password}
+            setPassword={setPassword}
+            alertMessageOpen={alertMessageOpen}
+            setAlertMessageOpen={setAlertMessageOpen}
+            handleSubmit={signInHandleSubmit}
+            signType='signIn'
+        />
     )
 }
 
