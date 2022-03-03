@@ -2,7 +2,6 @@ import React, { useState, useEffect} from "react"
 import { Link, useParams } from 'react-router-dom'
 import { getFavoritePosts } from '../lib/api/user';
 import { Table, TableBody, TableCell, TableRow } from "@mui/material";
-import { FavoriteButton } from "./index"
 
 const FavoritePost = () => {
     const [favoriteData, setFavoriteData] = useState([])
@@ -24,7 +23,7 @@ const FavoritePost = () => {
         if (favoriteData.length >= 1) {
             return (
                 <>
-                    <h2 className="p-text">Favorite Post</h2>
+                    <h2 className="p-text">FAVORITE POST</h2>
                     <Table>
                         <TableBody>
                             {favoriteData.map((item, index) => (

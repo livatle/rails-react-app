@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from 'react-router-dom';
+import { AlertMessage } from './index'
 
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -23,7 +24,6 @@ export const formStyle = {
     }
   },
 }
-const drawerWidth = 240;
 
 const SignForm = (props) => {
     const {
@@ -37,6 +37,8 @@ const SignForm = (props) => {
         setName,
         passwordConfirmation,
         setPasswordConfirmation,
+        alertMessageOpen,
+        setAlertMessageOpen
     } = props;
 
     return (
@@ -106,6 +108,12 @@ const SignForm = (props) => {
               </Typography>
             </Box>
           )}
+          <AlertMessage
+            open={alertMessageOpen}
+            setOpen={setAlertMessageOpen}
+            severity="error"
+            message="メールアドレスかパスワードが間違っています"
+          />
           </div>
     )
 }

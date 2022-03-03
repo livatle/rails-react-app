@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import FormBody from './Form';
+import { Alert } from '@mui/material';
+import { AlertTitle } from '@mui/material';
 import { createPost } from '../lib/api/post';
 import { useNavigate } from 'react-router-dom';
 
 const New = () => {
   const [value, setValue] = useState({})
   const navigate = useNavigate();
-
   const handleChange = (e) => {
     setValue({
       ...value,

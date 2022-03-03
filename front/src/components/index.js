@@ -1,4 +1,5 @@
 //エントリポイントとして使用
+export {default as AlertMessage} from './AlertMessage'
 export {default as AuthButtons} from './AuthButtons'
 export {default as Detail} from './Detail'
 export {default as Edit} from './Edit'
