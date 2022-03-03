@@ -19,6 +19,11 @@ class Api::V1::UsersController < ApplicationController
       render json: user.followers
     end
 
+    #いいねしている投稿一覧
+    def favorite_posts
+      render json: user.favorite_posts
+    end
+
     private
       def user
         user = User.find(params[:id])
