@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import FormBody from './Form';
-import { Alert } from '@mui/material';
-import { AlertTitle } from '@mui/material';
 import { createPost } from '../lib/api/post';
 import { useNavigate } from 'react-router-dom';
 
 const New = () => {
   const [value, setValue] = useState({})
+  const [alertMessageOpen, setAlertMessageOpen] = useState(false)
   const navigate = useNavigate();
   const handleChange = (e) => {
     setValue({
@@ -25,9 +24,14 @@ const New = () => {
     try {
       const res = await createPost(params)
       console.log(res)
-      navigate('/')
+      if (res.status === 200) {
+        navigate('/')
+      } else {
+        setAlertMessageOpen(true)
+      }
     } catch (e) {
       console.log(e)
+      setAlertMessageOpen(true)
     }
   }
 
@@ -35,6 +39,8 @@ const New = () => {
     <FormBody
       handleChange={handleChange}
       handleSubmit={handleSubmit}
+      alertMessageOpen={alertMessageOpen}
+      setAlertMessageOpen={setAlertMessageOpen}
       value={value}
       buttonType='create'
     />
