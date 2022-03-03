@@ -38,12 +38,14 @@ function App() {
     handleGetCurrentUser();
   }, [setCurrentUser]);
 
-  const Private = ({ children }) => {
+  const Private = ({children}) => {
     if (!loading) {
       if (isSignedIn) {
         return children;
       } else {
-        return <Navigate to='/signin' />;
+        return (
+          <Navigate to='/signin' />
+        )
       }
     } else {
       return <></>;

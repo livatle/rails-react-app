@@ -8,8 +8,6 @@ import { AuthContext } from '../App';
 // api
 import { signIn } from '../lib/api/auth';
 
-const drawerWidth = 240;
-
 const SignIn = () => {
     const navigate = useNavigate();
     const { setIsSignedIn, setCurrentUser } = useContext(AuthContext);
@@ -17,6 +15,7 @@ const SignIn = () => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [alertMessageOpen, setAlertMessageOpen] = useState(false)
 
     const signInHandleSubmit = async (e) => {
       e.preventDefault();
@@ -40,9 +39,12 @@ const SignIn = () => {
     
             navigate('/');
             console.log("Signed in successfully!")
+          } else {
+            setAlertMessageOpen(true)
           }
         } catch (e) {
           console.log(e);
+          setAlertMessageOpen(true)
         }
       };
 
@@ -52,6 +54,8 @@ const SignIn = () => {
               setEmail={setEmail}
               password={password}
               setPassword={setPassword}
+              alertMessageOpen={alertMessageOpen}
+              setAlertMessageOpen={setAlertMessageOpen}
               handleSubmit={signInHandleSubmit}
               signType='signIn'
           />
