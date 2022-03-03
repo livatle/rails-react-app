@@ -1,8 +1,9 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import Cookies from 'js-cookie';
+//material-ui
 import { createStyles, makeStyles } from '@mui/styles'
-import Button from '@mui/material/Button';
+import { Button } from '@mui/material';
 import { Icon } from '@mui/material';
 import LogoutIcon from '@mui/icons-material/Logout';
 

@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+//component
 import { PostsTable } from './index'
+//api
 import { getList, deletePost } from '../lib/api/post'
-import Button from '@mui/material/Button';
-import CreateIcon from '@mui/icons-material/Create';
-import Typography from '@mui/material/Typography';
+//material-ui
 import { createStyles, makeStyles } from '@mui/styles';
+import { Button, Typography } from '@mui/material';
+import CreateIcon from '@mui/icons-material/Create';
 
 const useStyles = makeStyles(() =>
     createStyles({
@@ -16,9 +18,9 @@ const useStyles = makeStyles(() =>
 );
 
 const PostsList = () => {
+    const [dataList, setDataList] = useState([]);
     const navigate = useNavigate();
     const classes = useStyles();
-    const [dataList, setDataList] = useState([]);
 
     const handleGetList = async () => {
         try {
@@ -39,12 +41,12 @@ const PostsList = () => {
         // 引数にitemを渡してitem.idで「1」など取得できればOK
         console.log('click', item.id)
         try {
-        const res = await deletePost(item.id)
-        console.log(res.data)
+            const res = await deletePost(item.id)
+            console.log(res.data)
         // データを再取得
         handleGetList()
         } catch (e) {
-        console.log(e)
+            console.log(e)
         }
     }
 

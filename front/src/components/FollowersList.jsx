@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+//api
 import { getFollowersList } from "../lib/api/user";
-
+//component
 import { FollowTable } from "./index";
 
 const FollowersList = () => {
-    const query = useParams();
     const [followersList, setFollowersList] = useState([])
+    const query = useParams();
+
     const handleGetFollowersList = async () => {
         try {
             const res = await getFollowersList(query.id);
@@ -16,6 +18,7 @@ const FollowersList = () => {
             console.log(e);
           }
     }
+    
     useEffect(() => {
         handleGetFollowersList();
     }, []);

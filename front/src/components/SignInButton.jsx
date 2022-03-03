@@ -1,22 +1,24 @@
 import React from "react";
-import Button from '@mui/material/Button';
+import { useNavigate } from 'react-router-dom';
+//material-ui
+import { Button } from '@mui/material';
 import { Icon } from '@mui/material';
 import LoginIcon from '@mui/icons-material/Login';
-import { useNavigate } from 'react-router-dom';
 import { createStyles, makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles(() =>
-        createStyles({
-            maxSize: {
-                height: "100%",
-                width: "100%"
-            }
-        }),
-    );
+    createStyles({
+        maxSize: {
+            height: "100%",
+            width: "100%"
+        }
+    }),
+);
 
 const SignInButton = () => {
-    const classes = useStyles();
     const navigate = useNavigate();
+    const classes = useStyles();
+    
     return (
         <Button 
             onClick={()=> navigate('/signin')}
@@ -28,7 +30,6 @@ const SignInButton = () => {
             </Icon>
             SIGN IN
         </Button>
-        
     )
 }
 

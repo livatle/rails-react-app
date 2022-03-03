@@ -1,11 +1,7 @@
 import React from "react";
 import { NavLink } from 'react-router-dom';
 import { AlertMessage } from './index'
-
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import TextField from '@mui/material/TextField';
-import Typography from '@mui/material/Typography';
+import { Box, Button, TextField, Typography } from '@mui/material'
 
 export const formStyle = {
   '& div': {
@@ -42,7 +38,7 @@ const SignForm = (props) => {
     } = props;
 
     return (
-        <div className="post-box">
+      <div className="post-box">
         {signType === 'signUp' ? (
           <h2 className="c-text">
             SIGN UP
@@ -114,7 +110,7 @@ const SignForm = (props) => {
             severity="error"
             message="メールアドレスかパスワードが間違っています"
           />
-          </div>
+        </div>
     )
 }
 

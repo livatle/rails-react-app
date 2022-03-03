@@ -1,10 +1,9 @@
 import React from "react";
-import Button from '@mui/material/Button';
-import TextField from '@mui/material/TextField';
+//material-ui
+import { Button, TextField } from '@mui/material';
 import CreateIcon from '@mui/icons-material/Create';
-
+//component
 import { AlertMessage } from './index'
-
 import { formStyle } from "./SignForm";
 
 const Form = (props) => {
@@ -16,18 +15,19 @@ const Form = (props) => {
         alertMessageOpen,
         setAlertMessageOpen
     } = props
+    
     return (
         <>
             <div className="post-box">
             {buttonType === 'create' ? (
-            <h2 className="c-text">
-                NEW POST
-            </h2>) : (
-            <h2 className="c-text">
-                UPDATE
-            </h2>
-            ) 
-            }
+                <h2 className="c-text">
+                    CREATE
+                </h2>
+            ) : (
+                <h2 className="c-text">
+                    UPDATE
+                </h2>
+            )}
             <TextField 
                 multiline rows={4} 
                 sx={formStyle} 
@@ -49,8 +49,7 @@ const Form = (props) => {
                     "create"
                 ) : (
                     "update"
-                ) 
-                }
+                )}
             </Button>
             <AlertMessage
                 open={alertMessageOpen}

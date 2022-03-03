@@ -1,16 +1,19 @@
 import React, { useContext, useState, useEffect } from "react";
 import { NavLink, useParams } from "react-router-dom";
-import { AuthContext } from '../App';
-import Button from '@mui/material/Button';
-
-import { follow, unfollow } from '../lib/api/relationship'
+//api
 import { checkFollowing } from '../lib/api/user'
+import { follow, unfollow } from '../lib/api/relationship'
+//context
+import { AuthContext } from '../App';
+//material-ui
+import{ Button } from '@mui/material';
 
 const FollowInfo = (props) => {
     const { user } = props
+    const [isFollowing, setIsFollowing] = useState('')
     const query = useParams();
     const { currentUser } = useContext(AuthContext)
-    const [isFollowing, setIsFollowing] = useState('')
+    
     const handleClickFollowButton =  async ()  => {
         if (isFollowing === false) {
             try {
@@ -96,18 +99,6 @@ const FollowInfo = (props) => {
                         sx={{ pt: "1em", pb: "1em", pr: "2em", pl: "2em", color: "secondary", display: "inline-block" }}
                     >
                         FOLLOWERS
-                    </Button> 
-                </NavLink>
-            </li>
-            <li className='p-section--left'>
-                <NavLink 
-                    to={`/users/${query.id}/favorite_posts`}
-                >
-                    <Button 
-                        variant="outlined"
-                        sx={{ pt: "1em", pb: "1em", pr: "2em", pl: "2em", color: "secondary", display: "inline-block" }}
-                    >
-                        FAVORITE
                     </Button> 
                 </NavLink>
             </li>

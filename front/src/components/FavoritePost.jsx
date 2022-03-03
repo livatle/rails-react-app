@@ -1,20 +1,24 @@
 import React, { useState, useEffect} from "react"
 import { Link, useParams } from 'react-router-dom'
+//api
 import { getFavoritePosts } from '../lib/api/user';
+//material-ui
 import { Table, TableBody, TableCell, TableRow } from "@mui/material";
 
 const FavoritePost = () => {
     const [favoriteData, setFavoriteData] = useState([])
     const query = useParams();
+
     const handleGetFavoritePosts = async () => {
         try {
             const res = await getFavoritePosts(query.id);
             console.log(res.data);
             setFavoriteData(res.data)
-          } catch (e) {
-            console.log(e);
-          }
+        } catch (e) {
+        console.log(e);
+        }
     }
+    
     useEffect(() => {
         handleGetFavoritePosts();
     }, []);

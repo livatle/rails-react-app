@@ -1,12 +1,13 @@
 import React from "react";
-import Snackbar from "@mui/material/Snackbar"
-import { Alert } from '@mui/material';
+import { Alert, Snackbar } from '@mui/material';
 
 const AlertMessage = (props) => {
     const { open, setOpen ,severity ,message } = props
+
     const handleCloseAlertMessage = () => {
         return setOpen(false)
     }
+    
     return (
         <Snackbar
             open={open}

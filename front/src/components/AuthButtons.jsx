@@ -1,62 +1,63 @@
 import React, { useContext } from "react";
 // context
 import { AuthContext } from '../App';
+//material-ui
 import { createStyles, makeStyles } from '@mui/styles';
-import MenuItem from '@mui/material/MenuItem';
-import Typography from '@mui/material/Typography';
-import { SignInButton, SignUpButton, SignOutButton, MyPostsButton } from './index'
+import { MenuItem, Typography } from '@mui/material';
+//component
+import { MyPostsButton, SignInButton, SignUpButton, SignOutButton } from './index'
 
 
 
 const useStyles = makeStyles(() =>
-        createStyles({
-            maxSize: {
-                height: "100%",
-                width: "100%"
-            }
-        }),
-    );
+    createStyles({
+        maxSize: {
+            height: "100%",
+            width: "100%"
+        }
+    }),
+);
 
 const AuthButtons = () => {
+  const { isSignedIn, loading } = useContext(AuthContext);
   const classes = useStyles();
-    const { loading, isSignedIn } = useContext(AuthContext);
-        if (!loading) {
-            if (isSignedIn) {
-              return (
-                <>
-                  <MenuItem>
-                    <Typography className={classes.maxSize}>
-                      <MyPostsButton />
-                    </Typography>
-                  </MenuItem>
-                  <MenuItem sx={{mt: "320px"}}>
-                    <Typography className={classes.maxSize}>
-                      <SignOutButton />
-                    </Typography>
-                  </MenuItem>
-                </>
-
-              );
-            } else {
-              return (
-                <>
-                  <MenuItem>
-                    <Typography className={classes.maxSize}>
-                      <SignInButton />
-                    </Typography>
-                  </MenuItem>
-                  <MenuItem>
-                    <Typography
-                    className={classes.maxSize}>
-                      <SignUpButton />
-                    </Typography>
-                  </MenuItem>
-                </>
-              );
-            }
+  
+      if (!loading) {
+          if (isSignedIn) {
+            return (
+              <>
+                <MenuItem>
+                  <Typography className={classes.maxSize}>
+                    <MyPostsButton />
+                  </Typography>
+                </MenuItem>
+                <MenuItem sx={{mt: "320px"}}>
+                  <Typography className={classes.maxSize}>
+                    <SignOutButton />
+                  </Typography>
+                </MenuItem>
+              </>
+            );
           } else {
-            return <></>;
+            return (
+              <>
+                <MenuItem>
+                  <Typography className={classes.maxSize}>
+                    <SignInButton />
+                  </Typography>
+                </MenuItem>
+                <MenuItem>
+                  <Typography
+                  className={classes.maxSize}>
+                    <SignUpButton />
+                  </Typography>
+                </MenuItem>
+              </>
+            );
           }
+        } else {
+          return <></>;
+        }
 }
 
 export default AuthButtons

@@ -1,20 +1,18 @@
 import React, {useState, useContext} from "react";
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
-// context
-import { AuthContext } from '../App';
 // api
 import { signUp } from '../lib/api/auth';
+// context
+import { AuthContext } from '../App';
 // component
 import { SignForm } from './index'
 
 
 const SignUp = () => {
     const navigate = useNavigate();
-
     const { setIsSignedIn, setCurrentUser } = useContext(AuthContext);
     const [alertMessageOpen, setAlertMessageOpen] = useState(false)
-
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -22,7 +20,7 @@ const SignUp = () => {
 
     const signUpHandleSubmit = async (e) => {
         e.preventDefault();
-    
+        
         const params = {
           name: name,
           email: email,

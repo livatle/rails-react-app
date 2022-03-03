@@ -1,10 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+//material-ui
 import { Table, TableBody, TableCell, TableRow } from "@mui/material";
 
 const FollowTable = (props) => {
     const { followingData, followType } = props
+    
     return (
         <>
             <h2 className="p-text">{followType}</h2>

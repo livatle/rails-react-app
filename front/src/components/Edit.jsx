@@ -1,7 +1,8 @@
-// Edit.jsx
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+//api
 import { updatePost, getDetail } from '../lib/api/post';
+//component
 import FormBody from './Form';
 
 const Edit = () => {
@@ -9,7 +10,6 @@ const Edit = () => {
   const [value, setValue] = useState('')
   // 一覧からreact-router-domを使ってidを取得
   const query = useParams();
-
   const navigate = useNavigate();
   // 画面が描画された時、queryが更新された時に関数を実行
   useEffect(() => {

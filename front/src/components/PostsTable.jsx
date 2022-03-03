@@ -1,14 +1,10 @@
 import React, { useContext } from "react";
-
 import { NavLink } from "react-router-dom";
-import { createStyles, makeStyles } from '@mui/styles';
+//context
 import { AuthContext } from '../App';
-
-import Button from '@mui/material/Button';
-import Table from "@mui/material/Table";
-import TableCell from '@mui/material/TableCell';
-import TableRow from '@mui/material/TableRow';
-import { TableBody } from "@mui/material";
+//material-ui
+import { createStyles, makeStyles } from '@mui/styles';
+import { Button, Table, TableBody, TableCell, TableRow } from '@mui/material';
 
 
 const useStyles = makeStyles(() =>
@@ -31,8 +27,8 @@ const useStyles = makeStyles(() =>
 
 const PostsTable = (props) => {
     const { dataList, handleDelete, username } = props
-    const classes = useStyles();
     const { currentUser } = useContext(AuthContext)
+    const classes = useStyles();
 
     return (
         <>

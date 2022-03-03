@@ -1,13 +1,10 @@
 import React, {useEffect, useState} from "react";
 import { useParams} from 'react-router-dom'
+//api
 import { getDetail } from "../lib/api/post"; 
-
-
-import Table from "@mui/material/Table";
-import TableCell from '@mui/material/TableCell';
-import TableRow from '@mui/material/TableRow';
-import { TableBody } from "@mui/material";
-
+//material-ui
+import { Table, TableBody, TableCell, TableRow } from "@mui/material";
+//component
 import { FavoriteButton } from './index'
 
 const Detail = () => {

@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import Button from '@mui/material/Button';
-import { Icon } from '@mui/material';
-import PersonIcon from '@mui/icons-material/Person';
-import { createStyles, makeStyles } from '@mui/styles';
 // context
 import { AuthContext } from '../App';
+//material-ui
+import { createStyles, makeStyles } from '@mui/styles';
+import { Button, Icon } from '@mui/material';
+import PersonIcon from '@mui/icons-material/Person';
 
 const useStyles = makeStyles(() =>
         createStyles({
@@ -16,11 +16,11 @@ const useStyles = makeStyles(() =>
         }),
     );
 
-
 const MyPostsButton = () => {
     const navigate = useNavigate();
-    const classes = useStyles();
     const { currentUser, isSignedIn } = useContext(AuthContext);
+    const classes = useStyles();
+    
     return (
         <>
             <Button 
@@ -36,9 +36,8 @@ const MyPostsButton = () => {
                         {currentUser?.name}
                     </>
                 ) : (
-                <></>
-                )
-                }        
+                    <></>
+                )}        
             </Button>
         </>
     )
