@@ -49,12 +49,14 @@ const FavoriteButton = () => {
                 <FavoriteIcon 
                     onClick={()=> handleClickFavoriteButton()}
                     color="secondary"
+                    fontSize="large"
                 />
             ) : (
                 <FavoriteBorderIcon
                     onClick={()=> handleClickFavoriteButton()}
                     variant="outlined"
                     color="secondary"
+                    fontSize="large"
                 />
             )}
         </>
