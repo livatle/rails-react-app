@@ -10,7 +10,7 @@ import { Box, TableContainer } from '@mui/material';
 import { Edit, Detail, FollowingsList, FollowersList, New, SideBar, PostsList, SignIn, SignUp, UserPosts } from './components'
 
 export const AuthContext = createContext();
-const drawerWidth = 240;
+const drawerWidth = "15em";
 
 function App() {
   const [currentUser, setCurrentUser] = useState();
@@ -64,12 +64,12 @@ function App() {
           setCurrentUser,
         }}
     >
-      <Box sx={{ display: 'flex', height: "100%" }}>
+      <Box sx={{ display: 'flex' }}>
         <Router>
           <SideBar />
           <Box 
               component="main"
-              sx={{ ml: "240px", width: `calc(100% - ${drawerWidth}px)` }}
+              sx={{ height: "100%", position: "fixed", ml: drawerWidth, width: `calc(100% - ${drawerWidth})` }}
           >
               <TableContainer>
               <Routes>

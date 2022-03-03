@@ -10,7 +10,7 @@ import CreateIcon from '@mui/icons-material/Create';
 
 const useStyles = makeStyles(() =>
     createStyles({
-        drawer: {
+        sideBar: {
             height: "100%",
             position: "fixed"
         },
@@ -28,23 +28,23 @@ const SideBar = () => {
     const classes = useStyles();
 
     return (
-            <Box
-            className={classes.drawer}
+        <Box
+            className={classes.sideBar}
             sx={{ width: drawerWidth, bgcolor: "black"}}
         >
-                <MenuList>
-                    <MenuItem sx={{mt: "40px"}}>
-                    <Typography className={classes.maxSize}>
-                        <Button
-                            onClick={()=> navigate('/')}
-                            sx={{color: "white", fontSize: "16px"}}
-                            className={classes.maxSize}
-                        >
-                            <HomeIcon sx={{mr: "0.5em"}} />
-                            FOOTHUB
-                        </Button>
-                    </Typography>
-                    </MenuItem>
+            <MenuList>
+                <MenuItem sx={{mt: "40px"}}>
+                <Typography className={classes.maxSize}>
+                    <Button
+                        onClick={()=> navigate('/')}
+                        sx={{color: "white", fontSize: "16px"}}
+                        className={classes.maxSize}
+                    >
+                        <HomeIcon sx={{mr: "0.5em"}} />
+                        FOOTHUB
+                    </Button>
+                </Typography>
+                </MenuItem>
                 <MenuItem sx={{ mt: "40px", height: "80px"}}>
                     <Typography 
                         sx={{ borderRadius: "10em" }}
