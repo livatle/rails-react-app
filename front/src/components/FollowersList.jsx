@@ -33,7 +33,7 @@ const FollowersList = () => {
             )
         }  else {
             return (
-                <h2 className="p-text">NO FOLLOWERS</h2>
+                <h2 className="c-text">NO FOLLOWERS</h2>
             );
         }
     }

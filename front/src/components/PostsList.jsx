@@ -54,14 +54,14 @@ const PostsList = () => {
         if (dataList.length >= 1) {
             return (
                 <>
-                    <h2 className="p-text">All POST</h2>
+                    <h2 className="c-text">All POST</h2>
                     <Divider color="#ffffff" />
                 </>
             )
         } else {
             return (
                 <>
-                    <h1 className="p-text"> FELL FREE TO POST!</h1>
+                    <h1 className="c-text"> FELL FREE TO POST!</h1>
                     <Typography sx={{ mr: "auto", ml: "auto", width: "50%"}}>
                         <Button
                             onClick={()=> navigate('/new')}

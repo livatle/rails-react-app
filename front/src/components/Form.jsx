@@ -24,7 +24,7 @@ const Form = (props) => {
                     CREATE
                 </h2>
             ) : (
-                <h2 className="c-text">
+                <h2 className="p-text">
                     UPDATE
                 </h2>
             )}

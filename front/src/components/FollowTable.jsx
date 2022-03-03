@@ -8,7 +8,7 @@ const FollowTable = (props) => {
     
     return (
         <>
-            <h2 className="p-text">{followType}</h2>
+            <h2 className="c-text">{followType}</h2>
             <Divider color="#ffffff" />
             <Table>
                 <TableBody>

@@ -33,7 +33,7 @@ const FollowingsList = () => {
             );
         } else {
             return ( 
-                <h2 className="p-text">NO FOLLOWINGS</h2>
+                <h2 className="c-text">NO FOLLOWINGS</h2>
             );
         }
     }

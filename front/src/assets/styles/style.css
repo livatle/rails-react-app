@@ -26,14 +26,13 @@ html {
     right: 5%;
 }
 .c-text {
-    color: #ff1988;
-}
-
-/* project */
-.p-text {
     color: #ff1988; 
     margin-top: 2em;
     text-align: center;
+}
+/* project */
+.p-text {
+    color: #ff1988;
 }
 .p-section__follow-info {
     display: flex;

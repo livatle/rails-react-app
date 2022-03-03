@@ -40,10 +40,10 @@ const SignForm = (props) => {
     return (
       <div className="post-box">
         {signType === 'signUp' ? (
-          <h2 className="c-text">
+          <h2 className="p-text">
             SIGN UP
           </h2>) : (
-          <h2 className="c-text">
+          <h2 className="p-text">
             SIGN IN
           </h2>
           ) 

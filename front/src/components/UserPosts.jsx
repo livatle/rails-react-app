@@ -51,13 +51,13 @@ const UserPosts = () => {
         );
       } else {
         return (
-            <h2 className="p-text">NO POST</h2>
+            <h2 className="c-text">NO POST</h2>
         );
       }
   };
   return (
       <>
-        <h2 className="p-text">{user.name}</h2>
+        <h2 className="c-text">{user.name}</h2>
         <Divider color="#ffffff" />
         <FollowInfo user={user.name} />
         <UserTable />

@@ -27,7 +27,7 @@ const Detail = () => {
 
     return (
         <>
-            <h2 className="p-text">DETAIL</h2>
+            <h2 className="c-text">DETAIL</h2>
             <Divider color="#ffffff" />
             <Table>
                 <TableBody>
