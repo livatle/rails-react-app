@@ -8,7 +8,6 @@ import { AuthContext } from '../App';
 // component
 import { SignForm } from './index'
 
-
 const SignUp = () => {
     const navigate = useNavigate();
     const { setIsSignedIn, setCurrentUser } = useContext(AuthContext);

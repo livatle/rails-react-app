@@ -3,21 +3,11 @@ import { useNavigate } from 'react-router-dom';
 //component
 import { AuthButtons } from './index'
 //material-ui
-import { createStyles, makeStyles } from '@mui/styles';
 import { Box, Button, Icon, MenuItem, MenuList, Typography } from '@mui/material';
 import HomeIcon from '@mui/icons-material/Home';
 import CreateIcon from '@mui/icons-material/Create';
 //style
 import { drawerWidth } from "../App";
-
-const useStyles = makeStyles(() =>
-    createStyles({
-        maxSize: {
-            height: "100%",
-            width: "100%"
-        },
-    }),
-);
 
 export const  sideBarStyle = {
     menuItemHeight: {
@@ -28,13 +18,15 @@ export const  sideBarStyle = {
     },
     buttonBorderRadius: {
         borderRadius: "10em"
+    },
+    maxSize: {
+        height: "100%",
+        width: "100%"
     }
-
 }
 
 const SideBar = () => {
     const navigate = useNavigate();
-    const classes = useStyles();
 
     return (
         <Box
@@ -42,11 +34,20 @@ const SideBar = () => {
         >
             <MenuList>
                 <MenuItem sx={{ height: sideBarStyle.menuItemHeight }}>
-                    <Typography className={classes.maxSize}>
+                    <Typography 
+                        sx={{
+                            height: sideBarStyle.maxSize.height,
+                            width: sideBarStyle.maxSize.width
+                        }}>
                         <Button
                             onClick={()=> navigate('/')}
-                            sx={{ color: "#ffffff", fontSize: "1.2em", display: "inline-block"}}
-                            className={classes.maxSize}
+                            sx={{ 
+                                color: "#ffffff",
+                                display: "inline-block",
+                                fontSize: "1.2em",
+                                height: sideBarStyle.maxSize.height,
+                                width: sideBarStyle.maxSize.width
+                            }}
                         >
                             <Icon sx={{mr: sideBarStyle.iconMargin}}>
                                 <HomeIcon />
@@ -57,13 +58,20 @@ const SideBar = () => {
                 </MenuItem>
                 <MenuItem sx={{ height: sideBarStyle.menuItemHeight }}>
                     <Typography
-                        className={classes.maxSize}
+                        sx={{ 
+                            height: sideBarStyle.maxSize.height,
+                            width: sideBarStyle.maxSize.width
+                        }}
                     >
                         <Button
                             onClick={()=> navigate('/new')}
-                            sx={{ fontSize: "1em", borderRadius: sideBarStyle.buttonBorderRadius }}
+                            sx={{ 
+                                borderRadius: sideBarStyle.buttonBorderRadius,
+                                fontSize: "1em",
+                                height: sideBarStyle.maxSize.height,
+                                width: sideBarStyle.maxSize.width
+                            }}
                             variant="outlined"
-                            className={classes.maxSize}
                         >
                             <CreateIcon sx={{mr: sideBarStyle.iconMargin}} />
                             CREATE
