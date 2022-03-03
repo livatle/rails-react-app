@@ -43,5 +43,4 @@ class Api::V1::PostsController < ApplicationController
         def post_params
             params.require(:post).permit(:name, :content).merge(user_id: current_api_v1_user.id)
         end
-
 end
