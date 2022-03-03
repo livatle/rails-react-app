@@ -13,6 +13,7 @@ const SignUp = () => {
     const navigate = useNavigate();
 
     const { setIsSignedIn, setCurrentUser } = useContext(AuthContext);
+    const [alertMessageOpen, setAlertMessageOpen] = useState(false)
 
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -45,9 +46,11 @@ const SignUp = () => {
             console.log('signed in successfully');
           } else {
             console.log("failure sign up")
+            setAlertMessageOpen(true)
           }
         } catch (e) {
           console.log(e);
+          setAlertMessageOpen(true)
         }
       };
 
@@ -61,6 +64,8 @@ const SignUp = () => {
           setPassword={setPassword}
           passwordConfirmation={passwordConfirmation}
           setPasswordConfirmation={setPasswordConfirmation}
+          alertMessageOpen={alertMessageOpen}
+          setAlertMessageOpen={setAlertMessageOpen}
           handleSubmit={signUpHandleSubmit}
           signType='signUp'
       />

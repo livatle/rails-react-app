@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import Cookies from 'js-cookie';
 import { createStyles, makeStyles } from '@mui/styles'
@@ -24,7 +24,7 @@ const SignOutButton = () => {
     const { setIsSignedIn } = useContext(AuthContext)
     const navigate = useNavigate()
 
-    const handleSignOut = async (e) => {
+    const handleSignOut = async () => {
         try {
         const res = await signOut();
 
@@ -38,9 +38,9 @@ const SignOutButton = () => {
             console.log('succeeded in sign out');
         } else {
             console.log('failed in sign out');
-        }
+            } 
         } catch (e) {
-        console.log(e);
+            console.log(e);
         }
     };
 
