@@ -2,23 +2,10 @@ html {
     height: 100%;
     background-color: #222646;
 }
-.p {
-    width: 100%;
-    display: inline;
-}
-
-#id {
-    height: 100%;
-}
 /* component */
 .c-grid__item {
-    color: white;
+    color: #ffffff;
     text-decoration: none;
-}
-.c-grid {
-    width: 80%;
-    height: auto;
-    margin: 0 auto;
 }
 .c-button--right {
     position: absolute;
@@ -34,8 +21,8 @@ html {
 .p-box {
     display: flex;
     flex-direction: column;
-    margin-top: 8rem;
-    margin-left: 160px;
+    margin-top: 8em;
+    margin-left: 10em;
 }
 .p-text {
     color: #ff1988;
@@ -52,5 +39,5 @@ html {
 
 /* utility */
 .u-text {
-    color: white;
+    color: #ffffff;
 }
