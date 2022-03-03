@@ -3,7 +3,7 @@ import { useParams} from 'react-router-dom'
 //api
 import { getDetail } from "../lib/api/post"; 
 //material-ui
-import { Table, TableBody, TableCell, TableRow } from "@mui/material";
+import { Divider, Table, TableBody, TableCell, TableRow } from "@mui/material";
 //component
 import { FavoriteButton } from './index'
 
@@ -28,9 +28,10 @@ const Detail = () => {
     return (
         <>
             <h2 className="p-text">DETAIL</h2>
+            <Divider color="#ffffff" />
             <Table>
                 <TableBody>
-                    <TableRow>
+                    <TableRow sx={{ '&:last-child td, &:last-child th': { border: 0 }}}>
                         <TableCell align="center"sx={{width: "80%"}}>
                             <p className="c-grid__item">{data.content}</p>
                         </TableCell>

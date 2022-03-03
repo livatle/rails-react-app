@@ -24,7 +24,7 @@ export const  sideBarStyle = {
         height: "5em"
     },
     iconMargin: {
-        marginRight: "0.5em"
+        marginRight : "0.5em"
     },
     buttonBorderRadius: {
         borderRadius: "10em"

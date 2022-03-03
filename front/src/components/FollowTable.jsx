@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 //material-ui
-import { Table, TableBody, TableCell, TableRow } from "@mui/material";
+import { Divider, Table, TableBody, TableCell, TableRow } from "@mui/material";
 
 const FollowTable = (props) => {
     const { followingData, followType } = props
@@ -9,6 +9,7 @@ const FollowTable = (props) => {
     return (
         <>
             <h2 className="p-text">{followType}</h2>
+            <Divider color="#ffffff" />
             <Table>
                 <TableBody>
                     {followingData.map((user, index) => (

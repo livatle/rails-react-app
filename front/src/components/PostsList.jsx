@@ -6,7 +6,7 @@ import { PostsTable } from './index'
 import { getList, deletePost } from '../lib/api/post'
 //material-ui
 import { createStyles, makeStyles } from '@mui/styles';
-import { Button, Typography } from '@mui/material';
+import { Button, Divider, Typography } from '@mui/material';
 import CreateIcon from '@mui/icons-material/Create';
 
 const useStyles = makeStyles(() =>
@@ -53,7 +53,10 @@ const PostsList = () => {
     const Title = () => {
         if (dataList.length >= 1) {
             return (
-                <h2 className="p-text">All POST</h2>
+                <>
+                    <h2 className="p-text">All POST</h2>
+                    <Divider color="#ffffff" />
+                </>
             )
         } else {
             return (

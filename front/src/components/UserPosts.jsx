@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom'
 // api
 import { getUserPosts } from '../lib/api/user';
 import { deletePost } from '../lib/api/post'
+//material-ui
+import { Divider } from "@mui/material";
 //component
 import { FollowInfo, PostsTable } from './index'
 
@@ -56,6 +58,7 @@ const UserPosts = () => {
   return (
       <>
         <h2 className="p-text">{user.name}</h2>
+        <Divider color="#ffffff" />
         <FollowInfo user={user.name} />
         <UserTable />
       </>
