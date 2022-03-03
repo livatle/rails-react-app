@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
 
   has_many :posts, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_many :favorite_posts, through: :favorites, source: :post
 
   # フォローするユーザーから見た中間テーブル
   has_many :active_relationships,

@@ -7,7 +7,7 @@ import { getCurrentUser } from './lib/api/auth';
 //material-ui
 import { Box, TableContainer } from '@mui/material';
 //component
-import { Edit, Detail, FollowingsList, FollowersList, New, SideBar, PostsList, SignIn, SignUp, UserPosts } from './components'
+import { Edit, Detail, FavoritePosts, FollowingsList, FollowersList, New, SideBar, PostsList, SignIn, SignUp, UserPosts } from './components'
 
 export const AuthContext = createContext();
 
@@ -74,6 +74,7 @@ function App() {
           >
               <TableContainer>
               <Routes>
+              <Route path='/users/:id/favorite_posts' element={<FavoritePosts />} />
                 <Route path='/users/:id/following' element={<FollowingsList />} />
                 <Route path='/users/:id/follower' element={<FollowersList />} />
                 <Route exact path='/' element={<PostsList />} />

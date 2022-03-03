@@ -102,6 +102,18 @@ const FollowInfo = (props) => {
                     </Button> 
                 </NavLink>
             </li>
+            <li className='p-section--left'>
+                <NavLink 
+                    to={`/users/${query.id}/favorite_posts`}
+                >
+                    <Button 
+                        variant="outlined"
+                        sx={{ pt: "1em", pb: "1em", pr: "2em", pl: "2em", color: "secondary", display: "inline-block" }}
+                    >
+                        FAVORITE POSTS
+                    </Button> 
+                </NavLink>
+            </li>
             <FollowButton />
         </ul>
     )
