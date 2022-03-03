@@ -25,10 +25,12 @@ const MyPostsButton = () => {
             >
                 {isSignedIn && currentUser ? (
                     <>
-                        <Icon sx={{ mr: "0.5em" }}>
-                            <PersonIcon />
-                        </Icon>
-                        {currentUser?.name}
+                        <p className="p-text">
+                            <Icon sx={{ mr: "0.5em" }}>
+                                <PersonIcon />
+                            </Icon>
+                            {currentUser?.name}
+                        </p>
                     </>
                 ) : (
                     <></>
