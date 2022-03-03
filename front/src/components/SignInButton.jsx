@@ -23,7 +23,7 @@ const SignInButton = () => {
         <Button 
             onClick={()=> navigate('/signin')}
             className={classes.maxSize}
-            sx={{color: "white", fontSize: "16px", display: "inline-block"}}
+            sx={{color: "#ffffff", fontSize: "1em", display: "inline-block" }}
         >       
             <Icon sx={{mr: "0.5em"}}>
                 <LoginIcon />

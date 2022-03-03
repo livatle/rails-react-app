@@ -10,7 +10,8 @@ import { Box, TableContainer } from '@mui/material';
 import { Edit, Detail, FollowingsList, FollowersList, New, SideBar, PostsList, SignIn, SignUp, UserPosts } from './components'
 
 export const AuthContext = createContext();
-const drawerWidth = "15em";
+
+export const drawerWidth = "15em";
 
 function App() {
   const [currentUser, setCurrentUser] = useState();

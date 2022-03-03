@@ -7,8 +7,6 @@ import { MenuItem, Typography } from '@mui/material';
 //component
 import { MyPostsButton, SignInButton, SignUpButton, SignOutButton } from './index'
 
-
-
 const useStyles = makeStyles(() =>
     createStyles({
         maxSize: {
@@ -26,12 +24,12 @@ const AuthButtons = () => {
           if (isSignedIn) {
             return (
               <>
-                <MenuItem>
+                <MenuItem sx={{ height: "5em" }}>
                   <Typography className={classes.maxSize}>
                     <MyPostsButton />
                   </Typography>
                 </MenuItem>
-                <MenuItem sx={{mt: "320px"}}>
+                <MenuItem sx={{ height: "5em", mt: "20em"}}>
                   <Typography className={classes.maxSize}>
                     <SignOutButton />
                   </Typography>
@@ -41,14 +39,13 @@ const AuthButtons = () => {
           } else {
             return (
               <>
-                <MenuItem>
+                <MenuItem sx={{ height: "5em", mt: "5em" }}>
                   <Typography className={classes.maxSize}>
                     <SignInButton />
                   </Typography>
                 </MenuItem>
-                <MenuItem>
-                  <Typography
-                  className={classes.maxSize}>
+                <MenuItem sx={{ height: "5em" }}>
+                  <Typography className={classes.maxSize}>
                     <SignUpButton />
                   </Typography>
                 </MenuItem>

@@ -24,7 +24,7 @@ const SignUpButton = () => {
         <Button 
             onClick={()=> navigate('/signup')}
             className={classes.maxSize}
-            sx={{color: "white", fontSize: "16px", display: "inline-block" }}
+            sx={{color: "#ffffff", fontSize: "1em", display: "inline-block" }}
         >
             <Icon sx={{mr: "0.5em"}}>
                 <ExitToAppIcon />

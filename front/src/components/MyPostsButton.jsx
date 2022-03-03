@@ -30,7 +30,7 @@ const MyPostsButton = () => {
             >
                 {isSignedIn && currentUser ? (
                     <>
-                        <Icon>
+                        <Icon sx={{mr: "0.5em"}}>
                             <PersonIcon />
                         </Icon>
                         {currentUser?.name}

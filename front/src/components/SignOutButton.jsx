@@ -3,8 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Cookies from 'js-cookie';
 //material-ui
 import { createStyles, makeStyles } from '@mui/styles'
-import { Button } from '@mui/material';
-import { Icon } from '@mui/material';
+import { Button, Icon } from '@mui/material';
 import LogoutIcon from '@mui/icons-material/Logout';
 
 // api
@@ -13,13 +12,14 @@ import { signOut } from '../lib/api/auth';
 import { AuthContext } from '../App';
 
 const useStyles = makeStyles(() =>
-        createStyles({
-            maxSize: {
-                height: "100%",
-                width: "100%"
-            }
-        }),
-    );
+    createStyles({
+        maxSize: {
+            height: "100%",
+            width: "100%"
+        }
+    }),
+);
+
 const SignOutButton = () => {
     const classes = useStyles();
     const { setIsSignedIn } = useContext(AuthContext)
@@ -50,7 +50,7 @@ const SignOutButton = () => {
         <>
             <Button 
                 onClick={handleSignOut}
-                sx={{color: "white", fontSize: "16px", display: "inline-block"}}
+                sx={{color: "#ffffff", fontSize: "1em", display: "inline-block"}}
                 className={classes.maxSize}
                 >
                     <Icon sx={{mr: "0.5em"}}>

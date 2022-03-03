@@ -71,7 +71,6 @@ const PostsList = () => {
                         </Button>
                     </Typography>
                 </>
-                
             )
         }
     }
