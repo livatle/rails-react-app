@@ -54,7 +54,7 @@ const Edit = () => {
       handleChange={handleChange}
       handleSubmit={handleSubmit}
       value={value}
-      buttonType='update'
+      buttonType='edit'
     />
   )
 }

@@ -32,7 +32,7 @@ const Detail = () => {
             <Table>
                 <TableBody>
                     <TableRow sx={{ '&:last-child td, &:last-child th': { border: 0 }}}>
-                        <TableCell align="center"sx={{width: "80%"}}>
+                        <TableCell align="center">
                             <p className="c-grid__item">{data.content}</p>
                         </TableCell>
                     <TableCell align="center">

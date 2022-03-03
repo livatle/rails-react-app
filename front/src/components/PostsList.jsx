@@ -54,7 +54,7 @@ const PostsList = () => {
         if (dataList.length >= 1) {
             return (
                 <>
-                    <h2 className="c-text">All POST</h2>
+                    <h2 className="c-text">ALL POST</h2>
                     <Divider color="#ffffff" />
                 </>
             )
@@ -67,7 +67,7 @@ const PostsList = () => {
                             onClick={()=> navigate('/new')}
                             variant="outlined"
                             className={classes.maxSize}
-                            sx={{ p: "2em", fontSize: "16px", borderRadius: "10em" }}
+                            sx={{ p: "2em", fontSize: "1em", borderRadius: "10em" }}
                         >
                             <CreateIcon sx={{mr: "0.5em"}} />
                             CREATE

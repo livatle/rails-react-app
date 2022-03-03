@@ -60,9 +60,9 @@ const FollowInfo = (props) => {
                         onClick={()=> handleClickFollowButton()}
                         sx={{ pt: "1em", pb: "1em", pr: "2em", pl: "2em", color: "secondary", minWidth: "140px", display: "inline-block", borderRadius: "10em" }}
                         variant={isFollowing ? (
-                            'outlined'
-                        ) : (
                             "contained"
+                        ) : (
+                            'outlined'
                         )}
                     >
                         {isFollowing ? (

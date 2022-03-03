@@ -40,7 +40,7 @@ const PostsTable = (props) => {
                             key={index}
                             sx={{ bgcolor: "#222A50", '&:last-child td, &:last-child th': { border: 0 } }}
                         >
-                            <TableCell sx={{width: "20%"}} align={"center"}>
+                            <TableCell align={"center"}>
                                 <NavLink 
                                     to={`/users/${item.userId}`}
                                 >   
@@ -48,7 +48,7 @@ const PostsTable = (props) => {
                                     <p className="c-grid__item">{username}</p>
                                 </NavLink>
                             </TableCell>
-                            <TableCell sx={{width: "60%"}}>
+                            <TableCell>
                                 <NavLink 
                                     to={`/post/${item.id}`}
                                 >

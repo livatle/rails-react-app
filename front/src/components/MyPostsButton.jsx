@@ -26,7 +26,7 @@ const MyPostsButton = () => {
             <Button 
                 onClick={()=> navigate(`/users/${currentUser.id}`)}
                 className={classes.maxSize}
-                sx={{color: "white", fontSize: "16px", display: "inline-block"}}
+                sx={{color: "#ffffff", fontSize: "1em", display: "inline-block"}}
             >
                 {isSignedIn && currentUser ? (
                     <>

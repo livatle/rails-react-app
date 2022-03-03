@@ -17,10 +17,12 @@ const SignIn = () => {
 
     const signInHandleSubmit = async (e) => {
       e.preventDefault();
+
         const params = {
           email: email,
           password: password,
         }
+        
         try {
           const res = await signIn(params);
           if (res.status === 200) {

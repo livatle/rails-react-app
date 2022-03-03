@@ -38,7 +38,7 @@ const SignForm = (props) => {
     } = props;
 
     return (
-      <div className="post-box">
+      <div className="p-box">
         {signType === 'signUp' ? (
           <h2 className="p-text">
             SIGN UP

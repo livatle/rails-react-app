@@ -18,45 +18,45 @@ const Form = (props) => {
     
     return (
         <>
-            <div className="post-box">
-            {buttonType === 'create' ? (
-                <h2 className="c-text">
-                    CREATE
-                </h2>
-            ) : (
-                <h2 className="p-text">
-                    UPDATE
-                </h2>
-            )}
-            <TextField 
-                multiline rows={4} 
-                sx={formStyle} 
-                type="text" 
-                name="content" 
-                id="content" 
-                onChange={(e) => handleChange(e)} 
-                value={value.content} 
-            />
-            <Button 
-                sx={{width: "80%", p: "1em", borderRadius: "10em"}} 
-                variant="outlined" 
-                type="subimit" 
-                value={buttonType} 
-                onClick={(e) => handleSubmit(e)}
-            >
-                <CreateIcon sx={{mr: "0.5em"}} />
+            <div className="p-box">
                 {buttonType === 'create' ? (
-                    "create"
+                    <h2 className="p-text">
+                        CREATE
+                    </h2>
                 ) : (
-                    "update"
+                    <h2 className="p-text">
+                        EDIT
+                    </h2>
                 )}
-            </Button>
-            <AlertMessage
-                open={alertMessageOpen}
-                setOpen={setAlertMessageOpen}
-                severity="error"
-                message="please fill in the blank"
-            />
+                <TextField 
+                    multiline rows={4} 
+                    sx={formStyle} 
+                    type="text" 
+                    name="content" 
+                    id="content" 
+                    onChange={(e) => handleChange(e)} 
+                    value={value.content} 
+                />
+                <Button 
+                    sx={{width: "80%", p: "1em", borderRadius: "10em"}} 
+                    variant="outlined" 
+                    type="subimit" 
+                    value={buttonType} 
+                    onClick={(e) => handleSubmit(e)}
+                >
+                    <CreateIcon sx={{mr: "0.5em"}} />
+                    {buttonType === 'create' ? (
+                        "CREATE"
+                    ) : (
+                        "EDIT"
+                    )}
+                </Button>
+                <AlertMessage
+                    open={alertMessageOpen}
+                    setOpen={setAlertMessageOpen}
+                    severity="error"
+                    message="please fill in the blank"
+                />
             </div>
         </>
     )

@@ -31,6 +31,12 @@ html {
     text-align: center;
 }
 /* project */
+.p-box {
+    display: flex;
+    flex-direction: column;
+    margin-top: 8rem;
+    margin-left: 160px;
+}
 .p-text {
     color: #ff1988;
 }
@@ -47,10 +53,4 @@ html {
 /* utility */
 .u-text {
     color: white;
-}
-.post-box {
-    display: flex;
-    flex-direction: column;
-    margin-top: 8rem;
-    margin-left: 160px;
 }
