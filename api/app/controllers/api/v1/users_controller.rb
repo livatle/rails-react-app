@@ -6,7 +6,6 @@ class Api::V1::UsersController < ApplicationController
       render json: {
         posts: posts,
         user: user,
-        favorite_posts: user.favorite_posts,
         is_following: user.following?(current_api_v1_user)
       }
     end
