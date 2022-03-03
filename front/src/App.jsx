@@ -1,18 +1,21 @@
 import React, { useState, useEffect, createContext } from 'react';
-import { Edit, Detail, FollowingsList, FollowersList, New, SideBar, PostsList, SignIn, SignUp, UserPosts, FavoritePost } from './components'
+//style
 import './assets/styles/style.css'
 import {BrowserRouter as Router, Navigate, Route, Routes} from 'react-router-dom'
-import Box from '@mui/material/Box';
-import TableContainer from '@mui/material/TableContainer';
+//api
 import { getCurrentUser } from './lib/api/auth';
+//material-ui
+import { Box, TableContainer } from '@mui/material';
+//component
+import { Edit, Detail, FollowingsList, FollowersList, New, SideBar, PostsList, SignIn, SignUp, UserPosts } from './components'
 
 export const AuthContext = createContext();
 const drawerWidth = 240;
 
 function App() {
-  const [loading, setLoading] = useState(true);
-  const [isSignedIn, setIsSignedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState();
+  const [isSignedIn, setIsSignedIn] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const handleGetCurrentUser = async () => {
     try {
@@ -31,7 +34,6 @@ function App() {
     } catch (err) {
       console.log(err)
     }
-
     setLoading(false)
   }
   useEffect(() => {
@@ -71,16 +73,15 @@ function App() {
           >
               <TableContainer>
               <Routes>
-                <Route exact path='/' element={<PostsList />} />
-                <Route exact path='/users/:id' element={<UserPosts />} />
-                <Route path='/users/:id/favorite_posts' element={<FavoritePost />} />
                 <Route path='/users/:id/following' element={<FollowingsList />} />
                 <Route path='/users/:id/follower' element={<FollowersList />} />
-                <Route exact path='/signup' element={<SignUp />} />
+                <Route exact path='/' element={<PostsList />} />
+                <Route exact path='/users/:id' element={<UserPosts />} />
                 <Route exact path='/signin' element={<SignIn />} />
-                <Route path='/new' element={<Private><New /></Private>} />
-                <Route path='/post/:id' element={<Private><Detail /></Private>} />
+                <Route exact path='/signup' element={<SignUp />} />
                 <Route path='/edit/:id' element={<Private><Edit /></Private>} />
+                <Route path='/post/:id' element={<Private><Detail /></Private>} />
+                <Route path='/new' element={<Private><New /></Private>} />
               </Routes>
               </TableContainer>
           </Box>

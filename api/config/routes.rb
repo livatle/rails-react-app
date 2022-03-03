@@ -7,7 +7,7 @@ Rails.application.routes.draw do
       end
       resources :users do
         member do
-          get :following, :follower, :favorite_posts
+          get :following, :follower
         end
       end
       resources :relationships, only: [:create, :destroy]
