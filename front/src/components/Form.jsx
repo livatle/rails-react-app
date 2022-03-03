@@ -3,10 +3,19 @@ import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import CreateIcon from '@mui/icons-material/Create';
 
+import { AlertMessage } from './index'
+
 import { formStyle } from "./SignForm";
 
 const Form = (props) => {
-    const { handleChange, handleSubmit, value, buttonType } = props
+    const { 
+        handleChange,
+        handleSubmit,
+        value,
+        buttonType,
+        alertMessageOpen,
+        setAlertMessageOpen
+    } = props
     return (
         <>
             <div className="post-box">
@@ -43,6 +52,12 @@ const Form = (props) => {
                 ) 
                 }
             </Button>
+            <AlertMessage
+                open={alertMessageOpen}
+                setOpen={setAlertMessageOpen}
+                severity="error"
+                message="please fill in the blank"
+            />
             </div>
         </>
     )
