@@ -1,0 +1,7 @@
+export {default as Edit} from './Edit'
+export {default as Detail} from './Detail'
+export {default as FavoritePosts} from './FavoritePosts'
+export {default as New} from './New'
+export {default as PostsList} from './PostsList'
+export {default as PostsTable} from './PostsTable'
+export {default as UserPosts} from './UserPosts'

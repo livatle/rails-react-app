@@ -3,8 +3,15 @@ import React from "react";
 import { Button, TextField } from '@mui/material';
 import CreateIcon from '@mui/icons-material/Create';
 //component
-import { AlertMessage } from './index'
+import { AlertMessage } from '../Notification/index'
+//style
 import { formStyle } from "./SignForm";
+
+export const submitButtonStyle = {
+    borderRadius: "10em",
+    width: "80%",
+    p: "1em"
+}
 
 const Form = (props) => {
     const { 
@@ -38,7 +45,7 @@ const Form = (props) => {
                     value={value.content} 
                 />
                 <Button 
-                    sx={{width: "80%", p: "1em", borderRadius: "10em"}} 
+                    sx={submitButtonStyle} 
                     variant="outlined" 
                     type="subimit" 
                     value={buttonType} 

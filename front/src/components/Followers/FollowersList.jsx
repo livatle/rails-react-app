@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 //api
-import { getFollowersList } from "../lib/api/user";
+import { getFollowersList } from "../../lib/api/user";
 //component
 import { FollowTable } from "./index";
 

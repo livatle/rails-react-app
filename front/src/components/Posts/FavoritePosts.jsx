@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 //api
-import { getFavoritePosts } from "../lib/api/user";
+import { getFavoritePosts } from "../../lib/api/user";
 //material-ui
 import { Divider, Table, TableBody, TableCell, TableRow } from "@mui/material";
 
@@ -14,9 +14,9 @@ const Favoriteposts = () => {
             const res = await getFavoritePosts(query.id);
             console.log(res.data);
             setFavoritePosts(res.data);
-          } catch (e) {
-            console.log(e);
-          }
+        } catch (e) {
+        console.log(e);
+        }
     }
 
     useEffect(() => {

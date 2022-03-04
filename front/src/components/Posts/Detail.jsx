@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from "react";
 import { useParams} from 'react-router-dom'
 //api
-import { getDetail } from "../lib/api/post"; 
+import { getDetail } from "../../lib/api/post"; 
 //material-ui
 import { Divider, Table, TableBody, TableCell, TableRow } from "@mui/material";
 //component
-import { FavoriteButton } from './index'
+import { FavoriteButton } from '../Favorites/index'
 
 const Detail = () => {
     const [data, setData] = useState({});
@@ -35,7 +35,7 @@ const Detail = () => {
                         <TableCell align="center">
                             <p className="c-grid__item">{data.content}</p>
                         </TableCell>
-                    <TableCell align="center">
+                    <TableCell align="center" sx={{width: "20%"}}>
                         <FavoriteButton />
                     </TableCell>
                     </TableRow>

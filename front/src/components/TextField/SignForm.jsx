@@ -1,22 +1,26 @@
 import React from "react";
 import { NavLink } from 'react-router-dom';
-import { AlertMessage } from './index'
+//material-ui
 import { Box, Button, TextField, Typography } from '@mui/material'
+//coponent
+import { AlertMessage } from '../Notification/index'
+//style
+import { submitButtonStyle } from "./Form";
 
 export const formStyle = {
   '& div': {
-    width: "80%",
+    width: "80%"
   },
   '& .MuiInputBase-input': {
-    color: 'white'
+    color: '#ffffff'
   },
   '& label': {
-    color: 'white'
+    color: '#ffffff'
   },
   '& .MuiOutlinedInput-root': {
     mb: "2em",
     '& fieldset': {
-      borderColor: 'white'
+      borderColor: '#ffffff'
     }
   },
 }
@@ -85,7 +89,7 @@ const SignForm = (props) => {
             />
           )}
           <Button
-            sx={{ width: "80%", p: "1em", borderRadius: "10em" }}
+            sx={submitButtonStyle}
             variant="outlined"
             type="subimit" 
             onClick={handleSubmit} 

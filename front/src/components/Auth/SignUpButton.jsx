@@ -4,7 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { Button } from '@mui/material';
 import { Icon } from '@mui/material';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
-import { sideBarStyle } from "./SideBar";
+//style
+import { buttonStyle } from "./MyPostsButton";
 
 const SignUpButton = () => {
     const navigate = useNavigate();
@@ -12,13 +13,8 @@ const SignUpButton = () => {
     return (
         <Button 
             onClick={()=> navigate('/signup')}
-            sx={{
-                color: "#ffffff",
-                display: "inline-block",
-                fontSize: "1em",
-                height: sideBarStyle.maxSize.height,
-                width: sideBarStyle.maxSize.width
-            }}
+            className="c-box"
+            sx={buttonStyle}
         >
             <Icon sx={{mr: "0.5em"}}>
                 <ExitToAppIcon />

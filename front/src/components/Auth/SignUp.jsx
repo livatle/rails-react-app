@@ -2,11 +2,11 @@ import React, {useState, useContext} from "react";
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
 // api
-import { signUp } from '../lib/api/auth';
+import { signUp } from '../../lib/api/auth';
 // context
-import { AuthContext } from '../App';
+import { AuthContext } from '../../App';
 // component
-import { SignForm } from './index'
+import { SignForm } from '../TextField/index'
 
 const SignUp = () => {
     const navigate = useNavigate();
