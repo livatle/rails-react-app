@@ -9,18 +9,18 @@ import { submitButtonStyle } from "./Form";
 
 export const formStyle = {
   '& div': {
-    width: "80%",
+    width: "80%"
   },
   '& .MuiInputBase-input': {
-    color: 'white'
+    color: '#ffffff'
   },
   '& label': {
-    color: 'white'
+    color: '#ffffff'
   },
   '& .MuiOutlinedInput-root': {
     mb: "2em",
     '& fieldset': {
-      borderColor: 'white'
+      borderColor: '#ffffff'
     }
   },
 }

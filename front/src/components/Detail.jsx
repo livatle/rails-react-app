@@ -35,7 +35,7 @@ const Detail = () => {
                         <TableCell align="center">
                             <p className="c-grid__item">{data.content}</p>
                         </TableCell>
-                    <TableCell align="center">
+                    <TableCell align="center" sx={{width: "20%"}}>
                         <FavoriteButton />
                     </TableCell>
                     </TableRow>
