@@ -9,7 +9,7 @@ import CreateIcon from '@mui/icons-material/Create';
 //style
 import { drawerWidth } from "../App";
 
-export const  sideBarStyle = {
+export const sideBarStyle = {
     menuItemHeight: {
         height: "5em"
     },
@@ -21,7 +21,6 @@ export const  sideBarStyle = {
     },
     maxSize: {
         height: "100%",
-        width: "100%"
     }
 }
 
@@ -30,23 +29,20 @@ const SideBar = () => {
 
     return (
         <Box
-            sx={{ bgcolor: "#000000", height: "100%", position: "fixed", width: drawerWidth}}
+            sx={{ bgcolor: "#000000", height: sideBarStyle.maxSize, position: "fixed", width: drawerWidth}}
         >
             <MenuList>
                 <MenuItem sx={{ height: sideBarStyle.menuItemHeight }}>
                     <Typography 
-                        sx={{
-                            height: sideBarStyle.maxSize.height,
-                            width: sideBarStyle.maxSize.width
-                        }}>
+                        className="c-box"
+                    >
                         <Button
                             onClick={()=> navigate('/')}
+                            className="c-box"
                             sx={{ 
                                 color: "#ffffff",
                                 display: "inline-block",
                                 fontSize: "1.2em",
-                                height: sideBarStyle.maxSize.height,
-                                width: sideBarStyle.maxSize.width
                             }}
                         >
                             <Icon sx={{mr: sideBarStyle.iconMargin}}>
@@ -58,22 +54,21 @@ const SideBar = () => {
                 </MenuItem>
                 <MenuItem sx={{ height: sideBarStyle.menuItemHeight }}>
                     <Typography
-                        sx={{ 
-                            height: sideBarStyle.maxSize.height,
-                            width: sideBarStyle.maxSize.width
-                        }}
+                        className="c-box"
                     >
                         <Button
                             onClick={()=> navigate('/new')}
+                            className="c-box"
                             sx={{ 
                                 borderRadius: sideBarStyle.buttonBorderRadius,
+                                display: "inline-block",
                                 fontSize: "1em",
-                                height: sideBarStyle.maxSize.height,
-                                width: sideBarStyle.maxSize.width
                             }}
                             variant="outlined"
                         >
-                            <CreateIcon sx={{mr: sideBarStyle.iconMargin}} />
+                            <Icon sx={{mr: sideBarStyle.iconMargin}}>
+                                <CreateIcon />
+                            </Icon>
                             CREATE
                         </Button>
                     </Typography>

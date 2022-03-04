@@ -8,6 +8,16 @@ import { AuthContext } from '../App';
 //material-ui
 import{ Button } from '@mui/material';
 
+const buttonStyle = {
+    color: "secondary",
+    display: "inline-block",
+    minWidth: "13em",
+    pt: "1em",
+    pb: "1em",
+    pr: "2em",
+    pl: "2em"
+}
+
 const FollowInfo = (props) => {
     const { user } = props
     const [isFollowing, setIsFollowing] = useState('')
@@ -58,7 +68,7 @@ const FollowInfo = (props) => {
                 <li className="c-button--right">
                     <Button
                         onClick={()=> handleClickFollowButton()}
-                        sx={{ pt: "1em", pb: "1em", pr: "2em", pl: "2em", minWidth: "10em", color: "secondary", display: "inline-block", borderRadius: "10em"}}
+                        sx={{ borderRadius: "10em", color: "secondary", display: "inline-block",  minWidth: "10em", pt: "1em", pb: "1em", pr: "2em", pl: "2em" }}
                         variant={isFollowing ? (
                             "contained"
                         ) : (
@@ -84,7 +94,7 @@ const FollowInfo = (props) => {
                 >
                     <Button 
                         variant="outlined"
-                        sx={{ minWidth: "13em", pt: "1em", pb: "1em", pr: "2em", pl: "2em", color: "secondary", display: "inline-block" }}
+                        sx={buttonStyle}
                     >
                         FOLLOWINGS
                     </Button>
@@ -96,7 +106,7 @@ const FollowInfo = (props) => {
                 >
                     <Button 
                         variant="outlined"
-                        sx={{ minWidth: "13em", pt: "1em", pb: "1em", pr: "2em", pl: "2em", color: "secondary", display: "inline-block" }}
+                        sx={buttonStyle}
                     >
                         FOLLOWERS
                     </Button> 
@@ -108,7 +118,7 @@ const FollowInfo = (props) => {
                 >
                     <Button 
                         variant="outlined"
-                        sx={{ minWidth: "10em", pt: "1em", pb: "1em", pr: "2em", pl: "2em", color: "secondary", display: "inline-block" }}
+                        sx={buttonStyle}
                     >
                         FAVORITE POSTS
                     </Button> 

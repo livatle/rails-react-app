@@ -4,13 +4,12 @@ import Cookies from 'js-cookie';
 //material-ui
 import { Button, Icon } from '@mui/material';
 import LogoutIcon from '@mui/icons-material/Logout';
-
 // api
 import { signOut } from '../lib/api/auth';
 // context
 import { AuthContext } from '../App';
 //style
-import { sideBarStyle } from "./SideBar";
+import { buttonStyle } from "./MyPostsButton";
 
 const SignOutButton = () => {
     const { setIsSignedIn } = useContext(AuthContext)
@@ -38,23 +37,16 @@ const SignOutButton = () => {
 
 
     return (
-        <>
-            <Button 
-                onClick={handleSignOut}
-                sx={{
-                    color: "#ffffff",
-                    display: "inline-block",
-                    height: sideBarStyle.maxSize.height,
-                    fontSize: "1em",
-                    width: sideBarStyle.maxSize.width
-                }}
-                >
-                    <Icon sx={{ mr: "0.5em" }}>
-                        <LogoutIcon />
-                    </Icon>
-                    SIGN OUT
-            </Button>
-        </>
+        <Button 
+            onClick={handleSignOut}
+            className="c-box"
+            sx={buttonStyle}
+        >
+            <Icon sx={{ mr: "0.5em" }}>
+                <LogoutIcon />
+            </Icon>
+            SIGN OUT
+        </Button>
     )
 
 }
