@@ -14,9 +14,9 @@ const Favoriteposts = () => {
             const res = await getFavoritePosts(query.id);
             console.log(res.data);
             setFavoritePosts(res.data);
-          } catch (e) {
-            console.log(e);
-          }
+        } catch (e) {
+        console.log(e);
+        }
     }
 
     useEffect(() => {
