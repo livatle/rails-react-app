@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 // context
-import { AuthContext } from '../App';
+import { AuthContext } from '../../App';
 //material-ui
 import { Button, Icon } from '@mui/material';
 import PersonIcon from '@mui/icons-material/Person';

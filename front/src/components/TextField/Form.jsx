@@ -3,7 +3,8 @@ import React from "react";
 import { Button, TextField } from '@mui/material';
 import CreateIcon from '@mui/icons-material/Create';
 //component
-import { AlertMessage } from './index'
+import { AlertMessage } from '../Notification/index'
+//style
 import { formStyle } from "./SignForm";
 
 export const submitButtonStyle = {

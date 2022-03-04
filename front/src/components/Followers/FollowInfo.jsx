@@ -1,10 +1,10 @@
 import React, { useContext, useState, useEffect } from "react";
 import { NavLink, useParams } from "react-router-dom";
 //api
-import { checkFollowing } from '../lib/api/user'
-import { follow, unfollow } from '../lib/api/relationship'
+import { checkFollowing } from '../../lib/api/user'
+import { follow, unfollow } from '../../lib/api/relationship'
 //context
-import { AuthContext } from '../App';
+import { AuthContext } from '../../App';
 //material-ui
 import{ Button } from '@mui/material';
 

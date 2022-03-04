@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 //api
-import { updatePost, getDetail } from '../lib/api/post';
+import { updatePost, getDetail } from '../../lib/api/post';
 //component
-import FormBody from './Form';
+import FormBody from '../TextField/Form';
 
 const Edit = () => {
   // apiで取得したデータを管理する為のstate

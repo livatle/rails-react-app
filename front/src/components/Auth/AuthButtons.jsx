@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 // context
-import { AuthContext } from '../App';
+import { AuthContext } from '../../App';
 //material-ui
 import { MenuItem, Typography } from '@mui/material';
 //component

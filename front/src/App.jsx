@@ -7,7 +7,10 @@ import { getCurrentUser } from './lib/api/auth';
 //material-ui
 import { Box, TableContainer } from '@mui/material';
 //component
-import { Edit, Detail, FavoritePosts, FollowingsList, FollowersList, New, SideBar, PostsList, SignIn, SignUp, UserPosts } from './components'
+import { SignIn, SignUp } from './components/Auth'
+import { FollowingsList, FollowersList } from './components/Followers'
+import { Edit, Detail, FavoritePosts, New, PostsList, UserPosts } from './components/Posts'
+import { SideBar } from './components/SideBar'
 
 export const AuthContext = createContext();
 

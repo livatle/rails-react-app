@@ -1,13 +1,13 @@
 import React from "react";
 import { useNavigate } from 'react-router-dom';
 //component
-import { AuthButtons } from './index'
+import { AuthButtons } from '../Auth/index'
 //material-ui
 import { Box, Button, Icon, MenuItem, MenuList, Typography } from '@mui/material';
 import HomeIcon from '@mui/icons-material/Home';
 import CreateIcon from '@mui/icons-material/Create';
 //style
-import { drawerWidth } from "../App";
+import { drawerWidth } from "../../App";
 
 export const sideBarStyle = {
     menuItemHeight: {

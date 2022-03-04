@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 //context
-import { AuthContext } from '../App';
+import { AuthContext } from '../../App';
 //material-ui
 import { createStyles, makeStyles } from '@mui/styles';
 import { Button, Icon, Table, TableBody, TableCell, TableRow } from '@mui/material';

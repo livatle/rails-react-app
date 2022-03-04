@@ -1,7 +1,7 @@
 import React, {useEffect, useState } from "react";
 import { useParams } from 'react-router-dom'
 //api
-import { checkFavorite, favorite, unfavorite } from '../lib/api/post'
+import { checkFavorite, favorite, unfavorite } from '../../lib/api/post'
 //material-ui
 import { createStyles, makeStyles } from '@mui/styles';
 import FavoriteIcon from '@mui/icons-material/Favorite';

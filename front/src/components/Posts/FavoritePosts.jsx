@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 //api
-import { getFavoritePosts } from "../lib/api/user";
+import { getFavoritePosts } from "../../lib/api/user";
 //material-ui
 import { Divider, Table, TableBody, TableCell, TableRow } from "@mui/material";
 

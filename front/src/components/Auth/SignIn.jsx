@@ -2,11 +2,11 @@ import React, { useContext, useState} from "react";
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
 //api
-import { signIn } from '../lib/api/auth';
+import { signIn } from '../../lib/api/auth';
 // context
-import { AuthContext } from '../App';
+import { AuthContext } from '../../App';
 // component
-import { SignForm } from './index'
+import { SignForm } from '../TextField'
 
 const SignIn = () => {
     const [email, setEmail] = useState('');

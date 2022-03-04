@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 //component
 import { PostsTable } from './index'
 //api
-import { getList, deletePost } from '../lib/api/post'
+import { getList, deletePost } from '../../lib/api/post'
 //material-ui
 import { createStyles, makeStyles } from '@mui/styles';
 import { Button, Divider, Typography } from '@mui/material';

@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from 'react-router-dom'
 // api
-import { getUserPosts } from '../lib/api/user';
-import { deletePost } from '../lib/api/post'
+import { getUserPosts } from '../../lib/api/user';
+import { deletePost } from '../../lib/api/post'
 //material-ui
 import { Divider } from "@mui/material";
 //component
-import { FollowInfo, PostsTable } from './index'
+import { PostsTable } from '../Posts/index'
+import { FollowInfo } from '../Followers/index'
 
 const UserPosts = () => {
   const [user, setUser] = useState('')

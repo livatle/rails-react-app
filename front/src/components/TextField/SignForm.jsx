@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 //material-ui
 import { Box, Button, TextField, Typography } from '@mui/material'
 //coponent
-import { AlertMessage } from './index'
+import { AlertMessage } from '../Notification/index'
 //style
 import { submitButtonStyle } from "./Form";
 

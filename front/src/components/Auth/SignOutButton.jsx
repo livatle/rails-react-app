@@ -5,9 +5,9 @@ import Cookies from 'js-cookie';
 import { Button, Icon } from '@mui/material';
 import LogoutIcon from '@mui/icons-material/Logout';
 // api
-import { signOut } from '../lib/api/auth';
+import { signOut } from '../../lib/api/auth';
 // context
-import { AuthContext } from '../App';
+import { AuthContext } from '../../App';
 //style
 import { buttonStyle } from "./MyPostsButton";
 

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 //api
-import { createPost } from '../lib/api/post';
+import { createPost } from '../../lib/api/post';
 //component
-import FormBody from './Form';
+import FormBody from '../TextField/Form';
 
 const New = () => {
   const [value, setValue] = useState({})
