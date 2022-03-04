@@ -27,6 +27,9 @@ html {
 .p-text {
     color: #ff1988;
 }
+.p-button {
+    min-width: 10em;
+}
 .p-section__follow-info {
     display: flex;
     list-style: none;
