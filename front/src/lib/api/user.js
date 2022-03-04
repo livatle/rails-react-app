@@ -1,50 +1,28 @@
 // /src/lib/api/user.js
 import client from './client';
-import Cookies from "js-cookie"
+import { headers } from "./client";
 
+//ユーザー投稿一覧
 export const getUserPosts = (id) => {
-  return client.get(`/users/${id}`,
-  {headers: {
-    'access-token': Cookies.get('_access_token'),
-    'client': Cookies.get('_client'),
-    'uid': Cookies.get('_uid')
-  }});
+  return client.get(`/users/${id}`, headers);
 };
 
 //フォロー中一覧
 export const getFollowingsList = (id) => {
-  return client.get(`/users/${id}/following`,
-  {headers: {
-    'access-token': Cookies.get('_access_token'),
-    'client': Cookies.get('_client'),
-    'uid': Cookies.get('_uid')
-  }})
+  return client.get(`/users/${id}/following`, headers)
 }
 
 //フォロワー一覧
 export const getFollowersList = (id) => {
-  return client.get(`/users/${id}/follower`,
-  {headers: {
-    'access-token': Cookies.get('_access_token'),
-    'client': Cookies.get('_client'),
-    'uid': Cookies.get('_uid')
-  }})
+  return client.get(`/users/${id}/follower`, headers)
 }
-//いいねした投稿一覧
-export const getFavoritePosts = (id) => {
-  return client.get(`/users/${id}/favorite_posts`,
-  {headers: {
-    'access-token': Cookies.get('_access_token'),
-    'client': Cookies.get('_client'),
-    'uid': Cookies.get('_uid')
-  }})
-}
+
 //フォローしているかどうか
 export const checkFollowing = (id) => {
-  return client.get(`/users/${id}`,
-  {headers: {
-    'access-token': Cookies.get('_access_token'),
-    'client': Cookies.get('_client'),
-    'uid': Cookies.get('_uid')
-  }})
+  return client.get(`/users/${id}`, headers)
+}
+
+//お気に入りした投稿一覧
+export const getFavoritePosts = (id) => {
+  return client.get(`/users/${id}/favorite_posts`, headers)
 }
