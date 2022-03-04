@@ -8,28 +8,32 @@ import { Button, Icon, Table, TableBody, TableCell, TableRow } from '@mui/materi
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 
-
 const useStyles = makeStyles(() =>
     createStyles({
-        updateButton: {
-            color: "#ff1988",
-            textDecoration: "none",
-            marginRight: "1em",
-            marginBottom: "0.5em"
-        },
-        deleteButton: {
-            color: "#ff1988",
-            textDecoration: "none",
-            paddingTop: "0.9em",
-            paddingBottom: "0.9em"
-        }
+       button: {
+           color: "#1876D1",
+           textDecoration: "none",
+       }
     }),
 );
+
+const buttonStyle = {
+    updateButton: {
+        pr: "1em",
+        pl: "1em",
+        marginRight: "1em",
+        marginBottom: "0.5em"
+    },
+    deleteButton: {
+        paddingTop: "0.5em",
+        paddingBottom: "0.5em"
+    }
+}
 
 const PostsTable = (props) => {
     const { dataList, handleDelete, username } = props
     const { currentUser } = useContext(AuthContext)
-    const classes = useStyles();
+    const classes =  useStyles();
 
     return (
         <>
@@ -58,10 +62,10 @@ const PostsTable = (props) => {
                             <TableCell sx={{width: "20%"}}>
                             {item.userId === currentUser?.id ? (
                                 <>
-                                    <Button>
+                                    <Button sx={buttonStyle.updateButton}>
                                         <NavLink 
                                             to={`/edit/${item.id}`}
-                                            className={classes.updateButton}
+                                            className={classes.button}
                                         >
                                             <Icon>
                                                 <EditIcon />
@@ -71,7 +75,8 @@ const PostsTable = (props) => {
                                     </Button>
                                     <Button
                                         onClick={() => handleDelete(item)}
-                                        className={classes.deleteButton}
+                                        className={classes.button}
+                                        sx={buttonStyle.deleteButton}
                                     >
                                         <DeleteIcon />
                                         DELETE

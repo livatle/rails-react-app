@@ -3,12 +3,22 @@ import { useParams } from 'react-router-dom'
 //api
 import { checkFavorite, favorite, unfavorite } from '../lib/api/post'
 //material-ui
+import { createStyles, makeStyles } from '@mui/styles';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+
+const useStyles = makeStyles(() =>
+    createStyles({
+       button: {
+           color: "#ff1988",
+       }
+    }),
+);
 
 const FavoriteButton = () => {
     const [isFavorite, setIsFavorite] = useState('')
     const query = useParams();
+    const classes =  useStyles();
 
     const handleClickFavoriteButton = async () => {
         if (isFavorite === false) {
@@ -49,14 +59,16 @@ const FavoriteButton = () => {
                 <FavoriteIcon 
                     onClick={()=> handleClickFavoriteButton()}
                     color="secondary"
+                    className={classes.button}
                     fontSize="large"
                 />
             ) : (
                 <FavoriteBorderIcon
                     onClick={()=> handleClickFavoriteButton()}
-                    variant="outlined"
                     color="secondary"
+                    className={classes.button}
                     fontSize="large"
+                    variant="outlined"
                 />
             )}
         </>
