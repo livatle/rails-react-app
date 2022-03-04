@@ -9,6 +9,7 @@ import { AuthContext } from '../../App';
 import{ Button } from '@mui/material';
 
 const buttonStyle = {
+    color: "primary",
     display: "inline-block",
     minWidth: "13em",
     pt: "1em",
@@ -16,7 +17,6 @@ const buttonStyle = {
     pr: "2em",
     pl: "2em"
 }
-
 const FollowInfo = (props) => {
     const { user } = props
     const [isFollowing, setIsFollowing] = useState('')
@@ -67,7 +67,7 @@ const FollowInfo = (props) => {
                 <li className="c-button--right">
                     <Button
                         onClick={()=> handleClickFollowButton()}
-                        sx={{ borderRadius: "10em", color: "secondary", display: "inline-block",  minWidth: "10em", pt: "1em", pb: "1em", pr: "2em", pl: "2em" }}
+                        sx={{ color: "secondary", display: "inline-block", minWidth: "10em", pt: "1em", pb: "1em", pr: "2em", pl: "2em" }}
                         variant={isFollowing ? (
                             "contained"
                         ) : (
@@ -101,7 +101,7 @@ const FollowInfo = (props) => {
             </li>
             <li className='p-section--left'>
                 <NavLink 
-                    to={`/users/${query.id}/follower`}
+                    to={`/users/${query.id}/follower`}    
                 >
                     <Button 
                         variant="outlined"
