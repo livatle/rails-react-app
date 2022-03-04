@@ -1,7 +1,11 @@
 import React from "react";
 import { NavLink } from 'react-router-dom';
-import { AlertMessage } from './index'
+//material-ui
 import { Box, Button, TextField, Typography } from '@mui/material'
+//coponent
+import { AlertMessage } from './index'
+//style
+import { submitButtonStyle } from "./Form";
 
 export const formStyle = {
   '& div': {
@@ -85,7 +89,7 @@ const SignForm = (props) => {
             />
           )}
           <Button
-            sx={{ width: "80%", p: "1em", borderRadius: "10em" }}
+            sx={submitButtonStyle}
             variant="outlined"
             type="subimit" 
             onClick={handleSubmit} 

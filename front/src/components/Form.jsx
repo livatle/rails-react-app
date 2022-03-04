@@ -6,6 +6,12 @@ import CreateIcon from '@mui/icons-material/Create';
 import { AlertMessage } from './index'
 import { formStyle } from "./SignForm";
 
+export const submitButtonStyle = {
+    borderRadius: "10em",
+    width: "80%",
+    p: "1em"
+}
+
 const Form = (props) => {
     const { 
         handleChange,
@@ -38,7 +44,7 @@ const Form = (props) => {
                     value={value.content} 
                 />
                 <Button 
-                    sx={{width: "80%", p: "1em", borderRadius: "10em"}} 
+                    sx={submitButtonStyle} 
                     variant="outlined" 
                     type="subimit" 
                     value={buttonType} 
