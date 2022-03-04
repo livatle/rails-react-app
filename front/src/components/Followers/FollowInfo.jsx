@@ -9,7 +9,6 @@ import { AuthContext } from '../../App';
 import{ Button } from '@mui/material';
 
 const buttonStyle = {
-    color: "secondary",
     display: "inline-block",
     minWidth: "13em",
     pt: "1em",
