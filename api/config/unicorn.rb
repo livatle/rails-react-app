@@ -4,7 +4,7 @@ $app_dir = "/var/www/rails-react-app/api"
 $worker  = 2
 $timeout = 30
 # プロセスIDの保存先を指定
-$pid  = File.expand_path 'tmp/pids/unicorn.pid', $app_dir
+$pid = File.expand_path 'tmp/pids/unicorn.pid', $app_dir
 
 # ポート番号を指定
 $listen = File.expand_path 'tmp/sockets/.unicorn.sock', $app_dir
@@ -16,7 +16,7 @@ $stderr_path = File.expand_path '/log/unicorn.stderr.log', $app_dir
 $stdout_path = File.expand_path '/log/unicorn.stdout.log', $app_dir
 
 #応答時間を待つ上限時間を設定
-$timeout 30
+$timeout = 30
 
 working_directory $app_dir
 worker_processes $worker
