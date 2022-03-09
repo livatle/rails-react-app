@@ -18,7 +18,7 @@ working_directory $app_dir
 worker_processes $worker
 pid $pid
 stderr_path $std_log
-stdout $std_log
+stdout_path $std_log
 listen $listen
 timeout $timeout
 
