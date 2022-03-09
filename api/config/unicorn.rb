@@ -10,7 +10,7 @@ $pid  = File.expand_path 'tmp/pids/unicorn.pid', $app_dir
 $listen = File.expand_path 'tmp/sockets/.unicorn.sock', $app_dir
 
 # エラーのログを記録するファイルを指定
-$stderr_path File.expand_path '/log/unicorn.stderr.log', $app_dir
+$stderr_path = File.expand_path '/log/unicorn.stderr.log', $app_dir
 
 # 通常のログを記録するファイルを指定
 $stdout_path = File.expand_path '/log/unicorn.stdout.log', $app_dir
