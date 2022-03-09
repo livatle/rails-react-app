@@ -9,11 +9,7 @@ $pid = File.expand_path 'tmp/pids/unicorn.pid', $app_dir
 # ポート番号を指定
 $listen = File.expand_path 'tmp/sockets/.unicorn.sock', $app_dir
 
-# エラーのログを記録するファイルを指定
-$stderr_path = File.expand_path '/log/unicorn.stderr.log', $app_dir
-
-# 通常のログを記録するファイルを指定
-$stdout_path = File.expand_path '/log/unicorn.stdout.log', $app_dir
+$std_log = File.expand_path 'log/unicorn.log', $app_dir
 
 #応答時間を待つ上限時間を設定
 $timeout = 30
@@ -21,8 +17,8 @@ $timeout = 30
 working_directory $app_dir
 worker_processes $worker
 pid $pid
-stderr_path $stderr_path
-stdout $stdout_path
+stderr_path $std_log
+stdout $std_log
 listen $listen
 timeout $timeout
 
