@@ -1,26 +1,30 @@
-# rootパスのディレクトリを指定
-root_path = File.expand_path('../../', __FILE__)
+#railsアプリの場所
+$app_dir = "/var/www/rails-react-app/api"
 
-# アプリケーションサーバの性能を決定する
-worker_processes 2
-
-# アプリケーションの設置されているディレクトリを指定
-working_directory root_path
-
+$worker  = 2
+$timeout = 30
 # プロセスIDの保存先を指定
-pid "#{root_path}/tmp/pids/unicorn.pid"
+$pid  = File.expand_path 'tmp/pids/unicorn.pid', $app_dir
 
 # ポート番号を指定
-listen "#{root_path}/tmp/sockets/unicorn.sock"
+$listen = File.expand_path 'tmp/sockets/.unicorn.sock', $app_dir
 
 # エラーのログを記録するファイルを指定
-stderr_path "#{root_path}/log/unicorn.stderr.log"
+$stderr_path File.expand_path '/log/unicorn.stderr.log', $app_dir
 
 # 通常のログを記録するファイルを指定
-stdout_path "#{root_path}/log/unicorn.stdout.log"
+$stdout_path = File.expand_path '/log/unicorn.stdout.log', $app_dir
 
 #応答時間を待つ上限時間を設定
-timeout 30
+$timeout 30
+
+working_directory $app_dir
+worker_processes $worker
+pid $pid
+stderr_path $stderr_path
+stdout $stdout_path
+listen $listen
+timeout $timeout
 
 # ダウンタイムなしでUnicornを再起動時する
 preload_app true
