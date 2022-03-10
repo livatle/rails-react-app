@@ -1,7 +1,7 @@
 import applyCaseMiddleware from 'axios-case-converter';
 import axios from 'axios';
 import Cookies from "js-cookie";
-import { apiURL } from './config/config.production';
+import { apiURL } from '../config/config.production';
 
 const options = {
   ignoreHeaders: true 
