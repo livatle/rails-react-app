@@ -1,0 +1,1 @@
+export const apiURL = 'https://18.180.221.171:80' // 本番環境のURL
