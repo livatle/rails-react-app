@@ -1,5 +1,5 @@
 current directory: /Users/atsuto/Projects/rails-react-app/api/vendor/bundle/ruby/2.6.0/gems/mysql2-0.5.3/ext/mysql2
-/Users/atsuto/.rbenv/versions/2.6.9/bin/ruby -I /Users/atsuto/.rbenv/versions/2.6.9/lib/ruby/2.6.0 -r ./siteconf20220312-20149-10ayiw3.rb extconf.rb
+/Users/atsuto/.rbenv/versions/2.6.9/bin/ruby -I /Users/atsuto/.rbenv/versions/2.6.9/lib/ruby/2.6.0 -r ./siteconf20220312-45196-1h7kesh.rb extconf.rb --with-ldflags\=-L/opt/homebrew/opt/openssl@3/lib
 checking for rb_absint_size()... yes
 checking for rb_absint_singlebit_p()... yes
 checking for rb_wait_for_single_fd()... yes
@@ -23,10 +23,7 @@ checking for MYSQL_OPTION_MULTI_STATEMENTS_ON in mysql.h... yes
 checking for MYSQL_OPTION_MULTI_STATEMENTS_OFF in mysql.h... yes
 checking for my_bool in mysql.h... yes
 -----
-Don't know how to set rpath on your system, if MySQL libraries are not in path mysql2 may not load
------
------
-Setting libpath to /opt/homebrew/opt/mysql@5.7/lib
+Setting rpath to /opt/homebrew/opt/mysql@5.7/lib
 -----
 creating Makefile
 
@@ -3321,8 +3318,7 @@ statement.c:603:26: note: ')' token is here
                                                        ^
 34 warnings generated.
 linking shared-object mysql2/mysql2.bundle
-ld: library not found for -lssl
-clang: error: linker command failed with exit code 1 (use -v to see invocation)
-make: *** [mysql2.bundle] Error 1
 
-make failed, exit code 2
+current directory: /Users/atsuto/Projects/rails-react-app/api/vendor/bundle/ruby/2.6.0/gems/mysql2-0.5.3/ext/mysql2
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 mysql2.bundle ./.gem.20220312-45196-nptvof/mysql2
