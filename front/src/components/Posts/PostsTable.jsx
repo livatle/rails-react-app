@@ -39,7 +39,7 @@ const PostsTable = (props) => {
         <>
             <Table>
                 <TableBody>
-                    {dataList.map((item, index) => (
+                    {dataList.map((item, index) => 
                         <TableRow
                             key={index}
                             sx={{ bgcolor: "#222A50", '&:last-child td, &:last-child th': { border: 0 } }}
@@ -87,7 +87,7 @@ const PostsTable = (props) => {
                             )}
                             </TableCell>
                         </TableRow>
-                    ))}
+                    )}
                 </TableBody>
             </Table>
         </>                
