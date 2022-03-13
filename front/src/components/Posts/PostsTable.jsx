@@ -60,7 +60,7 @@ const PostsTable = (props) => {
                                 </NavLink>
                             </TableCell>
                             <TableCell sx={{width: "20%"}}>
-                            {item.userId === currentUser?.id ? (
+                            {item.userId === currentUser?.id ? 
                                 <>
                                     <Button sx={buttonStyle.updateButton}>
                                         <NavLink 
@@ -82,9 +82,9 @@ const PostsTable = (props) => {
                                         DELETE
                                     </Button>
                                 </>
-                            ) : (
+                             : 
                                 <></>
-                            )}
+                            }
                             </TableCell>
                         </TableRow>
                     )}
