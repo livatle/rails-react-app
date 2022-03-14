@@ -69,7 +69,7 @@ function App() {
         }}
     >
       <Box sx={{ display: 'flex' }}>
-        <Router basename="/content/">
+        <Router basename="/">
           <SideBar />
           <Box 
               component="main"
