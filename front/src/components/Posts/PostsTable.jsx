@@ -38,7 +38,7 @@ const PostsTable = (props) => {
     return (
         <Table>
             <TableBody>
-                {dataList.map((item, index) => {
+                {dataList.map((item, index) =>
                     <TableRow
                         key={index}
                         sx={{ bgcolor: "#222A50", '&:last-child td, &:last-child th': { border: 0 } }}
@@ -48,7 +48,7 @@ const PostsTable = (props) => {
                                 to={`/users/${item.userId}`}
                             >   
                                 <p className="c-grid__item">{item.user}</p>
-                                
+                                <p className="c-grid__item">{username}</p>
                             </NavLink>
                         </TableCell>
                         <TableCell>
@@ -86,7 +86,7 @@ const PostsTable = (props) => {
                         }
                         </TableCell>
                     </TableRow>
-                })}
+                )}
             </TableBody>
         </Table>        
     )
