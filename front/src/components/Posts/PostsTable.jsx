@@ -36,61 +36,59 @@ const PostsTable = (props) => {
     const classes =  useStyles();
 
     return (
-        <>
-            <Table>
-                <TableBody>
-                    {dataList.map((item, index) => 
-                        <TableRow
-                            key={index}
-                            sx={{ bgcolor: "#222A50", '&:last-child td, &:last-child th': { border: 0 } }}
-                        >
-                            <TableCell align={"center"}>
-                                <NavLink 
-                                    to={`/users/${item.userId}`}
-                                >   
-                                    <p className="c-grid__item">{item.user}</p>
-                                    
-                                </NavLink>
-                            </TableCell>
-                            <TableCell>
-                                <NavLink 
-                                    to={`/post/${item.id}`}
-                                >
-                                    <p className="c-grid__item">{item.content}</p>
-                                </NavLink>
-                            </TableCell>
-                            <TableCell sx={{width: "20%"}}>
-                            {item.userId === currentUser?.id ? 
-                                <>
-                                    <Button sx={buttonStyle.updateButton}>
-                                        <NavLink 
-                                            to={`/edit/${item.id}`}
-                                            className={classes.button}
-                                        >
-                                            <Icon>
-                                                <EditIcon />
-                                            </Icon>
-                                            EDIT
-                                        </NavLink>
-                                    </Button>
-                                    <Button
-                                        onClick={() => handleDelete(item)}
+        <Table>
+            <TableBody>
+                {dataList.map((item, index) => {
+                    <TableRow
+                        key={index}
+                        sx={{ bgcolor: "#222A50", '&:last-child td, &:last-child th': { border: 0 } }}
+                    >
+                        <TableCell align={"center"}>
+                            <NavLink 
+                                to={`/users/${item.userId}`}
+                            >   
+                                <p className="c-grid__item">{item.user}</p>
+                                
+                            </NavLink>
+                        </TableCell>
+                        <TableCell>
+                            <NavLink 
+                                to={`/post/${item.id}`}
+                            >
+                                <p className="c-grid__item">{item.content}</p>
+                            </NavLink>
+                        </TableCell>
+                        <TableCell sx={{width: "20%"}}>
+                        {item.userId === currentUser?.id ? 
+                            <>
+                                <Button sx={buttonStyle.updateButton}>
+                                    <NavLink 
+                                        to={`/edit/${item.id}`}
                                         className={classes.button}
-                                        sx={buttonStyle.deleteButton}
                                     >
-                                        <DeleteIcon />
-                                        DELETE
-                                    </Button>
-                                </>
-                             : 
-                                <></>
-                            }
-                            </TableCell>
-                        </TableRow>
-                    )}
-                </TableBody>
-            </Table>
-        </>                
+                                        <Icon>
+                                            <EditIcon />
+                                        </Icon>
+                                        EDIT
+                                    </NavLink>
+                                </Button>
+                                <Button
+                                    onClick={() => handleDelete(item)}
+                                    className={classes.button}
+                                    sx={buttonStyle.deleteButton}
+                                >
+                                    <DeleteIcon />
+                                    DELETE
+                                </Button>
+                            </>
+                            : 
+                            <></>
+                        }
+                        </TableCell>
+                    </TableRow>
+                })}
+            </TableBody>
+        </Table>        
     )
 }
 
