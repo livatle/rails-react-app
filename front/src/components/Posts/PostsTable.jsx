@@ -49,7 +49,7 @@ const PostsTable = (props) => {
                                     to={`/users/${item.userId}`}
                                 >   
                                     <p className="c-grid__item">{item.user}</p>
-                                    <p className="c-grid__item">{username}</p>
+                                    
                                 </NavLink>
                             </TableCell>
                             <TableCell>
