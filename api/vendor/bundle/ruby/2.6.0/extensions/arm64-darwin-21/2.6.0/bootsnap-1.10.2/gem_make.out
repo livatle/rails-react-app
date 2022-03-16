@@ -1,5 +1,5 @@
 current directory: /Users/atsuto/Projects/rails-react-app/api/vendor/bundle/ruby/2.6.0/gems/bootsnap-1.10.2/ext/bootsnap
-/Users/atsuto/.rbenv/versions/2.6.9/bin/ruby -I /Users/atsuto/.rbenv/versions/2.6.9/lib/ruby/2.6.0 -r ./siteconf20220126-33219-x7q70d.rb extconf.rb
+/Users/atsuto/.rbenv/versions/2.6.9/bin/ruby -I /Users/atsuto/.rbenv/versions/2.6.9/lib/ruby/2.6.0 -r ./siteconf20220316-68038-19v8bmm.rb extconf.rb
 creating Makefile
 
 current directory: /Users/atsuto/Projects/rails-react-app/api/vendor/bundle/ruby/2.6.0/gems/bootsnap-1.10.2/ext/bootsnap
@@ -367,4 +367,4 @@ linking shared-object bootsnap/bootsnap.bundle
 
 current directory: /Users/atsuto/Projects/rails-react-app/api/vendor/bundle/ruby/2.6.0/gems/bootsnap-1.10.2/ext/bootsnap
 make "DESTDIR=" install
-/usr/bin/install -c -m 0755 bootsnap.bundle ./.gem.20220126-33219-1o3c8on/bootsnap
+/usr/bin/install -c -m 0755 bootsnap.bundle ./.gem.20220316-68038-21sthi/bootsnap
