@@ -37,7 +37,7 @@ const SideBar = () => {
                         className="c-box"
                     >
                         <Button
-                            onClick={()=> navigate('/')}
+                            onClick={()=> navigate('/timeline')}
                             className="c-box"
                             sx={{ 
                                 color: "#ffffff",

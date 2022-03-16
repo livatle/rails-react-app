@@ -42,8 +42,8 @@ const Edit = () => {
     try {
       const res = await updatePost(query.id, value)
       console.log(res)
-      // リクエストが成功したら'/'にリダイレクトさせる
-      navigate('/')
+      // リクエストが成功したら'/timeline'にリダイレクトさせる
+      navigate('/timeline')
     } catch(e) {
       console.log(e)
     }
