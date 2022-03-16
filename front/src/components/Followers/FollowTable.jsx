@@ -12,9 +12,9 @@ const FollowTable = (props) => {
             <Divider color="#ffffff" />
             <Table>
                 <TableBody>
-                    {JSON.parase(followingData).map((user, index) => (
+                    {followingData.map((user) => (
                         <TableRow
-                            key={index}
+                            key={user.id}
                             sx={{ bgcolor: "#222A50", '&:last-child td, &:last-child th': { border: 0 }}}
                         >   
                             <TableCell align="center">

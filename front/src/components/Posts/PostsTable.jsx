@@ -38,9 +38,9 @@ const PostsTable = (props) => {
     return (
         <Table>
             <TableBody>
-                {JSON.parse(dataList).map((item, index) =>
+                {dataList.map((item) =>
                     <TableRow
-                        key={index}
+                        key={item.id}
                         sx={{ bgcolor: "#222A50", '&:last-child td, &:last-child th': { border: 0 } }}
                     >
                         <TableCell align={"center"}>
