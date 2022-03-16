@@ -10,6 +10,7 @@ import { Box, TableContainer } from '@mui/material';
 import { SignIn, SignUp } from './components/Auth'
 import { FollowingsList, FollowersList } from './components/Followers'
 import { Edit, Detail, FavoritePosts, New, PostsList, UserPosts } from './components/Posts'
+import { Home } from './components/Home'
 import { SideBar } from './components/SideBar'
 
 export const AuthContext = createContext();
@@ -77,10 +78,11 @@ function App() {
           >
               <TableContainer>
               <Routes>
-              <Route path='/users/:id/favorite_posts' element={<FavoritePosts />} />
+                <Route exact path='/' element={<Home />} />
+                <Route path='/users/:id/favorite_posts' element={<FavoritePosts />} />
                 <Route path='/users/:id/following' element={<FollowingsList />} />
                 <Route path='/users/:id/follower' element={<FollowersList />} />
-                <Route exact path='/' element={<PostsList />} />
+                <Route exact path='/timeline' element={<PostsList />} />
                 <Route exact path='/users/:id' element={<UserPosts />} />
                 <Route exact path='/signin' element={<SignIn />} />
                 <Route exact path='/signup' element={<SignUp />} />
