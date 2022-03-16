@@ -56,7 +56,7 @@ const PostsList = () => {
         <>
             <Title />
             <PostsTable
-                dataList={posts}
+                posts={posts}
                 handleDelete={handleDelete}
                 username={posts.user}
             />
