@@ -1,1 +1,0 @@
-export const apiURL = 'http://18.180.221.171/api/v1' // 本番環境のURL
