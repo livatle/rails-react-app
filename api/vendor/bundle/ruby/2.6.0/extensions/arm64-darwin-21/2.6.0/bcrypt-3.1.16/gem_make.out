@@ -1,5 +1,5 @@
 current directory: /Users/atsuto/Projects/rails-react-app/api/vendor/bundle/ruby/2.6.0/gems/bcrypt-3.1.16/ext/mri
-/Users/atsuto/.rbenv/versions/2.6.9/bin/ruby -I /Users/atsuto/.rbenv/versions/2.6.9/lib/ruby/2.6.0 -r ./siteconf20220131-65851-1wekiaq.rb extconf.rb
+/Users/atsuto/.rbenv/versions/2.6.9/bin/ruby -I /Users/atsuto/.rbenv/versions/2.6.9/lib/ruby/2.6.0 -r ./siteconf20220316-68038-co05m.rb extconf.rb
 creating Makefile
 
 current directory: /Users/atsuto/Projects/rails-react-app/api/vendor/bundle/ruby/2.6.0/gems/bcrypt-3.1.16/ext/mri
@@ -36,4 +36,4 @@ linking shared-object bcrypt_ext.bundle
 
 current directory: /Users/atsuto/Projects/rails-react-app/api/vendor/bundle/ruby/2.6.0/gems/bcrypt-3.1.16/ext/mri
 make "DESTDIR=" install
-/usr/bin/install -c -m 0755 bcrypt_ext.bundle ./.gem.20220131-65851-1xy3qdb
+/usr/bin/install -c -m 0755 bcrypt_ext.bundle ./.gem.20220316-68038-1k2peqz
