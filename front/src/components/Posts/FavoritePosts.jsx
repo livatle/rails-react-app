@@ -30,7 +30,7 @@ const Favoriteposts = () => {
                 <Divider color="#ffffff" />
                 <Table>
                     <TableBody>
-                        {favoritePosts.map((item, index) => (
+                        {JSON.parse(favoritePosts).map((item, index) => (
                             <TableRow
                                 key={index}
                                 sx={{ bgcolor: "#222A50", '&:last-child td, &:last-child th': { border: 0 }}}

@@ -38,7 +38,7 @@ const PostsTable = (props) => {
     return (
         <Table>
             <TableBody>
-                {dataList.map((item, index) =>
+                {JSON.parse(dataList).map((item, index) =>
                     <TableRow
                         key={index}
                         sx={{ bgcolor: "#222A50", '&:last-child td, &:last-child th': { border: 0 } }}
