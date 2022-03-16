@@ -30,9 +30,9 @@ const Favoriteposts = () => {
                 <Divider color="#ffffff" />
                 <Table>
                     <TableBody>
-                        {JSON.parse(favoritePosts).map((item, index) => (
+                        {favoritePosts.map((item) => (
                             <TableRow
-                                key={index}
+                                key={item.id}
                                 sx={{ bgcolor: "#222A50", '&:last-child td, &:last-child th': { border: 0 }}}
                             >   
                                 <TableCell align="center">
@@ -52,5 +52,4 @@ const Favoriteposts = () => {
         );
     }
 }
-
 export default Favoriteposts
