@@ -31,39 +31,39 @@ const buttonStyle = {
 }
 
 const PostsTable = (props) => {
-    const { dataList, handleDelete, username } = props
+    const { posts, handleDelete, username } = props
     const { currentUser } = useContext(AuthContext)
     const classes =  useStyles();
 
     return (
         <Table>
             <TableBody>
-                {dataList.map((item) =>
+                {posts.map((post) =>
                     <TableRow
-                        key={item.id}
+                        key={post.id}
                         sx={{ bgcolor: "#222A50", '&:last-child td, &:last-child th': { border: 0 } }}
                     >
                         <TableCell align={"center"}>
                             <NavLink 
-                                to={`/users/${item.userId}`}
+                                to={`/users/${post.userId}`}
                             >   
-                                <p className="c-grid__item">{item.user}</p>
+                                <p className="c-grid__item">{post.user}</p>
                                 <p className="c-grid__item">{username}</p>
                             </NavLink>
                         </TableCell>
                         <TableCell>
                             <NavLink 
-                                to={`/post/${item.id}`}
+                                to={`/post/${post.id}`}
                             >
-                                <p className="c-grid__item">{item.content}</p>
+                                <p className="c-grid__item">{post.content}</p>
                             </NavLink>
                         </TableCell>
                         <TableCell sx={{width: "20%"}}>
-                        {item.userId === currentUser?.id ? 
+                        {post.userId === currentUser?.id ? 
                             <>
                                 <Button sx={buttonStyle.updateButton}>
                                     <NavLink 
-                                        to={`/edit/${item.id}`}
+                                        to={`/edit/${post.id}`}
                                         className={classes.button}
                                     >
                                         <Icon>
@@ -73,7 +73,7 @@ const PostsTable = (props) => {
                                     </NavLink>
                                 </Button>
                                 <Button
-                                    onClick={() => handleDelete(item)}
+                                    onClick={() => handleDelete(post)}
                                     className={classes.button}
                                     sx={buttonStyle.deleteButton}
                                 >
