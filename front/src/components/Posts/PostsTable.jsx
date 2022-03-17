@@ -31,7 +31,7 @@ const buttonStyle = {
 }
 
 const PostsTable = (props) => {
-    const { dataList, handleDelete, username } = props
+    const { dataList, handleDelete } = props
     const { currentUser } = useContext(AuthContext)
     const classes =  useStyles();
 
@@ -48,7 +48,7 @@ const PostsTable = (props) => {
                                 to={`/users/${item.userId}`}
                             >   
                                 <p className="c-grid__item">{item.user}</p>
-                                <p className="c-grid__item">{username}</p>
+                                
                             </NavLink>
                         </TableCell>
                         <TableCell>
