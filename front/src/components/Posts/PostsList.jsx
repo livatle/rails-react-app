@@ -13,7 +13,7 @@ const PostsList = () => {
     const handleGetList = async () => {
         try {
           const res = await getList();
-          const postsList = JSON.parse(res.data);
+          const postsList = JSON.parse(JSON.stringify(res.data));
           console.log(postsList);
           setPosts(postsList);
         } catch (e) {
