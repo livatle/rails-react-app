@@ -38,7 +38,7 @@ const PostsTable = (props) => {
     return (
         <Table>
             <TableBody>
-                {dataList.map((item) =>
+                {Object.entries(dataList).map((item) =>
                     <TableRow
                         key={item.id}
                         sx={{ bgcolor: "#222A50", '&:last-child td, &:last-child th': { border: 0 } }}

@@ -8,15 +8,13 @@ import { getList, deletePost } from '../../lib/api/post'
 import { Divider } from '@mui/material';
 
 const PostsList = () => {
-    const [dataList, setDataList] = useState([]);
+    const [dataList, setDataList] = useState();
 
     const handleGetList = async () => {
         try {
           const res = await getList();
-          const posts = res.data
-          const data = await posts.json();
-          console.log(data);
-          setDataList(data);
+          console.log(res.data);
+          setDataList(res.data);
         } catch (e) {
           console.log(e);
         }
