@@ -8,14 +8,14 @@ import { getList, deletePost } from '../../lib/api/post'
 import { Divider } from '@mui/material';
 
 const PostsList = () => {
-    const [posts, setPosts] = useState([]);
+    const [dataList, setDataList] = useState([]);
 
     const handleGetList = async () => {
         try {
           const res = await getList();
-          const postsList = JSON.parse(JSON.stringify(res.data));
-          console.log(postsList);
-          setPosts(postsList);
+          const data = await res.json();
+          console.log(data.data);
+          setDataList(data.data);
         } catch (e) {
           console.log(e);
         }
@@ -26,11 +26,11 @@ const PostsList = () => {
     }, []);
 
     // 削除する関数を追加
-    const handleDelete = async (post) => {
+    const handleDelete = async (item) => {
         // 引数にitemを渡してitem.idで「1」など取得できればOK
-        console.log('click', post.id)
+        console.log('click', item.id)
         try {
-            const res = await deletePost(post.id)
+            const res = await deletePost(item.id)
             console.log(res.data)
         // データを再取得
         handleGetList()
@@ -40,7 +40,7 @@ const PostsList = () => {
     }
 
     const Title = () => {
-        if (posts.length >= 1) {
+        if (dataList.length >= 1) {
             return (
                 <>
                     <h2 className="c-text">ALL POST</h2>
@@ -57,9 +57,9 @@ const PostsList = () => {
         <>
             <Title />
             <PostsTable
-                posts={posts}
+                dataList={dataList}
                 handleDelete={handleDelete}
-                username={posts.user}
+                username={dataList.user}
             />
         </>
     )
