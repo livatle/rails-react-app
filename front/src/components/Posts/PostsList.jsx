@@ -13,9 +13,10 @@ const PostsList = () => {
     const handleGetList = async () => {
         try {
           const res = await getList();
-          const posts = await res.data.json();
-          console.log(posts);
-          setDataList(posts);
+          const posts = res.data
+          const data = await posts.json();
+          console.log(data);
+          setDataList(dat);
         } catch (e) {
           console.log(e);
         }
