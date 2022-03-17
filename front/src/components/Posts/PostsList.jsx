@@ -13,8 +13,8 @@ const PostsList = () => {
     const handleGetList = async () => {
         try {
           const res = await getList();
-          console.log(res);
-          setDataList(res);
+          console.log(res.data);
+          setDataList(res.data);
         } catch (e) {
           console.log(e);
         }
