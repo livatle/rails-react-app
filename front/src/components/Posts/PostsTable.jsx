@@ -30,17 +30,15 @@ const buttonStyle = {
     }
 }
 
-const PostsTable = () => {
-
-    const posts = [
-        {id: 1, userId: 1, title: 'Hello World', content: 'Welcome to learning React!'},
-        {id: 2, userId: 2, title: 'Installation', content: 'You can install React from npm.'}
-    ];
+const PostsTable = (props) => {
+    const { dataList, handleDelete, username } = props
+    const { currentUser } = useContext(AuthContext)
+    const classes =  useStyles();
 
     return (
         <Table>
             <TableBody>
-                {posts.map((item) =>
+                {dataList.map((item) =>
                     <TableRow
                         key={item.id}
                         sx={{ bgcolor: "#222A50", '&:last-child td, &:last-child th': { border: 0 } }}
@@ -48,9 +46,9 @@ const PostsTable = () => {
                         <TableCell align={"center"}>
                             <NavLink 
                                 to={`/users/${item.userId}`}
-                            >   
+                            >
                                 <p className="c-grid__item">{item.title}</p>
-                                
+                                <p className="c-grid__item">{username}</p>
                             </NavLink>
                         </TableCell>
                         <TableCell>
@@ -59,6 +57,33 @@ const PostsTable = () => {
                             >
                                 <p className="c-grid__item">{item.content}</p>
                             </NavLink>
+                        </TableCell>
+                        <TableCell sx={{width: "20%"}}>
+                        {item.userId === currentUser?.id ? 
+                            <>
+                                <Button sx={buttonStyle.updateButton}>
+                                    <NavLink 
+                                        to={`/edit/${item.id}`}
+                                        className={classes.button}
+                                    >
+                                        <Icon>
+                                            <EditIcon />
+                                        </Icon>
+                                        EDIT
+                                    </NavLink>
+                                </Button>
+                                <Button
+                                    onClick={() => handleDelete(item)}
+                                    className={classes.button}
+                                    sx={buttonStyle.deleteButton}
+                                >
+                                    <DeleteIcon />
+                                    DELETE
+                                </Button>
+                            </>
+                            : 
+                            <></>
+                        }
                         </TableCell>
                     </TableRow>
                 )}
