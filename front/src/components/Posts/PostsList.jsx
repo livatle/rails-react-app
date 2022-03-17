@@ -13,9 +13,9 @@ const PostsList = () => {
     const handleGetList = async () => {
         try {
           const res = await getList();
-          const data = await res.json();
-          console.log(data.data);
-          setDataList(data.data);
+          const posts = await res.data.json();
+          console.log(posts);
+          setDataList(posts);
         } catch (e) {
           console.log(e);
         }
