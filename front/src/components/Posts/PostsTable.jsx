@@ -40,7 +40,7 @@ const PostsTable = (props) => {
             <TableBody>
                 {dataList.map((item) =>
                     <TableRow
-                        key={post.id}
+                        key={item.id}
                         sx={{ bgcolor: "#222A50", '&:last-child td, &:last-child th': { border: 0 } }}
                     >
                         <TableCell align={"center"}>
