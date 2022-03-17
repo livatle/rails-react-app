@@ -30,7 +30,7 @@ const buttonStyle = {
     }
 }
 
-const PostsTable = () => {
+const PostsTable = (props) => {
     const { dataList, handleDelete, username } = props
     const { currentUser } = useContext(AuthContext)
     const classes =  useStyles();
