@@ -8,7 +8,7 @@ import { getList, deletePost } from '../../lib/api/post'
 import { Divider } from '@mui/material';
 
 const PostsList = () => {
-    const [dataList, setDataList] = useState();
+    const [dataList, setDataList] = useState([]);
 
     const handleGetList = async () => {
         try {
@@ -58,7 +58,7 @@ const PostsList = () => {
             <PostsTable
                 dataList={dataList}
                 handleDelete={handleDelete}
-                
+                username={dataList.user}
             />
         </>
     )
