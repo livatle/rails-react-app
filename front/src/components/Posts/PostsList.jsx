@@ -16,7 +16,7 @@ const PostsList = () => {
           const posts = res.data
           const data = await posts.json();
           console.log(data);
-          setDataList(dat);
+          setDataList(data);
         } catch (e) {
           console.log(e);
         }
