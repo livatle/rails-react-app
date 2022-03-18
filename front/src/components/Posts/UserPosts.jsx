@@ -59,7 +59,7 @@ const UserPosts = () => {
       <>
         <h2 className="c-text">{user.name}</h2>
         <Divider color="#ffffff" />
-        <FollowInfo user={user.name} />
+        <FollowInfo username={user.name} />
         <UserTable />
       </>
   )

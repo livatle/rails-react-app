@@ -18,7 +18,7 @@ const buttonStyle = {
     pl: "2em"
 }
 const FollowInfo = (props) => {
-    const { user } = props
+    const { username } = props
     const [isFollowing, setIsFollowing] = useState('')
     const query = useParams();
     const { currentUser } = useContext(AuthContext)
@@ -58,7 +58,7 @@ const FollowInfo = (props) => {
     }, [query])
 
     const FollowButton = () => {
-        if (user === currentUser?.name) {
+        if (username === currentUser?.name) {
             return (
                 <></>
             );
