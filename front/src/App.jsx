@@ -10,7 +10,6 @@ import { Box, TableContainer } from '@mui/material';
 import { SignIn, SignUp } from './components/Auth'
 import { FollowingsList, FollowersList } from './components/Followers'
 import { Edit, Detail, FavoritePosts, New, PostsList, UserPosts } from './components/Posts'
-import { Home } from './components/Home'
 import { SideBar } from './components/SideBar'
 
 export const AuthContext = createContext();
@@ -78,17 +77,16 @@ function App() {
           >
               <TableContainer>
               <Routes>
-                <Route exact path='/' element={<Home />} />
-                <Route path='/users/:id/favorite_posts' element={<FavoritePosts />} />
-                <Route path='/users/:id/following' element={<FollowingsList />} />
-                <Route path='/users/:id/follower' element={<FollowersList />} />
-                <Route exact path='/timeline' element={<PostsList />} />
+                <Route exact path='/users/:id/favorite_posts' element={<FavoritePosts />} />
+                <Route exact path='/users/:id/following' element={<FollowingsList />} />
+                <Route exact path='/users/:id/follower' element={<FollowersList />} />
+                <Route exact path='/' element={<PostsList />} />
                 <Route exact path='/users/:id' element={<UserPosts />} />
                 <Route exact path='/signin' element={<SignIn />} />
                 <Route exact path='/signup' element={<SignUp />} />
-                <Route path='/edit/:id' element={<Private><Edit /></Private>} />
-                <Route path='/post/:id' element={<Private><Detail /></Private>} />
-                <Route path='/new' element={<Private><New /></Private>} />
+                <Route exact path='/edit/:id' element={<Private><Edit /></Private>} />
+                <Route exact path='/post/:id' element={<Private><Detail /></Private>} />
+                <Route exact path='/new' element={<Private><New /></Private>} />
               </Routes>
               </TableContainer>
           </Box>
