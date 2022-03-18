@@ -30,7 +30,7 @@ const New = () => {
       const res = await createPost(params)
       console.log(res)
       if (res.status === 200) {
-        navigate('/timeline')
+        navigate('/')
       } else {
         setAlertMessageOpen(true)
       }
