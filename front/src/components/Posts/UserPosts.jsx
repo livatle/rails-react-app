@@ -47,7 +47,6 @@ const UserPosts = () => {
                 dataList={dataUser}
                 handleDelete={handleDelete}
                 username={user.name}
-                user={user.name}
             />
         );
       } else {
