@@ -1,7 +1,6 @@
 import applyCaseMiddleware from 'axios-case-converter';
 import axios from 'axios';
 import Cookies from "js-cookie";
-import { apiURL } from '../config/config.production';
 
 const options = {
   ignoreHeaders: true 
@@ -17,7 +16,7 @@ export const headers = {
 
 const client = applyCaseMiddleware(
   axios.create({
-    baseURL: apiURL,
+    baseURL: 'http://18.180.221.171/api/v1',
   }),
   options
 );

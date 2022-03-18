@@ -1,5 +1,5 @@
 current directory: /Users/atsuto/Projects/rails-react-app/api/vendor/bundle/ruby/2.6.0/gems/puma-5.6.0/ext/puma_http11
-/Users/atsuto/.rbenv/versions/2.6.9/bin/ruby -I /Users/atsuto/.rbenv/versions/2.6.9/lib/ruby/2.6.0 -r ./siteconf20220126-33219-1smgt9q.rb extconf.rb
+/Users/atsuto/.rbenv/versions/2.6.9/bin/ruby -I /Users/atsuto/.rbenv/versions/2.6.9/lib/ruby/2.6.0 -r ./siteconf20220316-68038-6it56y.rb extconf.rb
 checking for BIO_read() in -lcrypto... yes
 checking for SSL_CTX_new() in -lssl... yes
 checking for openssl/bio.h... yes
@@ -24,4 +24,4 @@ linking shared-object puma/puma_http11.bundle
 
 current directory: /Users/atsuto/Projects/rails-react-app/api/vendor/bundle/ruby/2.6.0/gems/puma-5.6.0/ext/puma_http11
 make "DESTDIR=" install
-/usr/bin/install -c -m 0755 puma_http11.bundle ./.gem.20220126-33219-f5uc57/puma
+/usr/bin/install -c -m 0755 puma_http11.bundle ./.gem.20220316-68038-t8bzuw/puma

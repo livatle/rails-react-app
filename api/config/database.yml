@@ -22,7 +22,10 @@ test:
 
 production:
   <<: *default
-  database: rails-react-app
+  adapter: mysql2
+  charset: utf8
+  encoding: utf8
+  database: rails-react-app_production
+  socket: /var/lib/mysql/mysql.sock
   username: root
   password: <%= ENV['DATABASE_PASSWORD'] %>
-  socket: /var/lib/mysql/mysql.sock
