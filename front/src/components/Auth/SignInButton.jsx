@@ -13,7 +13,7 @@ const SignInButton = () => {
     return (
         <Button 
             onClick={()=> navigate('/signin')}
-            className="c-box"
+            className="c-section"
             sx={buttonStyle}
         >       
             <Icon sx={{ mr: "0.5em" }}>

@@ -39,7 +39,7 @@ const SignOutButton = () => {
     return (
         <Button 
             onClick={handleSignOut}
-            className="c-box"
+            className="c-section"
             sx={buttonStyle}
         >
             <Icon sx={{ mr: "0.5em" }}>

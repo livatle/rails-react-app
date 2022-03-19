@@ -15,12 +15,12 @@ const AuthButtons = () => {
             return (
               <>
                 <MenuItem sx={{ height: "5em" }}>
-                  <Typography className="c-box">
+                  <Typography className="c-section">
                     <MyPostsButton />
                   </Typography>
                 </MenuItem>
                 <MenuItem sx={{ height: "5em", mt: "20em"}}>
-                  <Typography className="c-box">
+                  <Typography className="c-section">
                     <SignOutButton />
                   </Typography>
                 </MenuItem>
@@ -30,12 +30,12 @@ const AuthButtons = () => {
             return (
               <>
                 <MenuItem sx={{ height: "5em", mt: "5em" }}>
-                  <Typography className="c-box">
+                  <Typography className="c-section">
                     <SignInButton />
                   </Typography>
                 </MenuItem>
                 <MenuItem sx={{ height: "5em" }}>
-                  <Typography className="c-box" >
+                  <Typography className="c-section" >
                     <SignUpButton />
                   </Typography>
                 </MenuItem>
