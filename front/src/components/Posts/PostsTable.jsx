@@ -41,9 +41,9 @@ const PostsTable = (props) => {
                 {dataList.map((item) =>
                     <TableRow
                         key={item.id}
-                        sx={{ bgcolor: "#222A50", '&:last-child td, &:last-child th': { border: 0 } }}
+                        sx={{ bgcolor: "#222A50", width: "100%", '&:last-child td, &:last-child th': { border: 0 } }}
                     >
-                        <TableCell align={"center"}>
+                        <TableCell sx={{ width: "15%" }} align={"center"}>
                             <NavLink 
                                 to={`/users/${item.userId}`}
                             >
