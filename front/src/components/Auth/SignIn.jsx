@@ -1,5 +1,5 @@
 import React, { useContext, useState} from "react";
-import { useNavigate } from 'react-router-dom';
+import { Navigate } from "react-router-dom";
 import Cookies from 'js-cookie';
 //api
 import { signIn } from '../../lib/api/auth';
@@ -12,7 +12,6 @@ const SignIn = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [alertMessageOpen, setAlertMessageOpen] = useState(false)
-    const navigate = useNavigate();
     const { setIsSignedIn, setCurrentUser } = useContext(AuthContext);
 
     const signInHandleSubmit = async (e) => {
@@ -33,10 +32,9 @@ const SignIn = () => {
     
             setIsSignedIn(true);
             setCurrentUser(res.data.data);
-    
-            navigate('/');
-            location.reload();
+            
             console.log("Signed in successfully!")
+            return <Navigate to="/" />
           } else {
             setAlertMessageOpen(true)
           }
