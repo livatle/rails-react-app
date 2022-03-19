@@ -36,8 +36,8 @@ const SignIn = () => {
             
             console.log("Signed in successfully!")
             console.log(res.data.data)
-            navigate('/');
             handleGetCurrentUser();
+            navigate('/');
           } else {
             setAlertMessageOpen(true)
           }
