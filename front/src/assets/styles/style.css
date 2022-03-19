@@ -9,6 +9,7 @@ html {
 }
 .c-grid__item {
     color: #ffffff;
+    text-align: left;
     text-decoration: none;
 }
 .c-button--right {
