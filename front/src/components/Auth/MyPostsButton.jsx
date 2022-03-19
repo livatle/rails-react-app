@@ -19,7 +19,7 @@ const MyPostsButton = () => {
     return (
         <Button 
             onClick={()=> navigate(`/users/${currentUser.id}`)}
-            className="c-box"
+            className="c-section"
             sx={buttonStyle}
         >
             {isSignedIn && currentUser ? (
