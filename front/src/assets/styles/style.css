@@ -18,7 +18,7 @@ html {
 }
 .c-box {
     height: auto;
-    max-height: 40em;
+    max-height: 32.5em;
     overflow-y: scroll;
 }
 .c-text {
