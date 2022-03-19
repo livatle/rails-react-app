@@ -16,6 +16,11 @@ html {
     top: 0%;
     right: 5%;
 }
+.c-box {
+    height: auto;
+    max-height: 40em;
+    overflow-y: scroll;
+}
 .c-text {
     color: #ff1988; 
     margin-top: 2em;
