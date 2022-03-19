@@ -7,9 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.create!(name: 'ジョタ', email: 'jota@example.com', password: 'password', password_confirmation: 'password')
-User.create!(name: 'フィルミーノ', email: 'firmino@example.com', password: 'password', password_confirmation: 'password')
+User.create!(name: 'ボビー', email: 'bobby@example.com', password: 'password', password_confirmation: 'password')
 User.create!(name: 'サラー', email: 'salah@example.com', password: 'password', password_confirmation: 'password')
-User.create!(name: 'ヘンダーソン', email: 'henderson@example.com', password: 'password', password_confirmation: 'password')
+User.create!(name: 'ヘンド', email: 'hendo@example.com', password: 'password', password_confirmation: 'password')
 User.create!(name: 'マネ', email: 'mane@example.com', password: 'password', password_confirmation: 'password')
 User.create!(name: 'クロップ', email: 'klopp@example.com', password: 'password', password_confirmation: 'password')
 User.create!(name: 'タキ', email: 'taki@examile.com', password: 'password', password_confirmation: 'password')
