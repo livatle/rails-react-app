@@ -1,7 +1,7 @@
 class Api::V1::PostsController < ApplicationController
     before_action :authenticate_api_v1_user!, only: [:create, :update, :destroy]
     def index
-        posts = User.joins(:posts).select('posts.id, user_id, content, users.name AS user').order(created_at: :desc)
+        posts = User.joins(:posts).select('posts.id, user_id, content, users.name AS user').order(id: :desc)
         render json: posts
     end
 

@@ -57,10 +57,9 @@ const PostsTable = (props) => {
                             >
                                 <p className="c-grid__item">{item.content}</p>
                             </NavLink>
-                        </TableCell>
-                        <TableCell sx={{width: "20%"}}>
+                        </TableCell> 
                         {item.userId === currentUser?.id ? 
-                            <>
+                            <TableCell sx={{width: "20%"}}>
                                 <Button sx={buttonStyle.updateButton}>
                                     <NavLink 
                                         to={`/edit/${item.id}`}
@@ -80,11 +79,10 @@ const PostsTable = (props) => {
                                     <DeleteIcon />
                                     DELETE
                                 </Button>
-                            </>
+                            </TableCell>
                             : 
                             <></>
                         }
-                        </TableCell>
                     </TableRow>
                 )}
             </TableBody>

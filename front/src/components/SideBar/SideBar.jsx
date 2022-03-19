@@ -34,11 +34,11 @@ const SideBar = () => {
             <MenuList>
                 <MenuItem sx={{ height: sideBarStyle.menuItemHeight }}>
                     <Typography 
-                        className="c-box"
+                        className="c-section"
                     >
                         <Button
                             onClick={()=> navigate('/')}
-                            className="c-box"
+                            className="c-section"
                             sx={{ 
                                 color: "#ffffff",
                                 display: "inline-block",
@@ -54,11 +54,11 @@ const SideBar = () => {
                 </MenuItem>
                 <MenuItem sx={{ height: sideBarStyle.menuItemHeight }}>
                     <Typography
-                        className="c-box"
+                        className="c-section"
                     >
                         <Button
                             onClick={()=> navigate('/new')}
-                            className="c-box"
+                            className="c-section"
                             sx={{ 
                                 borderRadius: sideBarStyle.buttonBorderRadius,
                                 display: "inline-block",
