@@ -28,7 +28,7 @@ const Favoriteposts = () => {
             <>
                 <h2 className="c-text">FAVORITE POSTS</h2>
                 <Divider color="#ffffff" />
-                <Table>
+                <Table className="c-box">
                     <TableBody>
                         {favoritePosts.map((item) => (
                             <TableRow

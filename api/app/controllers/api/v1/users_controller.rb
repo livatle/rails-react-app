@@ -1,7 +1,7 @@
 #users_controller.rb
 class Api::V1::UsersController < ApplicationController
     def show
-      posts = Post.where(user_id: params[:id])
+      posts = Post.where(user_id: params[:id]).order("created_at DESC")
       render json: {
         posts: posts,
         user: user,

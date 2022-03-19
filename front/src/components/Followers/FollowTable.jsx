@@ -10,7 +10,7 @@ const FollowTable = (props) => {
         <>
             <h2 className="c-text">{followType}</h2>
             <Divider color="#ffffff" />
-            <Table>
+            <Table className="c-box">
                 <TableBody>
                     {followingData.map((user) => (
                         <TableRow
