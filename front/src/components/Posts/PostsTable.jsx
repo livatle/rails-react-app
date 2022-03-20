@@ -33,7 +33,7 @@ const buttonStyle = {
 const PostsTable = (props) => {
     const { dataList, handleDelete, username } = props
     const { currentUser } = useContext(AuthContext)
-    const classes =  useStyles();
+    const classes = useStyles();
 
     return (
         <Table>
@@ -41,7 +41,7 @@ const PostsTable = (props) => {
                 {dataList.map((item) =>
                     <TableRow
                         key={item.id}
-                        sx={{ bgcolor: "#222A50", width: "100%", '&:last-child td, &:last-child th': { border: 0 }, overflowY: "scroll" }}
+                        sx={{ bgcolor: "#222A50", width: "100%", '&:last-child td, &:last-child th': { border: 0 }, overflowY: "auto" }}
                     >
                         <TableCell sx={{ width: "15%" }} align={"center"}>
                             <NavLink 
