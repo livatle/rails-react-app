@@ -36,7 +36,7 @@ const PostsTable = (props) => {
     const classes =  useStyles();
 
     return (
-        <Table>
+        <Table className="c-box">
             <TableBody>
                 {dataList.map((item) =>
                     <TableRow
