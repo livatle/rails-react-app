@@ -36,12 +36,12 @@ const PostsTable = (props) => {
     const classes = useStyles();
 
     return (
-        <Table>
+        <Table sx={{ overflowY: "auto" }}>
             <TableBody>
                 {dataList.map((item) =>
                     <TableRow
                         key={item.id}
-                        sx={{ bgcolor: "#222A50", width: "100%", '&:last-child td, &:last-child th': { border: 0 }, overflowY: "auto" }}
+                        sx={{ bgcolor: "#222A50", width: "100%", '&:last-child td, &:last-child th': { border: 0 } }}
                     >
                         <TableCell sx={{ width: "15%" }} align={"center"}>
                             <NavLink 
