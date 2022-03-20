@@ -4,7 +4,6 @@ html {
 }
 /* component */
 .c-box {
-    height: auto;
     overflow-y: scroll;
 }
 .c-section {
