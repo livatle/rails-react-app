@@ -36,7 +36,7 @@ const PostsTable = (props) => {
     const classes = useStyles();
 
     return (
-        <Table sx={{ overflowY: "auto" }}>
+        <Table>
             <TableBody>
                 {dataList.map((item) =>
                     <TableRow
