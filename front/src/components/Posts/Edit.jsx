@@ -20,8 +20,9 @@ const Edit = () => {
     try {
       const res = await getDetail(query.id)
       console.log(res.data)
-      // 使う値のみstateにセットする
-      setValue(res.data.post.content)
+      setValue({
+        content: res.data.post.content
+      })
     } catch (e) {
       console.log(e)
     }
