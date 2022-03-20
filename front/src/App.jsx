@@ -74,9 +74,9 @@ function App() {
           <SideBar />
           <Box 
               component="main"
-              sx={{ height: "100%", position: "fixed", ml: drawerWidth, width: `calc(100% - ${drawerWidth})` }}
+              sx={{ height: "100%", position: "fixed", ml: drawerWidth, width: `calc(100% - ${drawerWidth})`, overflowY: "scroll" }}
           >
-              <TableContainer sx={{ overflowY: "auto" }}>
+              <TableContainer>
                 <Routes>
                   <Route exact path='/users/:id/favorite_posts' element={<FavoritePosts />} />
                   <Route exact path='/users/:id/following' element={<FollowingsList />} />
