@@ -105,6 +105,7 @@ const PostsTable = (props) => {
             </Table>
             <TablePagination
                 component="div"
+                color="primary"
                 count={dataList.length}
                 rowsPerPageOptions={[5, 10]}
                 rowsPerPage={rowsPerPage}
