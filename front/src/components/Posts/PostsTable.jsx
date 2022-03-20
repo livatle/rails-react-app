@@ -1,10 +1,10 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
 //context
 import { AuthContext } from '../../App';
 //material-ui
 import { createStyles, makeStyles } from '@mui/styles';
-import { Button, Icon, Table, TableBody, TableCell, TableRow } from '@mui/material';
+import { Button, Icon, Table, TableBody, TableCell, TablePagination, TableRow } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 
@@ -32,13 +32,27 @@ const buttonStyle = {
 
 const PostsTable = (props) => {
     const { dataList, handleDelete, username } = props
+    const [page, setPage] = useState(0);
+    const [rowsPerPage, setRowsPerPage] = useState(10);
     const { currentUser } = useContext(AuthContext)
     const classes = useStyles();
 
+    const handleChangePage = (event, newPage) => {
+        setPage(newPage);
+      };
+
+    const handleChangeRowsPerPage = (event) => {
+        setRowsPerPage(parseInt(event.target.value, 10));
+        setPage(0);
+    };
+
     return (
-        <Table>
+        <>
+            <Table>
             <TableBody>
-                {dataList.map((item) =>
+                {dataList
+                    .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                    .map((item) =>
                     <TableRow
                         key={item.id}
                         sx={{ bgcolor: "#222A50", width: "100%", '&:last-child td, &:last-child th': { border: 0 } }}
@@ -87,8 +101,18 @@ const PostsTable = (props) => {
                         </TableCell>
                     </TableRow>
                 )}
-            </TableBody>
-        </Table> 
+                </TableBody>
+            </Table>
+            <TablePagination
+                component="div"
+                count={dataList.length}
+                rowsPerPageOptions={[5, 10]}
+                rowsPerPage={rowsPerPage}
+                page={page}
+                onPageChange={handleChangePage}
+                onRowsPerPageChange={handleChangeRowsPerPage}
+            />
+        </>
     )
 }
 
