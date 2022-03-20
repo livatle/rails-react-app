@@ -36,7 +36,7 @@ const PostsTable = (props) => {
     const classes =  useStyles();
 
     return (
-        <Table className="c-box">
+        <Table sx={{ height: "auto" , maxHeight: "32.5em", overflowY: "scroll" }}>
             <TableBody>
                 {dataList.map((item) =>
                     <TableRow
