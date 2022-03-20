@@ -76,19 +76,19 @@ function App() {
               component="main"
               sx={{ height: "100%", position: "fixed", ml: drawerWidth, width: `calc(100% - ${drawerWidth})` }}
           >
-              <TableContainer>
-              <Routes>
-                <Route exact path='/users/:id/favorite_posts' element={<FavoritePosts />} />
-                <Route exact path='/users/:id/following' element={<FollowingsList />} />
-                <Route exact path='/users/:id/follower' element={<FollowersList />} />
-                <Route exact path='/' element={<PostsList />} />
-                <Route exact path='/users/:id' element={<UserPosts />} />
-                <Route exact path='/signin' element={<SignIn />} />
-                <Route exact path='/signup' element={<SignUp />} />
-                <Route exact path='/edit/:id' element={<Private><Edit /></Private>} />
-                <Route exact path='/post/:id' element={<Private><Detail /></Private>} />
-                <Route exact path='/new' element={<Private><New /></Private>} />
-              </Routes>
+              <TableContainer sx={{ overflowY: "auto" }}>
+                <Routes>
+                  <Route exact path='/users/:id/favorite_posts' element={<FavoritePosts />} />
+                  <Route exact path='/users/:id/following' element={<FollowingsList />} />
+                  <Route exact path='/users/:id/follower' element={<FollowersList />} />
+                  <Route exact path='/' element={<PostsList />} />
+                  <Route exact path='/users/:id' element={<UserPosts />} />
+                  <Route exact path='/signin' element={<SignIn />} />
+                  <Route exact path='/signup' element={<SignUp />} />
+                  <Route exact path='/edit/:id' element={<Private><Edit /></Private>} />
+                  <Route exact path='/post/:id' element={<Private><Detail /></Private>} />
+                  <Route exact path='/new' element={<Private><New /></Private>} />
+                </Routes>
               </TableContainer>
           </Box>
         </Router>
