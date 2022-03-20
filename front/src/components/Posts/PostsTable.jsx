@@ -30,6 +30,12 @@ const buttonStyle = {
     }
 }
 
+const pagenationStyle = {
+    '& div': {
+      color: "#ffffff"
+    }
+  }
+
 const PostsTable = (props) => {
     const { dataList, handleDelete, username } = props
     const [page, setPage] = useState(0);
@@ -111,7 +117,7 @@ const PostsTable = (props) => {
                 page={page}
                 rowsPerPage={rowsPerPage}
                 rowsPerPageOptions={[5, 10]}
-                sx={{ color: "primary" }}
+                sx={pagenationStyle}
             />
         </>
     )
