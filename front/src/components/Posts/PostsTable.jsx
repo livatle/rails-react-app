@@ -36,11 +36,12 @@ const PostsTable = (props) => {
     const classes =  useStyles();
 
     return (
-        <Table className="c-box">
+        <Table>
             <TableBody>
                 {dataList.map((item) =>
                     <TableRow
                         key={item.id}
+                        className="c-box"
                         sx={{ bgcolor: "#222A50", width: "100%", '&:last-child td, &:last-child th': { border: 0 } }}
                     >
                         <TableCell sx={{ width: "15%" }} align={"center"}>
