@@ -26,6 +26,7 @@ const SignOutButton = () => {
 
             setIsSignedIn(false);
             navigate('/');
+            window.location.reload()
             console.log('succeeded in sign out');
         } else {
             console.log('failed in sign out');
