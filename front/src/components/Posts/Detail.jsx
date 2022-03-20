@@ -17,9 +17,8 @@ const Detail = () => {
 
     const handleGetDetail = async (query) => {
         try {
-        const res = await getDetail(query.id);
-        console.log(res.data);
-        setData(res.data.post);
+            const res = await getDetail(query.id);
+            setData(res.data.post);
         } catch (e) {
         console.log(e);
         }

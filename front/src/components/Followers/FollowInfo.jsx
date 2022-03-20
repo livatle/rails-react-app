@@ -46,7 +46,6 @@ const FollowInfo = (props) => {
     const handleCheckFollowing = async (query) => {
         try {
           const res = await checkFollowing(query.id);
-          console.log(res.data.isFollowing);
           setIsFollowing(res.data.isFollowing);
         } catch (e) {
           console.log(e);
