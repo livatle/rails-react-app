@@ -34,10 +34,9 @@ const SignIn = () => {
             setIsSignedIn(true);
             setCurrentUser(res.data.data);
             
-            console.log("Signed in successfully!")
-            console.log(res.data.data)
             navigate('/');
             window.location.reload()
+            console.log("Signed in successfully!")
           } else {
             setAlertMessageOpen(true)
           }

@@ -40,6 +40,7 @@ const SignUp = () => {
             setCurrentUser(res.data.data);
     
             navigate('/');
+            window.location.reload()
             console.log('signed in successfully');
           } else {
             console.log("failure sign up")

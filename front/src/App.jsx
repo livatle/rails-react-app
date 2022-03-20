@@ -74,7 +74,7 @@ function App() {
           <SideBar />
           <Box 
               component="main"
-              sx={{ height: "100%", position: "fixed", ml: drawerWidth, width: `calc(100% - ${drawerWidth})`, overflowY: "scroll" }}
+              sx={{ overflowY: "scroll", height: "100%", position: "fixed", ml: drawerWidth, width: `calc(100% - ${drawerWidth})` }}
           >
               <TableContainer>
                 <Routes>
