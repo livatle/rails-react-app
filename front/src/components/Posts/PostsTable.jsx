@@ -41,8 +41,7 @@ const PostsTable = (props) => {
                 {dataList.map((item) =>
                     <TableRow
                         key={item.id}
-                        className="c-box"
-                        sx={{ bgcolor: "#222A50", width: "100%", '&:last-child td, &:last-child th': { border: 0 } }}
+                        sx={{ bgcolor: "#222A50", width: "100%", '&:last-child td, &:last-child th': { border: 0 }, overflowY: "scroll" }}
                     >
                         <TableCell sx={{ width: "15%" }} align={"center"}>
                             <NavLink 
