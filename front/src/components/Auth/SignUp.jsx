@@ -11,7 +11,7 @@ import { SignForm } from '../TextField/index'
 const SignUp = () => {
     const navigate = useNavigate();
     const { setIsSignedIn, setCurrentUser } = useContext(AuthContext);
-    const [ alertMessageOpen, setAlertMessageOpen ] = useState(false)
+    const [alertMessageOpen, setAlertMessageOpen] = useState(false)
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
