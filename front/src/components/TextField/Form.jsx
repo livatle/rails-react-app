@@ -62,7 +62,7 @@ const Form = (props) => {
                     open={alertMessageOpen}
                     setOpen={setAlertMessageOpen}
                     severity="error"
-                    message="please fill in the blank"
+                    message="failed to create"
                 />
             </div>
         </>

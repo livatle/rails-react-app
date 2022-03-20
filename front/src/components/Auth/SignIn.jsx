@@ -36,7 +36,6 @@ const SignIn = () => {
             
             navigate('/');
             window.location.reload()
-            console.log("Signed in successfully!")
           } else {
             setAlertMessageOpen(true)
           }

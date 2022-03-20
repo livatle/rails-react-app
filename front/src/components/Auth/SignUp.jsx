@@ -41,9 +41,7 @@ const SignUp = () => {
     
             navigate('/');
             window.location.reload()
-            console.log('signed in successfully');
-          } else {
-            console.log("failure sign up")
+          } else { 
             setAlertMessageOpen(true)
           }
         } catch (e) {

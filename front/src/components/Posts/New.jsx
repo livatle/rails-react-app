@@ -19,7 +19,6 @@ const New = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(value);
 
     const params = {
       name: value.name,
@@ -28,7 +27,6 @@ const New = () => {
     
     try {
       const res = await createPost(params)
-      console.log(res)
       if (res.status === 200) {
         navigate('/')
       } else {

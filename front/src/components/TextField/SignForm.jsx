@@ -112,7 +112,7 @@ const SignForm = (props) => {
             open={alertMessageOpen}
             setOpen={setAlertMessageOpen}
             severity="error"
-            message="メールアドレスかパスワードが間違っています"
+            message="wrong email or password"
           />
         </div>
     )

@@ -12,7 +12,6 @@ const FollowersList = () => {
     const handleGetFollowersList = async () => {
         try {
             const res = await getFollowersList(query.id);
-            console.log(res.data);
             setFollowersList(res.data);
           } catch (e) {
             console.log(e);
