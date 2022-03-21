@@ -23,9 +23,12 @@ const FollowInfo = (props) => {
     const query = useParams();
     const { currentUser } = useContext(AuthContext)
     
+    //ユーザーフォローを実行する関数
     const handleClickFollowButton =  async ()  => {
+        //フォロー中でなかった場合
         if (isFollowing === false) {
             try {
+                //apiへリクエスト
                 const res = await follow(query);
                 console.log(res.data)
                 setIsFollowing(true)
@@ -34,6 +37,7 @@ const FollowInfo = (props) => {
             }
         } else {
             try {
+                //apiへリクエスト
                 const res = await unfollow(query.id);
                 console.log(res.data)
                 setIsFollowing(false)
@@ -43,9 +47,12 @@ const FollowInfo = (props) => {
         }
     }
 
+    //フォロー中のユーザーか判定するメソッド
     const handleCheckFollowing = async (query) => {
         try {
+          //apiへリクエスト
           const res = await checkFollowing(query.id);
+          //フォローしているかの真偽値をセット
           setIsFollowing(res.data.isFollowing);
         } catch (e) {
           console.log(e);
@@ -57,6 +64,7 @@ const FollowInfo = (props) => {
     }, [query])
 
     const FollowButton = () => {
+        //マイページにはフォローボタンを表示しない
         if (username === currentUser?.name) {
             return (
                 <></>

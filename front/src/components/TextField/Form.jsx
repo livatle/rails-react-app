@@ -36,20 +36,20 @@ const Form = (props) => {
                     </h2>
                 )}
                 <TextField 
-                    multiline rows={4} 
                     sx={formStyle} 
-                    type="text" 
-                    name="content" 
+                    multiline rows={4} 
                     id="content" 
+                    name="content" 
+                    type="text" 
                     onChange={(e) => handleChange(e)} 
                     value={value.content} 
                 />
                 <Button 
+                    onClick={(e) => handleSubmit(e)}
                     sx={submitButtonStyle} 
                     variant="outlined" 
                     type="subimit" 
                     value={buttonType} 
-                    onClick={(e) => handleSubmit(e)}
                 >
                     <CreateIcon sx={{mr: "0.5em"}} />
                     {buttonType === 'create' ? (

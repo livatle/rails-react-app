@@ -1,15 +1,15 @@
-html {
+body {
     height: 100%;
     background-color: #222646;
+    font-family: sans-serif;
 }
 /* component */
 .c-section {
     width: 100%;
     height: 100%;
 }
-.c-grid__item {
+.c-text__item {
     color: #ffffff;
-    text-decoration: none;
 }
 .c-button--right {
     position: absolute;
@@ -41,9 +41,4 @@ html {
 }
 .p-section--left {
     text-decoration: none;
-}
-
-/* utility */
-.u-text {
-    color: #ffffff;
 }

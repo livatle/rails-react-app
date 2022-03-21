@@ -22,10 +22,11 @@ const PostsList = () => {
     const [dataList, setDataList] = useState([]);
     const classes = useStyles();
 
+    //投稿一覧を取得する関数
     const handleGetList = async () => {
         try {
+          //apiへリクエスト
           const res = await getList();
-          console.log(res.data);
           setDataList(res.data);
         } catch (e) {
           console.log(e);
@@ -36,15 +37,14 @@ const PostsList = () => {
         handleGetList();
     }, []);
 
-    // 削除する関数を追加
+    //投稿を削除する関数
     const handleDelete = async (item) => {
-        // 引数にitemを渡してitem.idで「1」など取得できればOK
-        console.log('click', item.id)
         try {
+            //apiへリクエスト
             const res = await deletePost(item.id)
             console.log(res.data)
-        // データを再取得
-        handleGetList()
+            //投稿一覧を再取得
+            handleGetList()
         } catch (e) {
             console.log(e)
         }

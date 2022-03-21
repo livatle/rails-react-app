@@ -9,9 +9,12 @@ const FollowersList = () => {
     const [followersList, setFollowersList] = useState([])
     const query = useParams();
 
+    //フォローされているユーザー一覧を取得する関数
     const handleGetFollowersList = async () => {
         try {
+            //apiへリクエスト
             const res = await getFollowersList(query.id);
+            //フォローされているユーザーの情報をセット
             setFollowersList(res.data);
           } catch (e) {
             console.log(e);

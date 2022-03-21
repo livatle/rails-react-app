@@ -29,12 +29,16 @@ const buttonStyle = {
         paddingBottom: "0.5em"
     }
 }
+export const contentStyle = {
+    textDecoration: "none"
+}
 
 const pagenationStyle = {
     '& div': {
       color: "#ffffff"
     }
-  }
+}
+
 
 const PostsTable = (props) => {
     const { dataList, handleDelete, username } = props
@@ -43,10 +47,12 @@ const PostsTable = (props) => {
     const { currentUser } = useContext(AuthContext)
     const classes = useStyles();
 
+    //ページを変更する関数
     const handleChangePage = (event, newPage) => {
         setPage(newPage);
-      };
+    };
 
+    //1ページあたりの表示を変更する関数
     const handleChangeRowsPerPage = (event) => {
         setRowsPerPage(parseInt(event.target.value, 10));
         setPage(0);
@@ -66,16 +72,18 @@ const PostsTable = (props) => {
                         <TableCell sx={{ width: "15%" }} align={"center"}>
                             <NavLink 
                                 to={`/users/${item.userId}`}
+                                sx={contentStyle}
                             >
-                                <p className="c-grid__item">{item.user}</p>
-                                <p className="c-grid__item">{username}</p>
+                                <p className="c-text__item">{item.user}</p>
+                                <p className="c-text__item">{username}</p>
                             </NavLink>
                         </TableCell>
                         <TableCell>
                             <NavLink 
                                 to={`/post/${item.id}`}
+                                sx={contentStyle}
                             >
-                                <p className="c-grid__item">{item.content}</p>
+                                <p className="c-text__item">{item.content}</p>
                             </NavLink>
                         </TableCell>
                         <TableCell sx={{width: "20%"}}>

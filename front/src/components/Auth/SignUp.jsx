@@ -17,6 +17,7 @@ const SignUp = () => {
     const [password, setPassword] = useState('');
     const [passwordConfirmation, setPasswordConfirmation] = useState('');
 
+    //サインアップを実行する関数
     const signUpHandleSubmit = async (e) => {
         e.preventDefault();
         
@@ -28,20 +29,23 @@ const SignUp = () => {
         }
     
         try {
+          //apiへリクエスト
           const res = await signUp(params);
           console.log(res);
+          //アカウント作成と同時にサインイン、Cookieに各値を格納
           if (res.status === 200) {
-            // アカウント作成と同時にサインインさせてしまう
             Cookies.set('_access_token', res.headers['access-token']);
             Cookies.set('_client', res.headers['client']);
             Cookies.set('_uid', res.headers['uid']);
     
             setIsSignedIn(true);
+            //ログインに成功したユーザーの情報をセット
             setCurrentUser(res.data.data);
     
             navigate('/');
             window.location.reload()
           } else { 
+            //ログインに失敗した場合、アラートメッセージを表示
             setAlertMessageOpen(true)
           }
         } catch (e) {
