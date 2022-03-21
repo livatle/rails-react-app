@@ -4,6 +4,7 @@ import { Alert, Snackbar } from '@mui/material';
 const AlertMessage = (props) => {
     const { open, setOpen ,severity ,message } = props
 
+    //アラートメッセージを閉じる関数
     const handleCloseAlertMessage = () => {
         return setOpen(false)
     }

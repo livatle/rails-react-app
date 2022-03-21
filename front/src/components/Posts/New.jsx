@@ -10,6 +10,7 @@ const New = () => {
   const [alertMessageOpen, setAlertMessageOpen] = useState(false)
   const navigate = useNavigate();
 
+  //作成された投稿の内容をセット
   const handleChange = (e) => {
     setValue({
       ...value,
@@ -17,6 +18,7 @@ const New = () => {
     })
   }
 
+  //投稿を作成する関数
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -26,10 +28,13 @@ const New = () => {
     }
     
     try {
+      //apiへリクエスト
       const res = await createPost(params)
       if (res.status === 200) {
+        //成功した場合、ホームへ流す
         navigate('/')
       } else {
+        //投稿に失敗した場合、アラートメッセージを表示
         setAlertMessageOpen(true)
       }
     } catch (e) {

@@ -11,15 +11,19 @@ import { AuthContext } from '../../App';
 //style
 import { buttonStyle } from "./MyPostsButton";
 
+
 const SignOutButton = () => {
     const { setIsSignedIn } = useContext(AuthContext)
     const navigate = useNavigate()
-
+    
+    //ログアウトを実行する関数
     const handleSignOut = async () => {
         try {
-        const res = await signOut();
+          //apiへリクエスト
+          const res = await signOut();
 
-        if (res.data.success === true) {
+          //成功した場合、クッキーを削除
+          if (res.data.success === true) {
             Cookies.remove('_access_token');
             Cookies.remove('_client');
             Cookies.remove('_uid');
@@ -27,8 +31,9 @@ const SignOutButton = () => {
             setIsSignedIn(false);
             navigate('/');
             window.location.reload()
-        } else {
-            console.log('failed in sign out');
+            //失敗した場合、エラーメッセージを表示
+            } else {
+                console.log('failed in sign out');
             } 
         } catch (e) {
             console.log(e);

@@ -20,9 +20,12 @@ const FavoriteButton = () => {
     const query = useParams();
     const classes =  useStyles();
 
+    //投稿にいいねを実行する関数
     const handleClickFavoriteButton = async () => {
+        //いいねしていない投稿であった場合
         if (isFavorite === false) {
             try {
+                //apiへリクエスト
                 const res = await favorite(query.id);
                 console.log(res.data)
                 setIsFavorite(true)
@@ -31,6 +34,7 @@ const FavoriteButton = () => {
             }
         } else {
             try {
+                //apiへリクエスト
                 const res = await unfavorite(query.id);
                 console.log(res.data)
                 setIsFavorite(false)
@@ -40,9 +44,12 @@ const FavoriteButton = () => {
         }
     }
 
+    //既にいいねしている投稿かを判定する関数
     const handleCheckFavorite = async (query) => {
         try {
+          //apiへリクエスト
           const res = await checkFavorite(query.id);
+          //いいねしているかの真偽値をセット
           setIsFavorite(res.data.isFavorite);
         } catch (e) {
           console.log(e);

@@ -9,13 +9,14 @@ const Favoriteposts = () => {
     const [favoritePosts, setFavoritePosts] = useState([])
     const query = useParams();
 
+    //いいねした投稿の一覧を取得する関数
     const handleGetFavoritePosts = async () => {
         try {
             const res = await getFavoritePosts(query.id);
-            console.log(res.data);
+            //いいねした投稿の情報をセット
             setFavoritePosts(res.data);
         } catch (e) {
-        console.log(e);
+            console.log(e);
         }
     }
 
@@ -37,7 +38,7 @@ const Favoriteposts = () => {
                             >   
                                 <TableCell align="center">
                                     <Link to={`/post/${item.id}`}>
-                                        <p className="c-grid__item">{item.content}</p>
+                                        <p className="c-text__item">{item.content}</p>
                                     </Link>
                                 </TableCell>
                             </TableRow>

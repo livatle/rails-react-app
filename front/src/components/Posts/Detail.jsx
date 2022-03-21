@@ -15,9 +15,12 @@ const Detail = () => {
         handleGetDetail(query);
     }, [query]);
 
+    //投稿の詳細を表示する関数、--いいねボタンを設置
     const handleGetDetail = async (query) => {
         try {
+            //apiへリクエスト
             const res = await getDetail(query.id);
+            //投稿の詳細情報をセット
             setData(res.data.post);
         } catch (e) {
         console.log(e);
@@ -32,7 +35,7 @@ const Detail = () => {
                 <TableBody>
                     <TableRow sx={{ '&:last-child td, &:last-child th': { border: 0 }}}>
                         <TableCell align="center">
-                            <p className="c-grid__item">{data.content}</p>
+                            <p className="c-text__item">{data.content}</p>
                         </TableCell>
                     <TableCell align="center" sx={{width: "20%"}}>
                         <FavoriteButton />

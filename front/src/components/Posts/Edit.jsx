@@ -8,18 +8,19 @@ import FormBody from '../TextField/Form';
 const Edit = () => {
   // apiで取得したデータを管理する為のstate
   const [value, setValue] = useState('')
-  // 一覧からreact-router-domを使ってidを取得
   const query = useParams();
   const navigate = useNavigate();
+
   // 画面が描画された時、queryが更新された時に関数を実行
   useEffect(() => {
     handleGetData(query)
   },[query])
-  // idをapiクライアントに渡し、/api/v1/posts/:idのエンドポイントからデータ取得
+
+  //編集する投稿を取得する関数
   const handleGetData = async (query) => {
     try {
+      //apiへリクエスト
       const res = await getDetail(query.id)
-      console.log(res.data)
       setValue({
         content: res.data.post.content
       })
@@ -27,20 +28,22 @@ const Edit = () => {
       console.log(e)
     }
   }
-  // テキストフィールドの変更を検知し値を書き換えstateで管理
+  //投稿を編集する関数
   const handleChange = (e) => {
+    //変更した内容をセット
     setValue({
       ...value,
       [e.target.name]: e.target.value
     })
   }
-  // 更新ボタン押下後、idとparameterをapiクライアントに渡しリクエストを投げる
+  //編集した投稿を作成する関数
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
+      //apiへリクエスト
       const res = await updatePost(query.id, value)
       console.log(res)
-      // リクエストが成功したら'/'にリダイレクトさせる
+      //成功した場合、ホームへ流す
       navigate('/')
     } catch(e) {
       console.log(e)

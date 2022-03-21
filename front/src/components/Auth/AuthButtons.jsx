@@ -10,7 +10,9 @@ import { MyPostsButton, SignInButton, SignUpButton, SignOutButton } from './inde
 const AuthButtons = () => {
   const { isSignedIn, loading } = useContext(AuthContext);
   
+      //ログイン判定より先にリダイレクトすることを防ぐ
       if (!loading) {
+          //ログイン中の場合、マイページボタンと、サインアウトボタンを表示
           if (isSignedIn) {
             return (
               <>
@@ -26,6 +28,7 @@ const AuthButtons = () => {
                 </MenuItem>
               </>
             );
+          //ログインしていない場合、サインインボタンと、サインアウトボタンを表示
           } else {
             return (
               <>

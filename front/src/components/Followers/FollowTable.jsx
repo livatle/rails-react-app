@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 //material-ui
 import { Divider, Table, TableBody, TableCell, TableRow } from "@mui/material";
+//style
+import { contentStyle } from "../Posts/PostsTable";
 
 const FollowTable = (props) => {
     const { followingData, followType } = props
@@ -18,8 +20,12 @@ const FollowTable = (props) => {
                             sx={{ bgcolor: "#222A50", '&:last-child td, &:last-child th': { border: 0 }}}
                         >   
                             <TableCell align="center">
-                                <Link to={`/users/${user.id}`}>
-                                    <p className="c-grid__item">{user.name}</p>
+                                <Link 
+                                  to={`/users/${user.id}`}
+                                  sx={contentStyle}
+                                >
+
+                                    <p className="c-text__item">{user.name}</p>
                                 </Link>
                             </TableCell>
                         </TableRow>
