@@ -1,7 +1,7 @@
 body {
     height: 100%;
     background-color: #222646;
-    font-family: sans-serif;
+    font-family: YuGothic,'Yu Gothic',YuGothic,'Yu Gothic',sans-serif;
 }
 /* component */
 .c-section {
@@ -10,6 +10,7 @@ body {
 }
 .c-text__item {
     color: #ffffff;
+    text-decoration: none;
 }
 .c-button--right {
     position: absolute;
