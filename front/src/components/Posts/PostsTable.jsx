@@ -29,9 +29,6 @@ const buttonStyle = {
         paddingBottom: "0.5em"
     }
 }
-export const contentStyle = {
-    textDecoration: "none"
-}
 
 const pagenationStyle = {
     '& div': {
@@ -72,7 +69,6 @@ const PostsTable = (props) => {
                         <TableCell sx={{ width: "15%" }} align={"center"}>
                             <NavLink 
                                 to={`/users/${item.userId}`}
-                                sx={contentStyle}
                             >
                                 <p className="c-text__item">{item.user}</p>
                                 <p className="c-text__item">{username}</p>
@@ -81,7 +77,6 @@ const PostsTable = (props) => {
                         <TableCell>
                             <NavLink 
                                 to={`/post/${item.id}`}
-                                sx={contentStyle}
                             >
                                 <p className="c-text__item">{item.content}</p>
                             </NavLink>

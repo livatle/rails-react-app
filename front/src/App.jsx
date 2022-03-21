@@ -1,7 +1,7 @@
 import React, { useState, useEffect, createContext } from 'react';
 //style
 import './assets/styles/style.css'
-import { BrowserRouter as Navigate, Router, Route, Routes } from 'react-router-dom'
+import { BrowserRouter as Router, Navigate, Route, Routes } from 'react-router-dom'
 //api
 import { getCurrentUser } from './lib/api/auth';
 //material-ui

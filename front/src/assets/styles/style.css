@@ -10,6 +10,7 @@ body {
 }
 .c-text__item {
     color: #ffffff;
+    text-decoration: none;
 }
 .c-button--right {
     position: absolute;
